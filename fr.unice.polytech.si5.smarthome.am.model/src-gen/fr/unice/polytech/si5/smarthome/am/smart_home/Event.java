@@ -2,8 +2,6 @@
  */
 package fr.unice.polytech.si5.smarthome.am.smart_home;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Event</b></em>'.
@@ -21,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Event extends EObject {
+public interface Event extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -23,7 +23,7 @@
         eType="#//Event" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Event">
+  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" lowerBound="1"
         eType="#//Action"/>
@@ -34,5 +34,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Condition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="event" lowerBound="1" eType="#//Event"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" lowerBound="1"
+        upperBound="-1" eType="#//Action"/>
   </eClassifiers>
 </ecore:EPackage>

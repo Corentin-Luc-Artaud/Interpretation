@@ -332,6 +332,15 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCondition_Actions() {
+		return (EReference) conditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SmartHomeFactory getSmartHomeFactory() {
 		return (SmartHomeFactory) getEFactoryInstance();
 	}
@@ -383,6 +392,7 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 
 		conditionEClass = createEClass(CONDITION);
 		createEReference(conditionEClass, CONDITION__EVENT);
+		createEReference(conditionEClass, CONDITION__ACTIONS);
 	}
 
 	/**
@@ -417,6 +427,7 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		subjectEClass.getESuperTypes().add(this.getNamedElement());
 		actorEClass.getESuperTypes().add(this.getNamedElement());
 		actionEClass.getESuperTypes().add(this.getNamedElement());
+		eventEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
@@ -471,6 +482,9 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		initEReference(getCondition_Event(), this.getEvent(), null, "event", null, 1, 1, Condition.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getCondition_Actions(), this.getAction(), null, "actions", null, 1, -1, Condition.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

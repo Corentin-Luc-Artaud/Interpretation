@@ -297,13 +297,22 @@ public interface SmartHomePackage extends EPackage {
 	int EVENT = 5;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__NAME = NAMED_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Actor</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__ACTOR = 0;
+	int EVENT__ACTOR = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Action</b></em>' reference.
@@ -312,7 +321,7 @@ public interface SmartHomePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__ACTION = 1;
+	int EVENT__ACTION = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Event</em>' class.
@@ -321,7 +330,7 @@ public interface SmartHomePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_FEATURE_COUNT = 2;
+	int EVENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Event</em>' class.
@@ -330,7 +339,7 @@ public interface SmartHomePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_OPERATION_COUNT = 0;
+	int EVENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.OccurenceImpl <em>Occurence</em>}' class.
@@ -398,13 +407,22 @@ public interface SmartHomePackage extends EPackage {
 	int CONDITION__EVENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__ACTIONS = 1;
+
+	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = 1;
+	int CONDITION_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -628,6 +646,17 @@ public interface SmartHomePackage extends EPackage {
 	EReference getCondition_Event();
 
 	/**
+	 * Returns the meta object for the reference list '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getActions <em>Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Actions</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getActions()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EReference getCondition_Actions();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -825,6 +854,14 @@ public interface SmartHomePackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONDITION__EVENT = eINSTANCE.getCondition_Event();
+
+		/**
+		 * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION__ACTIONS = eINSTANCE.getCondition_Actions();
 
 	}
 

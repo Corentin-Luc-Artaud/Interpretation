@@ -111,6 +111,8 @@ public class SmartHomeSwitch<T> extends Switch<T> {
 			Event event = (Event) theEObject;
 			T result = caseEvent(event);
 			if (result == null)
+				result = caseNamedElement(event);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}

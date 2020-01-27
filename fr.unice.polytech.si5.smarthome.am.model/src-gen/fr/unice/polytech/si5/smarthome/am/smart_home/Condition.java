@@ -2,6 +2,7 @@
  */
 package fr.unice.polytech.si5.smarthome.am.smart_home;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getEvent <em>Event</em>}</li>
+ *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getActions <em>Actions</em>}</li>
  * </ul>
  *
  * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getCondition()
@@ -46,5 +48,21 @@ public interface Condition extends EObject {
 	 * @generated
 	 */
 	void setEvent(Event value);
+
+	/**
+	 * Returns the value of the '<em><b>Actions</b></em>' reference list.
+	 * The list contents are of type {@link fr.unice.polytech.si5.smarthome.am.smart_home.Action}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Actions</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Actions</em>' reference list.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getCondition_Actions()
+	 * @model required="true"
+	 * @generated
+	 */
+	EList<Action> getActions();
 
 } // Condition
