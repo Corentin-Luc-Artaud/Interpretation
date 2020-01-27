@@ -1,1 +1,7 @@
 **.edit*/** 
+/.metadata/
+
+fr.unice.polytech.si5.smarthome.am.xtext.ide
+fr.unice.polytech.si5.smarthome.am.xtext.tests
+fr.unice.polytech.si5.smarthome.am.xtext.ui
+fr.unice.polytech.si5.smarthome.am.xtext.ui.tests
