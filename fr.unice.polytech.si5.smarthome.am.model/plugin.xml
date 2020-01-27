@@ -10,7 +10,7 @@
       <!-- @generated model -->
       <package
             uri="http://www.am.si5.polytech.unice.fr/model"
-            class="fr.unice.polytech.si5.smarthome.am.model.ModelPackage"
+            class="fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage"
             genModel="model/model.genmodel"/>
    </extension>
 
