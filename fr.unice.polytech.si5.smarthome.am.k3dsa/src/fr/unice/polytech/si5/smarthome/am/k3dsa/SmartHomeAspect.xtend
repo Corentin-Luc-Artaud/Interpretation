@@ -13,6 +13,15 @@ import fr.inria.diverse.k3.al.annotationprocessor.Step
 
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.OccurenceAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.HomeTimeStampAspect.*
+import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.EventAspect.*
+import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.ActionAspect.*
+import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspect.*
+
+
+import fr.unice.polytech.si5.smarthome.am.smart_home.Event
+import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
+import fr.unice.polytech.si5.smarthome.am.smart_home.Condition
+import fr.unice.polytech.si5.smarthome.am.smart_home.Action
 
 /**
  * Sample aspect that gives java.io.File the ability to store Text content and save it to disk
@@ -24,7 +33,6 @@ class SmartHomeAspect {
 	
 	@Main
 	public def void execute(){		
-		println("coucou")
 		_self.curtime = 0
 		_self.pendingEvents = new LinkedList<Occurence>()
 		_self.loop()
@@ -51,7 +59,7 @@ class SmartHomeAspect {
 	
 	private def void triggerAllPendingEvents() {
 		while(! _self.pendingEvents.isEmpty()) {
-			_self.pendingEvents.poll().happenNow()
+			_self.pendingEvents.poll().happenNow(_self)
 		}
 	}
 	
@@ -65,9 +73,13 @@ class SmartHomeAspect {
 class OccurenceAspect {
 	
 	@Step
-	def public void happenNow() {
-		println("something happen")
-		println(_self.event.toString())
+	def public void happenNow(Home home) {
+		println(""+_self.ownedTime.toSec()+" : "+_self.event.description())
+		//check all confdition
+		for (Condition condition: home.ownedConditions) {
+			condition.tryTrigger(_self)
+		}
+		
 	}
 	
 }
@@ -78,3 +90,35 @@ class HomeTimeStampAspect {
 		return _self.sec+_self.min*60+_self.hour*24*60
 	}
 }
+
+@Aspect(className=Event)
+class EventAspect {
+	@ReplaceAspectMethod
+	def String description() {
+		return "" + _self.actor.name + " " + _self.action.name
+	}
+	
+
+}
+
+@Aspect(className=Condition)
+class ConditionAspect {
+	@Step
+	def public void tryTrigger(Occurence occurence) {
+		if(occurence.event == _self.event){
+			//TODO trigger
+			for (Action a: _self.actions) {
+				a.trigger(occurence.ownedTime.toSec())
+			}
+		}
+	}
+}
+
+@Aspect(className=Action)
+class ActionAspect {
+	@Step
+	def public void trigger(Integer time) {
+		println(""+time+" -> "+_self.name+" triggered")
+	}
+}
+
