@@ -21,9 +21,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalShomeParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Home'", "'{'", "'}'", "'Subject'", "'ownedActions'", "':'", "'-'", "'Actor'", "'Occurence'", "'if'", "'then'", "'and'", "'Event'", "'do'", "'EDate'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Home'", "'{'", "'}'", "'Subject'", "'ownedActions'", "':'", "'-'", "'Actor'", "'->'", "'if'", "'then'", "'and'", "'Event'", "'do'"
     };
-    public static final int RULE_STRING=4;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__19=19;
     public static final int T__15=15;
@@ -35,15 +35,14 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int RULE_ID=5;
+    public static final int RULE_ID=6;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
-    public static final int RULE_INT=6;
+    public static final int RULE_INT=4;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
     public static final int T__24=24;
-    public static final int T__25=25;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -537,7 +536,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==19) ) {
+                if ( (LA5_0==RULE_INT) ) {
                     alt5=1;
                 }
 
@@ -983,80 +982,64 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOccurence"
-    // InternalShome.g:442:1: ruleOccurence returns [EObject current=null] : (otherlv_0= 'Occurence' ( (lv_time_1_0= ruleEDate ) )? otherlv_2= ':' ( ( ruleEString ) ) ) ;
+    // InternalShome.g:442:1: ruleOccurence returns [EObject current=null] : ( ( (lv_ownedTime_0_0= ruleHomeTimeStamp ) ) otherlv_1= '->' ( ( ruleEString ) ) ) ;
     public final EObject ruleOccurence() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token otherlv_2=null;
-        AntlrDatatypeRuleToken lv_time_1_0 = null;
+        Token otherlv_1=null;
+        EObject lv_ownedTime_0_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalShome.g:448:2: ( (otherlv_0= 'Occurence' ( (lv_time_1_0= ruleEDate ) )? otherlv_2= ':' ( ( ruleEString ) ) ) )
-            // InternalShome.g:449:2: (otherlv_0= 'Occurence' ( (lv_time_1_0= ruleEDate ) )? otherlv_2= ':' ( ( ruleEString ) ) )
+            // InternalShome.g:448:2: ( ( ( (lv_ownedTime_0_0= ruleHomeTimeStamp ) ) otherlv_1= '->' ( ( ruleEString ) ) ) )
+            // InternalShome.g:449:2: ( ( (lv_ownedTime_0_0= ruleHomeTimeStamp ) ) otherlv_1= '->' ( ( ruleEString ) ) )
             {
-            // InternalShome.g:449:2: (otherlv_0= 'Occurence' ( (lv_time_1_0= ruleEDate ) )? otherlv_2= ':' ( ( ruleEString ) ) )
-            // InternalShome.g:450:3: otherlv_0= 'Occurence' ( (lv_time_1_0= ruleEDate ) )? otherlv_2= ':' ( ( ruleEString ) )
+            // InternalShome.g:449:2: ( ( (lv_ownedTime_0_0= ruleHomeTimeStamp ) ) otherlv_1= '->' ( ( ruleEString ) ) )
+            // InternalShome.g:450:3: ( (lv_ownedTime_0_0= ruleHomeTimeStamp ) ) otherlv_1= '->' ( ( ruleEString ) )
             {
-            otherlv_0=(Token)match(input,19,FOLLOW_14); 
+            // InternalShome.g:450:3: ( (lv_ownedTime_0_0= ruleHomeTimeStamp ) )
+            // InternalShome.g:451:4: (lv_ownedTime_0_0= ruleHomeTimeStamp )
+            {
+            // InternalShome.g:451:4: (lv_ownedTime_0_0= ruleHomeTimeStamp )
+            // InternalShome.g:452:5: lv_ownedTime_0_0= ruleHomeTimeStamp
+            {
 
-            			newLeafNode(otherlv_0, grammarAccess.getOccurenceAccess().getOccurenceKeyword_0());
-            		
-            // InternalShome.g:454:3: ( (lv_time_1_0= ruleEDate ) )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            					newCompositeNode(grammarAccess.getOccurenceAccess().getOwnedTimeHomeTimeStampParserRuleCall_0_0());
+            				
+            pushFollow(FOLLOW_14);
+            lv_ownedTime_0_0=ruleHomeTimeStamp();
 
-            if ( (LA7_0==25) ) {
-                alt7=1;
-            }
-            switch (alt7) {
-                case 1 :
-                    // InternalShome.g:455:4: (lv_time_1_0= ruleEDate )
-                    {
-                    // InternalShome.g:455:4: (lv_time_1_0= ruleEDate )
-                    // InternalShome.g:456:5: lv_time_1_0= ruleEDate
-                    {
-
-                    					newCompositeNode(grammarAccess.getOccurenceAccess().getTimeEDateParserRuleCall_1_0());
-                    				
-                    pushFollow(FOLLOW_12);
-                    lv_time_1_0=ruleEDate();
-
-                    state._fsp--;
+            state._fsp--;
 
 
-                    					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getOccurenceRule());
-                    					}
-                    					set(
-                    						current,
-                    						"time",
-                    						lv_time_1_0,
-                    						"fr.unice.polytech.si5.smarthome.am.shome.Shome.EDate");
-                    					afterParserOrEnumRuleCall();
-                    				
-
-                    }
-
-
-                    }
-                    break;
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getOccurenceRule());
+            					}
+            					set(
+            						current,
+            						"ownedTime",
+            						lv_ownedTime_0_0,
+            						"fr.unice.polytech.si5.smarthome.am.shome.Shome.HomeTimeStamp");
+            					afterParserOrEnumRuleCall();
+            				
 
             }
 
-            otherlv_2=(Token)match(input,16,FOLLOW_10); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getOccurenceAccess().getColonKeyword_2());
+            }
+
+            otherlv_1=(Token)match(input,19,FOLLOW_10); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getOccurenceAccess().getHyphenMinusGreaterThanSignKeyword_1());
             		
-            // InternalShome.g:477:3: ( ( ruleEString ) )
-            // InternalShome.g:478:4: ( ruleEString )
+            // InternalShome.g:473:3: ( ( ruleEString ) )
+            // InternalShome.g:474:4: ( ruleEString )
             {
-            // InternalShome.g:478:4: ( ruleEString )
-            // InternalShome.g:479:5: ruleEString
+            // InternalShome.g:474:4: ( ruleEString )
+            // InternalShome.g:475:5: ruleEString
             {
 
             					if (current==null) {
@@ -1064,7 +1047,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getOccurenceAccess().getEventEventCrossReference_3_0());
+            					newCompositeNode(grammarAccess.getOccurenceAccess().getEventEventCrossReference_2_0());
             				
             pushFollow(FOLLOW_2);
             ruleEString();
@@ -1103,7 +1086,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCondition"
-    // InternalShome.g:497:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
+    // InternalShome.g:493:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
     public final EObject entryRuleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1111,8 +1094,8 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalShome.g:497:50: (iv_ruleCondition= ruleCondition EOF )
-            // InternalShome.g:498:2: iv_ruleCondition= ruleCondition EOF
+            // InternalShome.g:493:50: (iv_ruleCondition= ruleCondition EOF )
+            // InternalShome.g:494:2: iv_ruleCondition= ruleCondition EOF
             {
              newCompositeNode(grammarAccess.getConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -1139,7 +1122,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCondition"
-    // InternalShome.g:504:1: ruleCondition returns [EObject current=null] : (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'then' ( ( ruleEString ) ) (otherlv_4= 'and' ( ( ruleEString ) ) )* ) ;
+    // InternalShome.g:500:1: ruleCondition returns [EObject current=null] : (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'then' ( ( ruleEString ) ) (otherlv_4= 'and' ( ( ruleEString ) ) )* ) ;
     public final EObject ruleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1151,21 +1134,21 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalShome.g:510:2: ( (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'then' ( ( ruleEString ) ) (otherlv_4= 'and' ( ( ruleEString ) ) )* ) )
-            // InternalShome.g:511:2: (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'then' ( ( ruleEString ) ) (otherlv_4= 'and' ( ( ruleEString ) ) )* )
+            // InternalShome.g:506:2: ( (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'then' ( ( ruleEString ) ) (otherlv_4= 'and' ( ( ruleEString ) ) )* ) )
+            // InternalShome.g:507:2: (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'then' ( ( ruleEString ) ) (otherlv_4= 'and' ( ( ruleEString ) ) )* )
             {
-            // InternalShome.g:511:2: (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'then' ( ( ruleEString ) ) (otherlv_4= 'and' ( ( ruleEString ) ) )* )
-            // InternalShome.g:512:3: otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'then' ( ( ruleEString ) ) (otherlv_4= 'and' ( ( ruleEString ) ) )*
+            // InternalShome.g:507:2: (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'then' ( ( ruleEString ) ) (otherlv_4= 'and' ( ( ruleEString ) ) )* )
+            // InternalShome.g:508:3: otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'then' ( ( ruleEString ) ) (otherlv_4= 'and' ( ( ruleEString ) ) )*
             {
             otherlv_0=(Token)match(input,20,FOLLOW_10); 
 
             			newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getIfKeyword_0());
             		
-            // InternalShome.g:516:3: ( ( ruleEString ) )
-            // InternalShome.g:517:4: ( ruleEString )
+            // InternalShome.g:512:3: ( ( ruleEString ) )
+            // InternalShome.g:513:4: ( ruleEString )
             {
-            // InternalShome.g:517:4: ( ruleEString )
-            // InternalShome.g:518:5: ruleEString
+            // InternalShome.g:513:4: ( ruleEString )
+            // InternalShome.g:514:5: ruleEString
             {
 
             					if (current==null) {
@@ -1193,11 +1176,11 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getThenKeyword_2());
             		
-            // InternalShome.g:536:3: ( ( ruleEString ) )
-            // InternalShome.g:537:4: ( ruleEString )
+            // InternalShome.g:532:3: ( ( ruleEString ) )
+            // InternalShome.g:533:4: ( ruleEString )
             {
-            // InternalShome.g:537:4: ( ruleEString )
-            // InternalShome.g:538:5: ruleEString
+            // InternalShome.g:533:4: ( ruleEString )
+            // InternalShome.g:534:5: ruleEString
             {
 
             					if (current==null) {
@@ -1221,30 +1204,30 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalShome.g:552:3: (otherlv_4= 'and' ( ( ruleEString ) ) )*
-            loop8:
+            // InternalShome.g:548:3: (otherlv_4= 'and' ( ( ruleEString ) ) )*
+            loop7:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( (LA8_0==22) ) {
-                    alt8=1;
+                if ( (LA7_0==22) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt7) {
             	case 1 :
-            	    // InternalShome.g:553:4: otherlv_4= 'and' ( ( ruleEString ) )
+            	    // InternalShome.g:549:4: otherlv_4= 'and' ( ( ruleEString ) )
             	    {
             	    otherlv_4=(Token)match(input,22,FOLLOW_10); 
 
             	    				newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getAndKeyword_4_0());
             	    			
-            	    // InternalShome.g:557:4: ( ( ruleEString ) )
-            	    // InternalShome.g:558:5: ( ruleEString )
+            	    // InternalShome.g:553:4: ( ( ruleEString ) )
+            	    // InternalShome.g:554:5: ( ruleEString )
             	    {
-            	    // InternalShome.g:558:5: ( ruleEString )
-            	    // InternalShome.g:559:6: ruleEString
+            	    // InternalShome.g:554:5: ( ruleEString )
+            	    // InternalShome.g:555:6: ruleEString
             	    {
 
             	    						if (current==null) {
@@ -1273,7 +1256,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop7;
                 }
             } while (true);
 
@@ -1299,8 +1282,173 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleCondition"
 
 
+    // $ANTLR start "entryRuleHomeTimeStamp"
+    // InternalShome.g:574:1: entryRuleHomeTimeStamp returns [EObject current=null] : iv_ruleHomeTimeStamp= ruleHomeTimeStamp EOF ;
+    public final EObject entryRuleHomeTimeStamp() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleHomeTimeStamp = null;
+
+
+        try {
+            // InternalShome.g:574:54: (iv_ruleHomeTimeStamp= ruleHomeTimeStamp EOF )
+            // InternalShome.g:575:2: iv_ruleHomeTimeStamp= ruleHomeTimeStamp EOF
+            {
+             newCompositeNode(grammarAccess.getHomeTimeStampRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleHomeTimeStamp=ruleHomeTimeStamp();
+
+            state._fsp--;
+
+             current =iv_ruleHomeTimeStamp; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleHomeTimeStamp"
+
+
+    // $ANTLR start "ruleHomeTimeStamp"
+    // InternalShome.g:581:1: ruleHomeTimeStamp returns [EObject current=null] : ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) ) ;
+    public final EObject ruleHomeTimeStamp() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_hour_0_0=null;
+        Token otherlv_1=null;
+        Token lv_min_2_0=null;
+        Token otherlv_3=null;
+        Token lv_sec_4_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalShome.g:587:2: ( ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) ) )
+            // InternalShome.g:588:2: ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) )
+            {
+            // InternalShome.g:588:2: ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) )
+            // InternalShome.g:589:3: ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) )
+            {
+            // InternalShome.g:589:3: ( (lv_hour_0_0= RULE_INT ) )
+            // InternalShome.g:590:4: (lv_hour_0_0= RULE_INT )
+            {
+            // InternalShome.g:590:4: (lv_hour_0_0= RULE_INT )
+            // InternalShome.g:591:5: lv_hour_0_0= RULE_INT
+            {
+            lv_hour_0_0=(Token)match(input,RULE_INT,FOLLOW_12); 
+
+            					newLeafNode(lv_hour_0_0, grammarAccess.getHomeTimeStampAccess().getHourINTTerminalRuleCall_0_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getHomeTimeStampRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"hour",
+            						lv_hour_0_0,
+            						"org.eclipse.xtext.common.Terminals.INT");
+            				
+
+            }
+
+
+            }
+
+            otherlv_1=(Token)match(input,16,FOLLOW_17); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getHomeTimeStampAccess().getColonKeyword_1());
+            		
+            // InternalShome.g:611:3: ( (lv_min_2_0= RULE_INT ) )
+            // InternalShome.g:612:4: (lv_min_2_0= RULE_INT )
+            {
+            // InternalShome.g:612:4: (lv_min_2_0= RULE_INT )
+            // InternalShome.g:613:5: lv_min_2_0= RULE_INT
+            {
+            lv_min_2_0=(Token)match(input,RULE_INT,FOLLOW_12); 
+
+            					newLeafNode(lv_min_2_0, grammarAccess.getHomeTimeStampAccess().getMinINTTerminalRuleCall_2_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getHomeTimeStampRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"min",
+            						lv_min_2_0,
+            						"org.eclipse.xtext.common.Terminals.INT");
+            				
+
+            }
+
+
+            }
+
+            otherlv_3=(Token)match(input,16,FOLLOW_17); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getHomeTimeStampAccess().getColonKeyword_3());
+            		
+            // InternalShome.g:633:3: ( (lv_sec_4_0= RULE_INT ) )
+            // InternalShome.g:634:4: (lv_sec_4_0= RULE_INT )
+            {
+            // InternalShome.g:634:4: (lv_sec_4_0= RULE_INT )
+            // InternalShome.g:635:5: lv_sec_4_0= RULE_INT
+            {
+            lv_sec_4_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+            					newLeafNode(lv_sec_4_0, grammarAccess.getHomeTimeStampAccess().getSecINTTerminalRuleCall_4_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getHomeTimeStampRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"sec",
+            						lv_sec_4_0,
+            						"org.eclipse.xtext.common.Terminals.INT");
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleHomeTimeStamp"
+
+
     // $ANTLR start "entryRuleEvent"
-    // InternalShome.g:578:1: entryRuleEvent returns [EObject current=null] : iv_ruleEvent= ruleEvent EOF ;
+    // InternalShome.g:655:1: entryRuleEvent returns [EObject current=null] : iv_ruleEvent= ruleEvent EOF ;
     public final EObject entryRuleEvent() throws RecognitionException {
         EObject current = null;
 
@@ -1308,8 +1456,8 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalShome.g:578:46: (iv_ruleEvent= ruleEvent EOF )
-            // InternalShome.g:579:2: iv_ruleEvent= ruleEvent EOF
+            // InternalShome.g:655:46: (iv_ruleEvent= ruleEvent EOF )
+            // InternalShome.g:656:2: iv_ruleEvent= ruleEvent EOF
             {
              newCompositeNode(grammarAccess.getEventRule()); 
             pushFollow(FOLLOW_1);
@@ -1336,7 +1484,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEvent"
-    // InternalShome.g:585:1: ruleEvent returns [EObject current=null] : (otherlv_0= 'Event' ( (lv_name_1_0= ruleEString ) ) otherlv_2= ':' ( ( ruleEString ) ) otherlv_4= 'do' ( ( ruleEString ) ) ) ;
+    // InternalShome.g:662:1: ruleEvent returns [EObject current=null] : (otherlv_0= 'Event' ( (lv_name_1_0= ruleEString ) ) otherlv_2= ':' ( ( ruleEString ) ) otherlv_4= 'do' ( ( ruleEString ) ) ) ;
     public final EObject ruleEvent() throws RecognitionException {
         EObject current = null;
 
@@ -1350,21 +1498,21 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalShome.g:591:2: ( (otherlv_0= 'Event' ( (lv_name_1_0= ruleEString ) ) otherlv_2= ':' ( ( ruleEString ) ) otherlv_4= 'do' ( ( ruleEString ) ) ) )
-            // InternalShome.g:592:2: (otherlv_0= 'Event' ( (lv_name_1_0= ruleEString ) ) otherlv_2= ':' ( ( ruleEString ) ) otherlv_4= 'do' ( ( ruleEString ) ) )
+            // InternalShome.g:668:2: ( (otherlv_0= 'Event' ( (lv_name_1_0= ruleEString ) ) otherlv_2= ':' ( ( ruleEString ) ) otherlv_4= 'do' ( ( ruleEString ) ) ) )
+            // InternalShome.g:669:2: (otherlv_0= 'Event' ( (lv_name_1_0= ruleEString ) ) otherlv_2= ':' ( ( ruleEString ) ) otherlv_4= 'do' ( ( ruleEString ) ) )
             {
-            // InternalShome.g:592:2: (otherlv_0= 'Event' ( (lv_name_1_0= ruleEString ) ) otherlv_2= ':' ( ( ruleEString ) ) otherlv_4= 'do' ( ( ruleEString ) ) )
-            // InternalShome.g:593:3: otherlv_0= 'Event' ( (lv_name_1_0= ruleEString ) ) otherlv_2= ':' ( ( ruleEString ) ) otherlv_4= 'do' ( ( ruleEString ) )
+            // InternalShome.g:669:2: (otherlv_0= 'Event' ( (lv_name_1_0= ruleEString ) ) otherlv_2= ':' ( ( ruleEString ) ) otherlv_4= 'do' ( ( ruleEString ) ) )
+            // InternalShome.g:670:3: otherlv_0= 'Event' ( (lv_name_1_0= ruleEString ) ) otherlv_2= ':' ( ( ruleEString ) ) otherlv_4= 'do' ( ( ruleEString ) )
             {
             otherlv_0=(Token)match(input,23,FOLLOW_10); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEventAccess().getEventKeyword_0());
             		
-            // InternalShome.g:597:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalShome.g:598:4: (lv_name_1_0= ruleEString )
+            // InternalShome.g:674:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalShome.g:675:4: (lv_name_1_0= ruleEString )
             {
-            // InternalShome.g:598:4: (lv_name_1_0= ruleEString )
-            // InternalShome.g:599:5: lv_name_1_0= ruleEString
+            // InternalShome.g:675:4: (lv_name_1_0= ruleEString )
+            // InternalShome.g:676:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getEventAccess().getNameEStringParserRuleCall_1_0());
@@ -1395,11 +1543,11 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getEventAccess().getColonKeyword_2());
             		
-            // InternalShome.g:620:3: ( ( ruleEString ) )
-            // InternalShome.g:621:4: ( ruleEString )
+            // InternalShome.g:697:3: ( ( ruleEString ) )
+            // InternalShome.g:698:4: ( ruleEString )
             {
-            // InternalShome.g:621:4: ( ruleEString )
-            // InternalShome.g:622:5: ruleEString
+            // InternalShome.g:698:4: ( ruleEString )
+            // InternalShome.g:699:5: ruleEString
             {
 
             					if (current==null) {
@@ -1409,7 +1557,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getEventAccess().getActorActorCrossReference_3_0());
             				
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_18);
             ruleEString();
 
             state._fsp--;
@@ -1427,11 +1575,11 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_4, grammarAccess.getEventAccess().getDoKeyword_4());
             		
-            // InternalShome.g:640:3: ( ( ruleEString ) )
-            // InternalShome.g:641:4: ( ruleEString )
+            // InternalShome.g:717:3: ( ( ruleEString ) )
+            // InternalShome.g:718:4: ( ruleEString )
             {
-            // InternalShome.g:641:4: ( ruleEString )
-            // InternalShome.g:642:5: ruleEString
+            // InternalShome.g:718:4: ( ruleEString )
+            // InternalShome.g:719:5: ruleEString
             {
 
             					if (current==null) {
@@ -1478,7 +1626,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalShome.g:660:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalShome.g:737:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -1486,8 +1634,8 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalShome.g:660:47: (iv_ruleEString= ruleEString EOF )
-            // InternalShome.g:661:2: iv_ruleEString= ruleEString EOF
+            // InternalShome.g:737:47: (iv_ruleEString= ruleEString EOF )
+            // InternalShome.g:738:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -1514,7 +1662,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalShome.g:667:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // InternalShome.g:744:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1525,28 +1673,28 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalShome.g:673:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // InternalShome.g:674:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalShome.g:750:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // InternalShome.g:751:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // InternalShome.g:674:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalShome.g:751:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA9_0==RULE_STRING) ) {
-                alt9=1;
+            if ( (LA8_0==RULE_STRING) ) {
+                alt8=1;
             }
-            else if ( (LA9_0==RULE_ID) ) {
-                alt9=2;
+            else if ( (LA8_0==RULE_ID) ) {
+                alt8=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
-            switch (alt9) {
+            switch (alt8) {
                 case 1 :
-                    // InternalShome.g:675:3: this_STRING_0= RULE_STRING
+                    // InternalShome.g:752:3: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -1559,7 +1707,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalShome.g:683:3: this_ID_1= RULE_ID
+                    // InternalShome.g:760:3: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -1594,7 +1742,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAction"
-    // InternalShome.g:694:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
+    // InternalShome.g:771:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
     public final EObject entryRuleAction() throws RecognitionException {
         EObject current = null;
 
@@ -1602,8 +1750,8 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalShome.g:694:47: (iv_ruleAction= ruleAction EOF )
-            // InternalShome.g:695:2: iv_ruleAction= ruleAction EOF
+            // InternalShome.g:771:47: (iv_ruleAction= ruleAction EOF )
+            // InternalShome.g:772:2: iv_ruleAction= ruleAction EOF
             {
              newCompositeNode(grammarAccess.getActionRule()); 
             pushFollow(FOLLOW_1);
@@ -1630,7 +1778,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAction"
-    // InternalShome.g:701:1: ruleAction returns [EObject current=null] : ( () ( (lv_name_1_0= ruleEString ) ) ) ;
+    // InternalShome.g:778:1: ruleAction returns [EObject current=null] : ( () ( (lv_name_1_0= ruleEString ) ) ) ;
     public final EObject ruleAction() throws RecognitionException {
         EObject current = null;
 
@@ -1641,14 +1789,14 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalShome.g:707:2: ( ( () ( (lv_name_1_0= ruleEString ) ) ) )
-            // InternalShome.g:708:2: ( () ( (lv_name_1_0= ruleEString ) ) )
+            // InternalShome.g:784:2: ( ( () ( (lv_name_1_0= ruleEString ) ) ) )
+            // InternalShome.g:785:2: ( () ( (lv_name_1_0= ruleEString ) ) )
             {
-            // InternalShome.g:708:2: ( () ( (lv_name_1_0= ruleEString ) ) )
-            // InternalShome.g:709:3: () ( (lv_name_1_0= ruleEString ) )
+            // InternalShome.g:785:2: ( () ( (lv_name_1_0= ruleEString ) ) )
+            // InternalShome.g:786:3: () ( (lv_name_1_0= ruleEString ) )
             {
-            // InternalShome.g:709:3: ()
-            // InternalShome.g:710:4: 
+            // InternalShome.g:786:3: ()
+            // InternalShome.g:787:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1658,11 +1806,11 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalShome.g:716:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalShome.g:717:4: (lv_name_1_0= ruleEString )
+            // InternalShome.g:793:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalShome.g:794:4: (lv_name_1_0= ruleEString )
             {
-            // InternalShome.g:717:4: (lv_name_1_0= ruleEString )
-            // InternalShome.g:718:5: lv_name_1_0= ruleEString
+            // InternalShome.g:794:4: (lv_name_1_0= ruleEString )
+            // InternalShome.g:795:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getActionAccess().getNameEStringParserRuleCall_1_0());
@@ -1710,80 +1858,6 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleAction"
 
-
-    // $ANTLR start "entryRuleEDate"
-    // InternalShome.g:739:1: entryRuleEDate returns [String current=null] : iv_ruleEDate= ruleEDate EOF ;
-    public final String entryRuleEDate() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleEDate = null;
-
-
-        try {
-            // InternalShome.g:739:45: (iv_ruleEDate= ruleEDate EOF )
-            // InternalShome.g:740:2: iv_ruleEDate= ruleEDate EOF
-            {
-             newCompositeNode(grammarAccess.getEDateRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleEDate=ruleEDate();
-
-            state._fsp--;
-
-             current =iv_ruleEDate.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleEDate"
-
-
-    // $ANTLR start "ruleEDate"
-    // InternalShome.g:746:1: ruleEDate returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'EDate' ;
-    public final AntlrDatatypeRuleToken ruleEDate() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token kw=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalShome.g:752:2: (kw= 'EDate' )
-            // InternalShome.g:753:2: kw= 'EDate'
-            {
-            kw=(Token)match(input,25,FOLLOW_2); 
-
-            		current.merge(kw);
-            		newLeafNode(kw, grammarAccess.getEDateAccess().getEDateKeyword());
-            	
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleEDate"
-
     // Delegated rules
 
 
@@ -1796,15 +1870,16 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000044000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000844000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000944000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000009C4000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00000000009C6000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000944010L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000946010L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000060L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000020002L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000002010000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000001000000L});
 
 }

@@ -70,6 +70,8 @@ public class SmartHomeFactoryImpl extends EFactoryImpl implements SmartHomeFacto
 			return createOccurence();
 		case SmartHomePackage.CONDITION:
 			return createCondition();
+		case SmartHomePackage.HOME_TIME_STAMP:
+			return createHomeTimeStamp();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -143,6 +145,16 @@ public class SmartHomeFactoryImpl extends EFactoryImpl implements SmartHomeFacto
 	public Condition createCondition() {
 		ConditionImpl condition = new ConditionImpl();
 		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HomeTimeStamp createHomeTimeStamp() {
+		HomeTimeStampImpl homeTimeStamp = new HomeTimeStampImpl();
+		return homeTimeStamp;
 	}
 
 	/**

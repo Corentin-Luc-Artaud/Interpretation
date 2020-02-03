@@ -352,22 +352,22 @@ public interface SmartHomePackage extends EPackage {
 	int OCCURENCE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OCCURENCE__TIME = 0;
-
-	/**
 	 * The feature id for the '<em><b>Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OCCURENCE__EVENT = 1;
+	int OCCURENCE__EVENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Owned Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OCCURENCE__OWNED_TIME = 1;
 
 	/**
 	 * The number of structural features of the '<em>Occurence</em>' class.
@@ -432,6 +432,61 @@ public interface SmartHomePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeTimeStampImpl <em>Home Time Stamp</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeTimeStampImpl
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.SmartHomePackageImpl#getHomeTimeStamp()
+	 * @generated
+	 */
+	int HOME_TIME_STAMP = 8;
+
+	/**
+	 * The feature id for the '<em><b>Hour</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOME_TIME_STAMP__HOUR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOME_TIME_STAMP__MIN = 1;
+
+	/**
+	 * The feature id for the '<em><b>Sec</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOME_TIME_STAMP__SEC = 2;
+
+	/**
+	 * The number of structural features of the '<em>Home Time Stamp</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOME_TIME_STAMP_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Home Time Stamp</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOME_TIME_STAMP_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.NamedElement <em>Named Element</em>}'.
@@ -603,17 +658,6 @@ public interface SmartHomePackage extends EPackage {
 	EClass getOccurence();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Occurence#getTime <em>Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Time</em>'.
-	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.Occurence#getTime()
-	 * @see #getOccurence()
-	 * @generated
-	 */
-	EAttribute getOccurence_Time();
-
-	/**
 	 * Returns the meta object for the reference '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Occurence#getEvent <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -623,6 +667,17 @@ public interface SmartHomePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOccurence_Event();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Occurence#getOwnedTime <em>Owned Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Owned Time</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.Occurence#getOwnedTime()
+	 * @see #getOccurence()
+	 * @generated
+	 */
+	EReference getOccurence_OwnedTime();
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition <em>Condition</em>}'.
@@ -655,6 +710,49 @@ public interface SmartHomePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCondition_Actions();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp <em>Home Time Stamp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Home Time Stamp</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp
+	 * @generated
+	 */
+	EClass getHomeTimeStamp();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp#getHour <em>Hour</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hour</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp#getHour()
+	 * @see #getHomeTimeStamp()
+	 * @generated
+	 */
+	EAttribute getHomeTimeStamp_Hour();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp#getMin <em>Min</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp#getMin()
+	 * @see #getHomeTimeStamp()
+	 * @generated
+	 */
+	EAttribute getHomeTimeStamp_Min();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp#getSec <em>Sec</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sec</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp#getSec()
+	 * @see #getHomeTimeStamp()
+	 * @generated
+	 */
+	EAttribute getHomeTimeStamp_Sec();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -822,20 +920,20 @@ public interface SmartHomePackage extends EPackage {
 		EClass OCCURENCE = eINSTANCE.getOccurence();
 
 		/**
-		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OCCURENCE__TIME = eINSTANCE.getOccurence_Time();
-
-		/**
 		 * The meta object literal for the '<em><b>Event</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference OCCURENCE__EVENT = eINSTANCE.getOccurence_Event();
+
+		/**
+		 * The meta object literal for the '<em><b>Owned Time</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OCCURENCE__OWNED_TIME = eINSTANCE.getOccurence_OwnedTime();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.ConditionImpl <em>Condition</em>}' class.
@@ -862,6 +960,40 @@ public interface SmartHomePackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONDITION__ACTIONS = eINSTANCE.getCondition_Actions();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeTimeStampImpl <em>Home Time Stamp</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeTimeStampImpl
+		 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.SmartHomePackageImpl#getHomeTimeStamp()
+		 * @generated
+		 */
+		EClass HOME_TIME_STAMP = eINSTANCE.getHomeTimeStamp();
+
+		/**
+		 * The meta object literal for the '<em><b>Hour</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HOME_TIME_STAMP__HOUR = eINSTANCE.getHomeTimeStamp_Hour();
+
+		/**
+		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HOME_TIME_STAMP__MIN = eINSTANCE.getHomeTimeStamp_Min();
+
+		/**
+		 * The meta object literal for the '<em><b>Sec</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HOME_TIME_STAMP__SEC = eINSTANCE.getHomeTimeStamp_Sec();
 
 	}
 

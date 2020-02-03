@@ -9,6 +9,7 @@ import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Event;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
+import fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence;
 import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Subject;
@@ -51,6 +52,9 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case SmartHomePackage.HOME:
 				sequence_Home(context, (Home) semanticObject); 
+				return; 
+			case SmartHomePackage.HOME_TIME_STAMP:
+				sequence_HomeTimeStamp(context, (HomeTimeStamp) semanticObject); 
 				return; 
 			case SmartHomePackage.OCCURENCE:
 				sequence_Occurence(context, (Occurence) semanticObject); 
@@ -137,6 +141,30 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     HomeTimeStamp returns HomeTimeStamp
+	 *
+	 * Constraint:
+	 *     (hour=INT min=INT sec=INT)
+	 */
+	protected void sequence_HomeTimeStamp(ISerializationContext context, HomeTimeStamp semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmartHomePackage.Literals.HOME_TIME_STAMP__HOUR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmartHomePackage.Literals.HOME_TIME_STAMP__HOUR));
+			if (transientValues.isValueTransient(semanticObject, SmartHomePackage.Literals.HOME_TIME_STAMP__MIN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmartHomePackage.Literals.HOME_TIME_STAMP__MIN));
+			if (transientValues.isValueTransient(semanticObject, SmartHomePackage.Literals.HOME_TIME_STAMP__SEC) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmartHomePackage.Literals.HOME_TIME_STAMP__SEC));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getHomeTimeStampAccess().getHourINTTerminalRuleCall_0_0(), semanticObject.getHour());
+		feeder.accept(grammarAccess.getHomeTimeStampAccess().getMinINTTerminalRuleCall_2_0(), semanticObject.getMin());
+		feeder.accept(grammarAccess.getHomeTimeStampAccess().getSecINTTerminalRuleCall_4_0(), semanticObject.getSec());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Home returns Home
 	 *
 	 * Constraint:
@@ -163,10 +191,19 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Occurence returns Occurence
 	 *
 	 * Constraint:
-	 *     (time=EDate? event=[Event|EString])
+	 *     (ownedTime=HomeTimeStamp event=[Event|EString])
 	 */
 	protected void sequence_Occurence(ISerializationContext context, Occurence semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmartHomePackage.Literals.OCCURENCE__OWNED_TIME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmartHomePackage.Literals.OCCURENCE__OWNED_TIME));
+			if (transientValues.isValueTransient(semanticObject, SmartHomePackage.Literals.OCCURENCE__EVENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmartHomePackage.Literals.OCCURENCE__EVENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getOccurenceAccess().getOwnedTimeHomeTimeStampParserRuleCall_0_0(), semanticObject.getOwnedTime());
+		feeder.accept(grammarAccess.getOccurenceAccess().getEventEventEStringParserRuleCall_2_0_1(), semanticObject.eGet(SmartHomePackage.Literals.OCCURENCE__EVENT, false));
+		feeder.finish();
 	}
 	
 	

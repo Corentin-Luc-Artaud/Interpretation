@@ -2,8 +2,6 @@
  */
 package fr.unice.polytech.si5.smarthome.am.smart_home;
 
-import java.util.Date;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Occurence#getTime <em>Time</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Occurence#getEvent <em>Event</em>}</li>
+ *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Occurence#getOwnedTime <em>Owned Time</em>}</li>
  * </ul>
  *
  * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getOccurence()
@@ -24,32 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Occurence extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Time</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Time</em>' attribute.
-	 * @see #setTime(Date)
-	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getOccurence_Time()
-	 * @model
-	 * @generated
-	 */
-	Date getTime();
-
-	/**
-	 * Sets the value of the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Occurence#getTime <em>Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Time</em>' attribute.
-	 * @see #getTime()
-	 * @generated
-	 */
-	void setTime(Date value);
-
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -75,5 +47,31 @@ public interface Occurence extends EObject {
 	 * @generated
 	 */
 	void setEvent(Event value);
+
+	/**
+	 * Returns the value of the '<em><b>Owned Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Owned Time</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owned Time</em>' containment reference.
+	 * @see #setOwnedTime(HomeTimeStamp)
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getOccurence_OwnedTime()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	HomeTimeStamp getOwnedTime();
+
+	/**
+	 * Sets the value of the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Occurence#getOwnedTime <em>Owned Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owned Time</em>' containment reference.
+	 * @see #getOwnedTime()
+	 * @generated
+	 */
+	void setOwnedTime(HomeTimeStamp value);
 
 } // Occurence

@@ -31,12 +31,17 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Event/action"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Occurence">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Occurence/time"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Occurence/event"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Occurence/ownedTime"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Condition">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Condition/event"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Condition/actions"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//HomeTimeStamp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//HomeTimeStamp/hour"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//HomeTimeStamp/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//HomeTimeStamp/sec"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

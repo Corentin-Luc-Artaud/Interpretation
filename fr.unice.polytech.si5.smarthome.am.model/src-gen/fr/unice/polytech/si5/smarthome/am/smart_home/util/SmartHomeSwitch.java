@@ -130,6 +130,13 @@ public class SmartHomeSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case SmartHomePackage.HOME_TIME_STAMP: {
+			HomeTimeStamp homeTimeStamp = (HomeTimeStamp) theEObject;
+			T result = caseHomeTimeStamp(homeTimeStamp);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -252,6 +259,21 @@ public class SmartHomeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCondition(Condition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Home Time Stamp</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Home Time Stamp</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHomeTimeStamp(HomeTimeStamp object) {
 		return null;
 	}
 

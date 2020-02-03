@@ -39,6 +39,7 @@ public class ShomeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOccurenceAccess().getGroup(), "rule__Occurence__Group__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup_4(), "rule__Condition__Group_4__0");
+			builder.put(grammarAccess.getHomeTimeStampAccess().getGroup(), "rule__HomeTimeStamp__Group__0");
 			builder.put(grammarAccess.getEventAccess().getGroup(), "rule__Event__Group__0");
 			builder.put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
 			builder.put(grammarAccess.getHomeAccess().getOwnedSubjectsAssignment_3(), "rule__Home__OwnedSubjectsAssignment_3");
@@ -55,11 +56,14 @@ public class ShomeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSubjectAccess().getOwnedActionsAssignment_4(), "rule__Subject__OwnedActionsAssignment_4");
 			builder.put(grammarAccess.getSubjectAccess().getOwnedActionsAssignment_5_1(), "rule__Subject__OwnedActionsAssignment_5_1");
 			builder.put(grammarAccess.getActorAccess().getNameAssignment_2(), "rule__Actor__NameAssignment_2");
-			builder.put(grammarAccess.getOccurenceAccess().getTimeAssignment_1(), "rule__Occurence__TimeAssignment_1");
-			builder.put(grammarAccess.getOccurenceAccess().getEventAssignment_3(), "rule__Occurence__EventAssignment_3");
+			builder.put(grammarAccess.getOccurenceAccess().getOwnedTimeAssignment_0(), "rule__Occurence__OwnedTimeAssignment_0");
+			builder.put(grammarAccess.getOccurenceAccess().getEventAssignment_2(), "rule__Occurence__EventAssignment_2");
 			builder.put(grammarAccess.getConditionAccess().getEventAssignment_1(), "rule__Condition__EventAssignment_1");
 			builder.put(grammarAccess.getConditionAccess().getActionsAssignment_3(), "rule__Condition__ActionsAssignment_3");
 			builder.put(grammarAccess.getConditionAccess().getActionsAssignment_4_1(), "rule__Condition__ActionsAssignment_4_1");
+			builder.put(grammarAccess.getHomeTimeStampAccess().getHourAssignment_0(), "rule__HomeTimeStamp__HourAssignment_0");
+			builder.put(grammarAccess.getHomeTimeStampAccess().getMinAssignment_2(), "rule__HomeTimeStamp__MinAssignment_2");
+			builder.put(grammarAccess.getHomeTimeStampAccess().getSecAssignment_4(), "rule__HomeTimeStamp__SecAssignment_4");
 			builder.put(grammarAccess.getEventAccess().getNameAssignment_1(), "rule__Event__NameAssignment_1");
 			builder.put(grammarAccess.getEventAccess().getActorAssignment_3(), "rule__Event__ActorAssignment_3");
 			builder.put(grammarAccess.getEventAccess().getActionAssignment_5(), "rule__Event__ActionAssignment_5");

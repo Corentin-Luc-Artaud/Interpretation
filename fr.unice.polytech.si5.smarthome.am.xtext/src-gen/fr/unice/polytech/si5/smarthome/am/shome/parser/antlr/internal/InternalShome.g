@@ -447,32 +447,28 @@ ruleOccurence returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Occurence'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getOccurenceAccess().getOccurenceKeyword_0());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getOccurenceAccess().getTimeEDateParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getOccurenceAccess().getOwnedTimeHomeTimeStampParserRuleCall_0_0());
 				}
-				lv_time_1_0=ruleEDate
+				lv_ownedTime_0_0=ruleHomeTimeStamp
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getOccurenceRule());
 					}
 					set(
 						$current,
-						"time",
-						lv_time_1_0,
-						"fr.unice.polytech.si5.smarthome.am.shome.Shome.EDate");
+						"ownedTime",
+						lv_ownedTime_0_0,
+						"fr.unice.polytech.si5.smarthome.am.shome.Shome.HomeTimeStamp");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)?
-		otherlv_2=':'
+		)
+		otherlv_1='->'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getOccurenceAccess().getColonKeyword_2());
+			newLeafNode(otherlv_1, grammarAccess.getOccurenceAccess().getHyphenMinusGreaterThanSignKeyword_1());
 		}
 		(
 			(
@@ -482,7 +478,7 @@ ruleOccurence returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getOccurenceAccess().getEventEventCrossReference_3_0());
+					newCompositeNode(grammarAccess.getOccurenceAccess().getEventEventCrossReference_2_0());
 				}
 				ruleEString
 				{
@@ -571,6 +567,87 @@ ruleCondition returns [EObject current=null]
 				)
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleHomeTimeStamp
+entryRuleHomeTimeStamp returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getHomeTimeStampRule()); }
+	iv_ruleHomeTimeStamp=ruleHomeTimeStamp
+	{ $current=$iv_ruleHomeTimeStamp.current; }
+	EOF;
+
+// Rule HomeTimeStamp
+ruleHomeTimeStamp returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_hour_0_0=RULE_INT
+				{
+					newLeafNode(lv_hour_0_0, grammarAccess.getHomeTimeStampAccess().getHourINTTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getHomeTimeStampRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"hour",
+						lv_hour_0_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getHomeTimeStampAccess().getColonKeyword_1());
+		}
+		(
+			(
+				lv_min_2_0=RULE_INT
+				{
+					newLeafNode(lv_min_2_0, grammarAccess.getHomeTimeStampAccess().getMinINTTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getHomeTimeStampRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"min",
+						lv_min_2_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		otherlv_3=':'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getHomeTimeStampAccess().getColonKeyword_3());
+		}
+		(
+			(
+				lv_sec_4_0=RULE_INT
+				{
+					newLeafNode(lv_sec_4_0, grammarAccess.getHomeTimeStampAccess().getSecINTTerminalRuleCall_4_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getHomeTimeStampRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"sec",
+						lv_sec_4_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
 	)
 ;
 
@@ -733,28 +810,6 @@ ruleAction returns [EObject current=null]
 			)
 		)
 	)
-;
-
-// Entry rule entryRuleEDate
-entryRuleEDate returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getEDateRule()); }
-	iv_ruleEDate=ruleEDate
-	{ $current=$iv_ruleEDate.current.getText(); }
-	EOF;
-
-// Rule EDate
-ruleEDate returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	kw='EDate'
-	{
-		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getEDateAccess().getEDateKeyword());
-	}
 ;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

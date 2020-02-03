@@ -230,42 +230,37 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	public class OccurenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.Occurence");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cOccurenceKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTimeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTimeEDateParserRuleCall_1_0 = (RuleCall)cTimeAssignment_1.eContents().get(0);
-		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cEventAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cEventEventCrossReference_3_0 = (CrossReference)cEventAssignment_3.eContents().get(0);
-		private final RuleCall cEventEventEStringParserRuleCall_3_0_1 = (RuleCall)cEventEventCrossReference_3_0.eContents().get(1);
+		private final Assignment cOwnedTimeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cOwnedTimeHomeTimeStampParserRuleCall_0_0 = (RuleCall)cOwnedTimeAssignment_0.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cEventAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cEventEventCrossReference_2_0 = (CrossReference)cEventAssignment_2.eContents().get(0);
+		private final RuleCall cEventEventEStringParserRuleCall_2_0_1 = (RuleCall)cEventEventCrossReference_2_0.eContents().get(1);
 		
 		//Occurence:
-		//	'Occurence'
-		//	time=EDate? ':' event=[Event|EString];
+		//	ownedTime=HomeTimeStamp '->' event=[Event|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Occurence' time=EDate? ':' event=[Event|EString]
+		//ownedTime=HomeTimeStamp '->' event=[Event|EString]
 		public Group getGroup() { return cGroup; }
 		
-		//'Occurence'
-		public Keyword getOccurenceKeyword_0() { return cOccurenceKeyword_0; }
+		//ownedTime=HomeTimeStamp
+		public Assignment getOwnedTimeAssignment_0() { return cOwnedTimeAssignment_0; }
 		
-		//time=EDate?
-		public Assignment getTimeAssignment_1() { return cTimeAssignment_1; }
+		//HomeTimeStamp
+		public RuleCall getOwnedTimeHomeTimeStampParserRuleCall_0_0() { return cOwnedTimeHomeTimeStampParserRuleCall_0_0; }
 		
-		//EDate
-		public RuleCall getTimeEDateParserRuleCall_1_0() { return cTimeEDateParserRuleCall_1_0; }
-		
-		//':'
-		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_1() { return cHyphenMinusGreaterThanSignKeyword_1; }
 		
 		//event=[Event|EString]
-		public Assignment getEventAssignment_3() { return cEventAssignment_3; }
+		public Assignment getEventAssignment_2() { return cEventAssignment_2; }
 		
 		//[Event|EString]
-		public CrossReference getEventEventCrossReference_3_0() { return cEventEventCrossReference_3_0; }
+		public CrossReference getEventEventCrossReference_2_0() { return cEventEventCrossReference_2_0; }
 		
 		//EString
-		public RuleCall getEventEventEStringParserRuleCall_3_0_1() { return cEventEventEStringParserRuleCall_3_0_1; }
+		public RuleCall getEventEventEStringParserRuleCall_2_0_1() { return cEventEventEStringParserRuleCall_2_0_1; }
 	}
 	public class ConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.Condition");
@@ -329,6 +324,49 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EString
 		public RuleCall getActionsActionEStringParserRuleCall_4_1_0_1() { return cActionsActionEStringParserRuleCall_4_1_0_1; }
+	}
+	public class HomeTimeStampElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.HomeTimeStamp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cHourAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cHourINTTerminalRuleCall_0_0 = (RuleCall)cHourAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cMinAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMinINTTerminalRuleCall_2_0 = (RuleCall)cMinAssignment_2.eContents().get(0);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cSecAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSecINTTerminalRuleCall_4_0 = (RuleCall)cSecAssignment_4.eContents().get(0);
+		
+		//HomeTimeStamp:
+		//	hour=INT ':' min=INT ':' sec=INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//hour=INT ':' min=INT ':' sec=INT
+		public Group getGroup() { return cGroup; }
+		
+		//hour=INT
+		public Assignment getHourAssignment_0() { return cHourAssignment_0; }
+		
+		//INT
+		public RuleCall getHourINTTerminalRuleCall_0_0() { return cHourINTTerminalRuleCall_0_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//min=INT
+		public Assignment getMinAssignment_2() { return cMinAssignment_2; }
+		
+		//INT
+		public RuleCall getMinINTTerminalRuleCall_2_0() { return cMinINTTerminalRuleCall_2_0; }
+		
+		//':'
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		
+		//sec=INT
+		public Assignment getSecAssignment_4() { return cSecAssignment_4; }
+		
+		//INT
+		public RuleCall getSecINTTerminalRuleCall_4_0() { return cSecINTTerminalRuleCall_4_0; }
 	}
 	public class EventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.Event");
@@ -429,17 +467,6 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 	}
-	public class EDateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.EDate");
-		private final Keyword cEDateKeyword = (Keyword)rule.eContents().get(1);
-		
-		//EDate ecore::EDate:
-		//	'EDate' /* TODO: implement this rule and an appropriate IValueConverter */;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'EDate'
-		public Keyword getEDateKeyword() { return cEDateKeyword; }
-	}
 	
 	
 	private final HomeElements pHome;
@@ -447,10 +474,10 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	private final ActorElements pActor;
 	private final OccurenceElements pOccurence;
 	private final ConditionElements pCondition;
+	private final HomeTimeStampElements pHomeTimeStamp;
 	private final EventElements pEvent;
 	private final EStringElements pEString;
 	private final ActionElements pAction;
-	private final EDateElements pEDate;
 	
 	private final Grammar grammar;
 	
@@ -466,10 +493,10 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		this.pActor = new ActorElements();
 		this.pOccurence = new OccurenceElements();
 		this.pCondition = new ConditionElements();
+		this.pHomeTimeStamp = new HomeTimeStampElements();
 		this.pEvent = new EventElements();
 		this.pEString = new EStringElements();
 		this.pAction = new ActionElements();
-		this.pEDate = new EDateElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -542,8 +569,7 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Occurence:
-	//	'Occurence'
-	//	time=EDate? ':' event=[Event|EString];
+	//	ownedTime=HomeTimeStamp '->' event=[Event|EString];
 	public OccurenceElements getOccurenceAccess() {
 		return pOccurence;
 	}
@@ -560,6 +586,16 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getConditionRule() {
 		return getConditionAccess().getRule();
+	}
+	
+	//HomeTimeStamp:
+	//	hour=INT ':' min=INT ':' sec=INT;
+	public HomeTimeStampElements getHomeTimeStampAccess() {
+		return pHomeTimeStamp;
+	}
+	
+	public ParserRule getHomeTimeStampRule() {
+		return getHomeTimeStampAccess().getRule();
 	}
 	
 	//Event:
@@ -592,16 +628,6 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getActionRule() {
 		return getActionAccess().getRule();
-	}
-	
-	//EDate ecore::EDate:
-	//	'EDate' /* TODO: implement this rule and an appropriate IValueConverter */;
-	public EDateElements getEDateAccess() {
-		return pEDate;
-	}
-	
-	public ParserRule getEDateRule() {
-		return getEDateAccess().getRule();
 	}
 	
 	//terminal ID:

@@ -26,11 +26,14 @@ Actor returns Actor:
 	name=EString;
 
 Occurence returns Occurence:
-	'Occurence'
-	(time=EDate)? ':' event=[Event|EString];
+	ownedTime=HomeTimeStamp '->' event=[Event|EString];
 
 Condition returns Condition:
 	'if' event=[Event|EString] 'then' actions+=[Action|EString] ( 'and' actions+=[Action|EString])*;
+	
+HomeTimeStamp returns HomeTimeStamp:
+	hour=INT ':' min=INT ':' sec=INT;
+
 
 Event returns Event:
 	'Event'
@@ -43,6 +46,3 @@ EString returns ecore::EString:
 Action returns Action:
 	{Action}
 	name=EString;
-
-EDate returns ecore::EDate:
-	INT ':' INT;
