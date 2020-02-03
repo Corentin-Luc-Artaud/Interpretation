@@ -234,6 +234,29 @@ public class SmartHomeItemProviderAdapterFactory extends SmartHomeAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HomeTimeStampItemProvider homeTimeStampItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHomeTimeStampAdapter() {
+		if (homeTimeStampItemProvider == null) {
+			homeTimeStampItemProvider = new HomeTimeStampItemProvider(this);
+		}
+
+		return homeTimeStampItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -346,6 +369,8 @@ public class SmartHomeItemProviderAdapterFactory extends SmartHomeAdapterFactory
 			occurenceItemProvider.dispose();
 		if (conditionItemProvider != null)
 			conditionItemProvider.dispose();
+		if (homeTimeStampItemProvider != null)
+			homeTimeStampItemProvider.dispose();
 	}
 
 }

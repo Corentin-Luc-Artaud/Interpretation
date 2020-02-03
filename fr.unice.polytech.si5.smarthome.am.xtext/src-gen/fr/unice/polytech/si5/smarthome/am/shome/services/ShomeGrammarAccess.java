@@ -53,15 +53,9 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
 		
 		//Home:
-		//	{Home}
-		//	'Home'
-		//	'{'
-		//	ownedSubjects+=Subject ownedSubjects+=Subject*
-		//	ownedActors+=Actor ownedActors+=Actor*
-		//	ownedEvents+=Event ownedEvents+=Event*
-		//	ownedConditions+=Condition ownedConditions+=Condition*
-		//	ownedOccurences+=Occurence ownedOccurences+=Occurence*
-		//	'}';
+		//	{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor ownedActors+=Actor*
+		//	ownedEvents+=Event ownedEvents+=Event* ownedConditions+=Condition ownedConditions+=Condition*
+		//	ownedOccurences+=Occurence ownedOccurences+=Occurence* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor ownedActors+=Actor*
@@ -157,9 +151,7 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOwnedActionsActionParserRuleCall_5_1_0 = (RuleCall)cOwnedActionsAssignment_5_1.eContents().get(0);
 		
 		//Subject:
-		//	'Subject'
-		//	name=EString
-		//	'ownedActions' ':' ownedActions+=Action ("-" ownedActions+=Action)*;
+		//	'Subject' name=EString 'ownedActions' ':' ownedActions+=Action ("-" ownedActions+=Action)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Subject' name=EString 'ownedActions' ':' ownedActions+=Action ("-" ownedActions+=Action)*
@@ -207,9 +199,7 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//Actor:
-		//	{Actor}
-		//	'Actor'
-		//	name=EString;
+		//	{Actor} 'Actor' name=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Actor} 'Actor' name=EString
@@ -384,9 +374,7 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cActionActionEStringParserRuleCall_5_0_1 = (RuleCall)cActionActionCrossReference_5_0.eContents().get(1);
 		
 		//Event:
-		//	'Event'
-		//	name=EString
-		//	':' actor=[Actor|EString] 'do' action=[Action|EString];
+		//	'Event' name=EString ':' actor=[Actor|EString] 'do' action=[Action|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Event' name=EString ':' actor=[Actor|EString] 'do' action=[Action|EString]
@@ -527,15 +515,9 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Home:
-	//	{Home}
-	//	'Home'
-	//	'{'
-	//	ownedSubjects+=Subject ownedSubjects+=Subject*
-	//	ownedActors+=Actor ownedActors+=Actor*
-	//	ownedEvents+=Event ownedEvents+=Event*
-	//	ownedConditions+=Condition ownedConditions+=Condition*
-	//	ownedOccurences+=Occurence ownedOccurences+=Occurence*
-	//	'}';
+	//	{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor ownedActors+=Actor*
+	//	ownedEvents+=Event ownedEvents+=Event* ownedConditions+=Condition ownedConditions+=Condition*
+	//	ownedOccurences+=Occurence ownedOccurences+=Occurence* '}';
 	public HomeElements getHomeAccess() {
 		return pHome;
 	}
@@ -545,9 +527,7 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Subject:
-	//	'Subject'
-	//	name=EString
-	//	'ownedActions' ':' ownedActions+=Action ("-" ownedActions+=Action)*;
+	//	'Subject' name=EString 'ownedActions' ':' ownedActions+=Action ("-" ownedActions+=Action)*;
 	public SubjectElements getSubjectAccess() {
 		return pSubject;
 	}
@@ -557,9 +537,7 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Actor:
-	//	{Actor}
-	//	'Actor'
-	//	name=EString;
+	//	{Actor} 'Actor' name=EString;
 	public ActorElements getActorAccess() {
 		return pActor;
 	}
@@ -599,9 +577,7 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Event:
-	//	'Event'
-	//	name=EString
-	//	':' actor=[Actor|EString] 'do' action=[Action|EString];
+	//	'Event' name=EString ':' actor=[Actor|EString] 'do' action=[Action|EString];
 	public EventElements getEventAccess() {
 		return pEvent;
 	}

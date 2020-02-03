@@ -52,7 +52,7 @@ public interface Occurence extends EObject {
 	 * Returns the value of the '<em><b>Owned Time</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Owned Time</em>' reference isn't clear,
+	 * If the meaning of the '<em>Owned Time</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
