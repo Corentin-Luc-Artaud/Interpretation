@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated model -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="fr.unice.polytech.si5.smarthome.am.smart_home.presentation.SmartHomeModelWizardID"
+            name="%_UI_SmartHomeModelWizard_label"
+            class="fr.unice.polytech.si5.smarthome.am.smart_home.presentation.SmartHomeModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SmartHomeModelFile.gif">
+         <description>%_UI_SmartHomeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model -->
+      <editor
+            id="fr.unice.polytech.si5.smarthome.am.smart_home.presentation.SmartHomeEditorID"
+            name="%_UI_SmartHomeEditor_label"
+            icon="icons/full/obj16/SmartHomeModelFile.gif"
+            extensions="smarthome"
+            class="fr.unice.polytech.si5.smarthome.am.smart_home.presentation.SmartHomeEditor"
+            contributorClass="fr.unice.polytech.si5.smarthome.am.smart_home.presentation.SmartHomeActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

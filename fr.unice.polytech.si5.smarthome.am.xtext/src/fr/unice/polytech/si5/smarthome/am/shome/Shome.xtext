@@ -45,4 +45,4 @@ Action returns Action:
 	name=EString;
 
 EDate returns ecore::EDate:
-	'EDate' /* TODO: implement this rule and an appropriate IValueConverter */;
+	INT ':' INT;
