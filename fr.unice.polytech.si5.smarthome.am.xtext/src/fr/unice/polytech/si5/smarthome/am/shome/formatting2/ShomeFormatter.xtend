@@ -22,9 +22,6 @@ class ShomeFormatter extends AbstractFormatter2 {
 		for (actor : home.ownedActors) {
 			actor.format
 		}
-		for (event : home.ownedEvents) {
-			event.format
-		}
 		for (condition : home.ownedConditions) {
 			condition.format
 		}

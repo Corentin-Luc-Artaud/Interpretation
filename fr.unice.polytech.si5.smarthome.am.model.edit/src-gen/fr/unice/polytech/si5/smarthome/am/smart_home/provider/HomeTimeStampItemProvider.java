@@ -2,8 +2,7 @@
  */
 package fr.unice.polytech.si5.smarthome.am.smart_home.provider;
 
-import fr.unice.polytech.si5.smarthome.am.smart_home.Condition;
-import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomeFactory;
+import fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp;
 import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage;
 
 import java.util.Collection;
@@ -14,7 +13,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -22,16 +20,17 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition} object.
+ * This is the item provider adapter for a {@link fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConditionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class HomeTimeStampItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -39,7 +38,7 @@ public class ConditionItemProvider extends ItemProviderAdapter implements IEditi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionItemProvider(AdapterFactory adapterFactory) {
+	public HomeTimeStampItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -54,97 +53,70 @@ public class ConditionItemProvider extends ItemProviderAdapter implements IEditi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addActionsPropertyDescriptor(object);
-			addActorPropertyDescriptor(object);
-			addActionPropertyDescriptor(object);
+			addHourPropertyDescriptor(object);
+			addMinPropertyDescriptor(object);
+			addSecPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Actions feature.
+	 * This adds a property descriptor for the Hour feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addActionsPropertyDescriptor(Object object) {
+	protected void addHourPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Condition_actions_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Condition_actions_feature",
-								"_UI_Condition_type"),
-						SmartHomePackage.Literals.CONDITION__ACTIONS, true, false, true, null, null, null));
+						getResourceLocator(), getString("_UI_HomeTimeStamp_hour_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_HomeTimeStamp_hour_feature",
+								"_UI_HomeTimeStamp_type"),
+						SmartHomePackage.Literals.HOME_TIME_STAMP__HOUR, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Actor feature.
+	 * This adds a property descriptor for the Min feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addActorPropertyDescriptor(Object object) {
+	protected void addMinPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Condition_actor_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Condition_actor_feature",
-								"_UI_Condition_type"),
-						SmartHomePackage.Literals.CONDITION__ACTOR, true, false, true, null, null, null));
+						getResourceLocator(), getString("_UI_HomeTimeStamp_min_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_HomeTimeStamp_min_feature",
+								"_UI_HomeTimeStamp_type"),
+						SmartHomePackage.Literals.HOME_TIME_STAMP__MIN, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Action feature.
+	 * This adds a property descriptor for the Sec feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addActionPropertyDescriptor(Object object) {
+	protected void addSecPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Condition_action_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Condition_action_feature",
-								"_UI_Condition_type"),
-						SmartHomePackage.Literals.CONDITION__ACTION, true, false, true, null, null, null));
+						getResourceLocator(), getString("_UI_HomeTimeStamp_sec_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_HomeTimeStamp_sec_feature",
+								"_UI_HomeTimeStamp_type"),
+						SmartHomePackage.Literals.HOME_TIME_STAMP__SEC, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(SmartHomePackage.Literals.CONDITION__OWNED_TIME);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Condition.gif.
+	 * This returns HomeTimeStamp.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Condition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/HomeTimeStamp"));
 	}
 
 	/**
@@ -165,7 +137,8 @@ public class ConditionItemProvider extends ItemProviderAdapter implements IEditi
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Condition_type");
+		HomeTimeStamp homeTimeStamp = (HomeTimeStamp) object;
+		return getString("_UI_HomeTimeStamp_type") + " " + homeTimeStamp.getHour();
 	}
 
 	/**
@@ -179,9 +152,11 @@ public class ConditionItemProvider extends ItemProviderAdapter implements IEditi
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Condition.class)) {
-		case SmartHomePackage.CONDITION__OWNED_TIME:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(HomeTimeStamp.class)) {
+		case SmartHomePackage.HOME_TIME_STAMP__HOUR:
+		case SmartHomePackage.HOME_TIME_STAMP__MIN:
+		case SmartHomePackage.HOME_TIME_STAMP__SEC:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -197,9 +172,6 @@ public class ConditionItemProvider extends ItemProviderAdapter implements IEditi
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(SmartHomePackage.Literals.CONDITION__OWNED_TIME,
-				SmartHomeFactory.eINSTANCE.createHomeTimeStamp()));
 	}
 
 	/**

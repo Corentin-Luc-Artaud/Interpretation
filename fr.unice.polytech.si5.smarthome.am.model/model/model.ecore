@@ -19,24 +19,23 @@
         eType="#//Occurence" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedConditions" upperBound="-1"
         eType="#//Condition" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedEvents" upperBound="-1"
-        eType="#//Event" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//Actor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="action" lowerBound="1"
-        eType="#//Action"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Occurence">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="event" lowerBound="1" eType="#//Event"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedTime" unique="false"
         lowerBound="1" eType="#//HomeTimeStamp" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" unique="false"
+        eType="#//Action"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="event" lowerBound="1" eType="#//Event"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" lowerBound="1"
-        upperBound="-1" eType="#//Action"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" unique="false"
+        lowerBound="1" upperBound="-1" eType="#//Action"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedTime" unique="false"
+        eType="#//HomeTimeStamp" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" unique="false"
+        eType="#//Action"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HomeTimeStamp">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hour" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

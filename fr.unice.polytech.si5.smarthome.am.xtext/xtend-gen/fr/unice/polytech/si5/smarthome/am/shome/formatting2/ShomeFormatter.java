@@ -8,7 +8,6 @@ import fr.unice.polytech.si5.smarthome.am.shome.services.ShomeGrammarAccess;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition;
-import fr.unice.polytech.si5.smarthome.am.smart_home.Event;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Subject;
@@ -34,10 +33,6 @@ public class ShomeFormatter extends AbstractFormatter2 {
     EList<Actor> _ownedActors = home.getOwnedActors();
     for (final Actor actor : _ownedActors) {
       document.<Actor>format(actor);
-    }
-    EList<Event> _ownedEvents = home.getOwnedEvents();
-    for (final Event event : _ownedEvents) {
-      document.<Event>format(event);
     }
     EList<Condition> _ownedConditions = home.getOwnedConditions();
     for (final Condition condition : _ownedConditions) {

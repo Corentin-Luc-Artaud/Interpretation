@@ -74,7 +74,6 @@ public class HomeItemProvider extends ItemProviderAdapter implements IEditingDom
 			childrenFeatures.add(SmartHomePackage.Literals.HOME__OWNED_ACTORS);
 			childrenFeatures.add(SmartHomePackage.Literals.HOME__OWNED_OCCURENCES);
 			childrenFeatures.add(SmartHomePackage.Literals.HOME__OWNED_CONDITIONS);
-			childrenFeatures.add(SmartHomePackage.Literals.HOME__OWNED_EVENTS);
 		}
 		return childrenFeatures;
 	}
@@ -140,7 +139,6 @@ public class HomeItemProvider extends ItemProviderAdapter implements IEditingDom
 		case SmartHomePackage.HOME__OWNED_ACTORS:
 		case SmartHomePackage.HOME__OWNED_OCCURENCES:
 		case SmartHomePackage.HOME__OWNED_CONDITIONS:
-		case SmartHomePackage.HOME__OWNED_EVENTS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -169,9 +167,6 @@ public class HomeItemProvider extends ItemProviderAdapter implements IEditingDom
 
 		newChildDescriptors.add(createChildParameter(SmartHomePackage.Literals.HOME__OWNED_CONDITIONS,
 				SmartHomeFactory.eINSTANCE.createCondition()));
-
-		newChildDescriptors.add(createChildParameter(SmartHomePackage.Literals.HOME__OWNED_EVENTS,
-				SmartHomeFactory.eINSTANCE.createEvent()));
 	}
 
 	/**

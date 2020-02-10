@@ -7,7 +7,6 @@ import com.google.inject.Inject;
 import fr.unice.polytech.si5.smarthome.am.shome.services.ShomeGrammarAccess;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition;
-import fr.unice.polytech.si5.smarthome.am.smart_home.Event;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
 import fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence;
@@ -46,9 +45,6 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case SmartHomePackage.CONDITION:
 				sequence_Condition(context, (Condition) semanticObject); 
-				return; 
-			case SmartHomePackage.EVENT:
-				sequence_Event(context, (Event) semanticObject); 
 				return; 
 			case SmartHomePackage.HOME:
 				sequence_Home(context, (Home) semanticObject); 
@@ -108,34 +104,10 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Condition returns Condition
 	 *
 	 * Constraint:
-	 *     (event=[Event|EString] actions+=[Action|EString] actions+=[Action|EString]*)
+	 *     (actor=[Actor|EString]? action=[Action|EString] actions+=[Action|EString] actions+=[Action|EString]*)
 	 */
 	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Event returns Event
-	 *
-	 * Constraint:
-	 *     (name=EString actor=[Actor|EString] action=[Action|EString])
-	 */
-	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmartHomePackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmartHomePackage.Literals.NAMED_ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, SmartHomePackage.Literals.EVENT__ACTOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmartHomePackage.Literals.EVENT__ACTOR));
-			if (transientValues.isValueTransient(semanticObject, SmartHomePackage.Literals.EVENT__ACTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmartHomePackage.Literals.EVENT__ACTION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEventAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getEventAccess().getActorActorEStringParserRuleCall_3_0_1(), semanticObject.eGet(SmartHomePackage.Literals.EVENT__ACTOR, false));
-		feeder.accept(grammarAccess.getEventAccess().getActionActionEStringParserRuleCall_5_0_1(), semanticObject.eGet(SmartHomePackage.Literals.EVENT__ACTION, false));
-		feeder.finish();
 	}
 	
 	
@@ -173,8 +145,6 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         ownedSubjects+=Subject* 
 	 *         ownedActors+=Actor 
 	 *         ownedActors+=Actor* 
-	 *         ownedEvents+=Event 
-	 *         ownedEvents+=Event* 
 	 *         ownedConditions+=Condition 
 	 *         ownedConditions+=Condition* 
 	 *         ownedOccurences+=Occurence 
@@ -191,19 +161,10 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Occurence returns Occurence
 	 *
 	 * Constraint:
-	 *     (ownedTime=HomeTimeStamp event=[Event|EString])
+	 *     (ownedTime=HomeTimeStamp actor=[Actor|EString]? action=[Action|EString])
 	 */
 	protected void sequence_Occurence(ISerializationContext context, Occurence semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmartHomePackage.Literals.OCCURENCE__OWNED_TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmartHomePackage.Literals.OCCURENCE__OWNED_TIME));
-			if (transientValues.isValueTransient(semanticObject, SmartHomePackage.Literals.OCCURENCE__EVENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmartHomePackage.Literals.OCCURENCE__EVENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOccurenceAccess().getOwnedTimeHomeTimeStampParserRuleCall_0_0(), semanticObject.getOwnedTime());
-		feeder.accept(grammarAccess.getOccurenceAccess().getEventEventEStringParserRuleCall_2_0_1(), semanticObject.eGet(SmartHomePackage.Literals.OCCURENCE__EVENT, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

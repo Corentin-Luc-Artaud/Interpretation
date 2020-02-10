@@ -31,7 +31,7 @@ public interface Event extends NamedElement {
 	 * @return the value of the '<em>Actor</em>' reference.
 	 * @see #setActor(Actor)
 	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getEvent_Actor()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	Actor getActor();

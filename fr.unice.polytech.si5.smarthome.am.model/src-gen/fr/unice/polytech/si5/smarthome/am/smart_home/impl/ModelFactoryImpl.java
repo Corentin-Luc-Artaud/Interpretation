@@ -63,8 +63,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			return createHome();
 		case ModelPackage.ACTION:
 			return createAction();
-		case ModelPackage.EVENT:
-			return createEvent();
 		case ModelPackage.OCCURENCE:
 			return createOccurence();
 		case ModelPackage.CONDITION:
@@ -112,16 +110,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public Action createAction() {
 		ActionImpl action = new ActionImpl();
 		return action;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Event createEvent() {
-		EventImpl event = new EventImpl();
-		return event;
 	}
 
 	/**

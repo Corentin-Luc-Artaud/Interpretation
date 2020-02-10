@@ -2,7 +2,8 @@
  */
 package fr.unice.polytech.si5.smarthome.am.smart_home.impl;
 
-import fr.unice.polytech.si5.smarthome.am.smart_home.Event;
+import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
+import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
 import fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence;
 
@@ -23,23 +24,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.OccurenceImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.OccurenceImpl#getOwnedTime <em>Owned Time</em>}</li>
+ *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.OccurenceImpl#getActor <em>Actor</em>}</li>
+ *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.OccurenceImpl#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class OccurenceImpl extends MinimalEObjectImpl.Container implements Occurence {
-	/**
-	 * The cached value of the '{@link #getEvent() <em>Event</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEvent()
-	 * @generated
-	 * @ordered
-	 */
-	protected Event event;
-
 	/**
 	 * The cached value of the '{@link #getOwnedTime() <em>Owned Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -51,11 +43,31 @@ public class OccurenceImpl extends MinimalEObjectImpl.Container implements Occur
 	protected HomeTimeStamp ownedTime;
 
 	/**
+	 * The cached value of the '{@link #getActor() <em>Actor</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Actor actor;
+
+	/**
+	 * The cached value of the '{@link #getAction() <em>Action</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected Action action;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OccurenceImpl() {
+	public OccurenceImpl() {
 		super();
 	}
 
@@ -67,45 +79,6 @@ public class OccurenceImpl extends MinimalEObjectImpl.Container implements Occur
 	@Override
 	protected EClass eStaticClass() {
 		return SmartHomePackage.Literals.OCCURENCE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Event getEvent() {
-		if (event != null && event.eIsProxy()) {
-			InternalEObject oldEvent = (InternalEObject) event;
-			event = (Event) eResolveProxy(oldEvent);
-			if (event != oldEvent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SmartHomePackage.OCCURENCE__EVENT,
-							oldEvent, event));
-			}
-		}
-		return event;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Event basicGetEvent() {
-		return event;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEvent(Event newEvent) {
-		Event oldEvent = event;
-		event = newEvent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SmartHomePackage.OCCURENCE__EVENT, oldEvent, event));
 	}
 
 	/**
@@ -163,6 +136,85 @@ public class OccurenceImpl extends MinimalEObjectImpl.Container implements Occur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Actor getActor() {
+		if (actor != null && actor.eIsProxy()) {
+			InternalEObject oldActor = (InternalEObject) actor;
+			actor = (Actor) eResolveProxy(oldActor);
+			if (actor != oldActor) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SmartHomePackage.OCCURENCE__ACTOR,
+							oldActor, actor));
+			}
+		}
+		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Actor basicGetActor() {
+		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActor(Actor newActor) {
+		Actor oldActor = actor;
+		actor = newActor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SmartHomePackage.OCCURENCE__ACTOR, oldActor, actor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action getAction() {
+		if (action != null && action.eIsProxy()) {
+			InternalEObject oldAction = (InternalEObject) action;
+			action = (Action) eResolveProxy(oldAction);
+			if (action != oldAction) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SmartHomePackage.OCCURENCE__ACTION,
+							oldAction, action));
+			}
+		}
+		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action basicGetAction() {
+		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAction(Action newAction) {
+		Action oldAction = action;
+		action = newAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SmartHomePackage.OCCURENCE__ACTION, oldAction,
+					action));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -180,12 +232,16 @@ public class OccurenceImpl extends MinimalEObjectImpl.Container implements Occur
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SmartHomePackage.OCCURENCE__EVENT:
-			if (resolve)
-				return getEvent();
-			return basicGetEvent();
 		case SmartHomePackage.OCCURENCE__OWNED_TIME:
 			return getOwnedTime();
+		case SmartHomePackage.OCCURENCE__ACTOR:
+			if (resolve)
+				return getActor();
+			return basicGetActor();
+		case SmartHomePackage.OCCURENCE__ACTION:
+			if (resolve)
+				return getAction();
+			return basicGetAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,11 +254,14 @@ public class OccurenceImpl extends MinimalEObjectImpl.Container implements Occur
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SmartHomePackage.OCCURENCE__EVENT:
-			setEvent((Event) newValue);
-			return;
 		case SmartHomePackage.OCCURENCE__OWNED_TIME:
 			setOwnedTime((HomeTimeStamp) newValue);
+			return;
+		case SmartHomePackage.OCCURENCE__ACTOR:
+			setActor((Actor) newValue);
+			return;
+		case SmartHomePackage.OCCURENCE__ACTION:
+			setAction((Action) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -216,11 +275,14 @@ public class OccurenceImpl extends MinimalEObjectImpl.Container implements Occur
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SmartHomePackage.OCCURENCE__EVENT:
-			setEvent((Event) null);
-			return;
 		case SmartHomePackage.OCCURENCE__OWNED_TIME:
 			setOwnedTime((HomeTimeStamp) null);
+			return;
+		case SmartHomePackage.OCCURENCE__ACTOR:
+			setActor((Actor) null);
+			return;
+		case SmartHomePackage.OCCURENCE__ACTION:
+			setAction((Action) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -234,10 +296,12 @@ public class OccurenceImpl extends MinimalEObjectImpl.Container implements Occur
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SmartHomePackage.OCCURENCE__EVENT:
-			return event != null;
 		case SmartHomePackage.OCCURENCE__OWNED_TIME:
 			return ownedTime != null;
+		case SmartHomePackage.OCCURENCE__ACTOR:
+			return actor != null;
+		case SmartHomePackage.OCCURENCE__ACTION:
+			return action != null;
 		}
 		return super.eIsSet(featureID);
 	}

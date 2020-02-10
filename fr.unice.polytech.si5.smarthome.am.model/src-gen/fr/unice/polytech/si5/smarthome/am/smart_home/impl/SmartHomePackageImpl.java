@@ -5,7 +5,6 @@ package fr.unice.polytech.si5.smarthome.am.smart_home.impl;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition;
-import fr.unice.polytech.si5.smarthome.am.smart_home.Event;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
 import fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp;
 import fr.unice.polytech.si5.smarthome.am.smart_home.NamedElement;
@@ -62,13 +61,6 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * @generated
 	 */
 	private EClass actionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass eventEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -250,44 +242,8 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getHome_OwnedEvents() {
-		return (EReference) homeEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAction() {
 		return actionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvent() {
-		return eventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEvent_Actor() {
-		return (EReference) eventEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEvent_Action() {
-		return (EReference) eventEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -304,7 +260,7 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOccurence_Event() {
+	public EReference getOccurence_OwnedTime() {
 		return (EReference) occurenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -313,8 +269,17 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOccurence_OwnedTime() {
+	public EReference getOccurence_Actor() {
 		return (EReference) occurenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOccurence_Action() {
+		return (EReference) occurenceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -331,7 +296,7 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCondition_Event() {
+	public EReference getCondition_Actions() {
 		return (EReference) conditionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -340,8 +305,26 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCondition_Actions() {
+	public EReference getCondition_OwnedTime() {
 		return (EReference) conditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCondition_Actor() {
+		return (EReference) conditionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCondition_Action() {
+		return (EReference) conditionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -422,21 +405,19 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		createEReference(homeEClass, HOME__OWNED_ACTORS);
 		createEReference(homeEClass, HOME__OWNED_OCCURENCES);
 		createEReference(homeEClass, HOME__OWNED_CONDITIONS);
-		createEReference(homeEClass, HOME__OWNED_EVENTS);
 
 		actionEClass = createEClass(ACTION);
 
-		eventEClass = createEClass(EVENT);
-		createEReference(eventEClass, EVENT__ACTOR);
-		createEReference(eventEClass, EVENT__ACTION);
-
 		occurenceEClass = createEClass(OCCURENCE);
-		createEReference(occurenceEClass, OCCURENCE__EVENT);
 		createEReference(occurenceEClass, OCCURENCE__OWNED_TIME);
+		createEReference(occurenceEClass, OCCURENCE__ACTOR);
+		createEReference(occurenceEClass, OCCURENCE__ACTION);
 
 		conditionEClass = createEClass(CONDITION);
-		createEReference(conditionEClass, CONDITION__EVENT);
 		createEReference(conditionEClass, CONDITION__ACTIONS);
+		createEReference(conditionEClass, CONDITION__OWNED_TIME);
+		createEReference(conditionEClass, CONDITION__ACTOR);
+		createEReference(conditionEClass, CONDITION__ACTION);
 
 		homeTimeStampEClass = createEClass(HOME_TIME_STAMP);
 		createEAttribute(homeTimeStampEClass, HOME_TIME_STAMP__HOUR);
@@ -476,7 +457,6 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		subjectEClass.getESuperTypes().add(this.getNamedElement());
 		actorEClass.getESuperTypes().add(this.getNamedElement());
 		actionEClass.getESuperTypes().add(this.getNamedElement());
-		eventEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
@@ -504,37 +484,35 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		initEReference(getHome_OwnedConditions(), this.getCondition(), null, "ownedConditions", null, 0, -1, Home.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getHome_OwnedEvents(), this.getEvent(), null, "ownedEvents", null, 0, -1, Home.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEvent_Actor(), this.getActor(), null, "actor", null, 1, 1, Event.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getEvent_Action(), this.getAction(), null, "action", null, 1, 1, Event.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-
 		initEClass(occurenceEClass, Occurence.class, "Occurence", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOccurence_Event(), this.getEvent(), null, "event", null, 1, 1, Occurence.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 		initEReference(getOccurence_OwnedTime(), this.getHomeTimeStamp(), null, "ownedTime", null, 1, 1,
 				Occurence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOccurence_Actor(), this.getActor(), null, "actor", null, 0, 1, Occurence.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getOccurence_Action(), this.getAction(), null, "action", null, 0, 1, Occurence.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCondition_Event(), this.getEvent(), null, "event", null, 1, 1, Condition.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 		initEReference(getCondition_Actions(), this.getAction(), null, "actions", null, 1, -1, Condition.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCondition_OwnedTime(), this.getHomeTimeStamp(), null, "ownedTime", null, 0, 1,
+				Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCondition_Actor(), this.getActor(), null, "actor", null, 0, 1, Condition.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getCondition_Action(), this.getAction(), null, "action", null, 0, 1, Condition.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(homeTimeStampEClass, HomeTimeStamp.class, "HomeTimeStamp", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

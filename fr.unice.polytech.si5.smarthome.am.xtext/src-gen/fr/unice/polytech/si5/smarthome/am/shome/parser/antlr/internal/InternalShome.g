@@ -170,47 +170,9 @@ ruleHome returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getHomeAccess().getOwnedEventsEventParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getHomeAccess().getOwnedConditionsConditionParserRuleCall_7_0());
 				}
-				lv_ownedEvents_7_0=ruleEvent
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getHomeRule());
-					}
-					add(
-						$current,
-						"ownedEvents",
-						lv_ownedEvents_7_0,
-						"fr.unice.polytech.si5.smarthome.am.shome.Shome.Event");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getHomeAccess().getOwnedEventsEventParserRuleCall_8_0());
-				}
-				lv_ownedEvents_8_0=ruleEvent
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getHomeRule());
-					}
-					add(
-						$current,
-						"ownedEvents",
-						lv_ownedEvents_8_0,
-						"fr.unice.polytech.si5.smarthome.am.shome.Shome.Event");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getHomeAccess().getOwnedConditionsConditionParserRuleCall_9_0());
-				}
-				lv_ownedConditions_9_0=ruleCondition
+				lv_ownedConditions_7_0=ruleCondition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getHomeRule());
@@ -218,7 +180,7 @@ ruleHome returns [EObject current=null]
 					add(
 						$current,
 						"ownedConditions",
-						lv_ownedConditions_9_0,
+						lv_ownedConditions_7_0,
 						"fr.unice.polytech.si5.smarthome.am.shome.Shome.Condition");
 					afterParserOrEnumRuleCall();
 				}
@@ -227,9 +189,9 @@ ruleHome returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getHomeAccess().getOwnedConditionsConditionParserRuleCall_10_0());
+					newCompositeNode(grammarAccess.getHomeAccess().getOwnedConditionsConditionParserRuleCall_8_0());
 				}
-				lv_ownedConditions_10_0=ruleCondition
+				lv_ownedConditions_8_0=ruleCondition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getHomeRule());
@@ -237,7 +199,7 @@ ruleHome returns [EObject current=null]
 					add(
 						$current,
 						"ownedConditions",
-						lv_ownedConditions_10_0,
+						lv_ownedConditions_8_0,
 						"fr.unice.polytech.si5.smarthome.am.shome.Shome.Condition");
 					afterParserOrEnumRuleCall();
 				}
@@ -246,9 +208,9 @@ ruleHome returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getHomeAccess().getOwnedOccurencesOccurenceParserRuleCall_11_0());
+					newCompositeNode(grammarAccess.getHomeAccess().getOwnedOccurencesOccurenceParserRuleCall_9_0());
 				}
-				lv_ownedOccurences_11_0=ruleOccurence
+				lv_ownedOccurences_9_0=ruleOccurence
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getHomeRule());
@@ -256,7 +218,7 @@ ruleHome returns [EObject current=null]
 					add(
 						$current,
 						"ownedOccurences",
-						lv_ownedOccurences_11_0,
+						lv_ownedOccurences_9_0,
 						"fr.unice.polytech.si5.smarthome.am.shome.Shome.Occurence");
 					afterParserOrEnumRuleCall();
 				}
@@ -265,9 +227,9 @@ ruleHome returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getHomeAccess().getOwnedOccurencesOccurenceParserRuleCall_12_0());
+					newCompositeNode(grammarAccess.getHomeAccess().getOwnedOccurencesOccurenceParserRuleCall_10_0());
 				}
-				lv_ownedOccurences_12_0=ruleOccurence
+				lv_ownedOccurences_10_0=ruleOccurence
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getHomeRule());
@@ -275,15 +237,15 @@ ruleHome returns [EObject current=null]
 					add(
 						$current,
 						"ownedOccurences",
-						lv_ownedOccurences_12_0,
+						lv_ownedOccurences_10_0,
 						"fr.unice.polytech.si5.smarthome.am.shome.Shome.Occurence");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_13='}'
+		otherlv_11='}'
 		{
-			newLeafNode(otherlv_13, grammarAccess.getHomeAccess().getRightCurlyBracketKeyword_13());
+			newLeafNode(otherlv_11, grammarAccess.getHomeAccess().getRightCurlyBracketKeyword_11());
 		}
 	)
 ;
@@ -472,13 +434,35 @@ ruleOccurence returns [EObject current=null]
 		}
 		(
 			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getOccurenceRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getOccurenceAccess().getActorActorCrossReference_2_0_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_3='do'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getOccurenceAccess().getDoKeyword_2_1());
+			}
+		)?
+		(
+			(
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getOccurenceRule());
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getOccurenceAccess().getEventEventCrossReference_2_0());
+					newCompositeNode(grammarAccess.getOccurenceAccess().getActionActionCrossReference_3_0());
 				}
 				ruleEString
 				{
@@ -511,13 +495,35 @@ ruleCondition returns [EObject current=null]
 		}
 		(
 			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getConditionRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getConditionAccess().getActorActorCrossReference_1_0_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_2='do'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getDoKeyword_1_1());
+			}
+		)?
+		(
+			(
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getConditionRule());
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getConditionAccess().getEventEventCrossReference_1_0());
+					newCompositeNode(grammarAccess.getConditionAccess().getActionActionCrossReference_2_0());
 				}
 				ruleEString
 				{
@@ -525,9 +531,9 @@ ruleCondition returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='then'
+		otherlv_4='then'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getThenKeyword_2());
+			newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getThenKeyword_3());
 		}
 		(
 			(
@@ -537,7 +543,7 @@ ruleCondition returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getConditionAccess().getActionsActionCrossReference_3_0());
+					newCompositeNode(grammarAccess.getConditionAccess().getActionsActionCrossReference_4_0());
 				}
 				ruleEString
 				{
@@ -546,9 +552,9 @@ ruleCondition returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_4='and'
+			otherlv_6='and'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getAndKeyword_4_0());
+				newLeafNode(otherlv_6, grammarAccess.getConditionAccess().getAndKeyword_5_0());
 			}
 			(
 				(
@@ -558,7 +564,7 @@ ruleCondition returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getConditionAccess().getActionsActionCrossReference_4_1_0());
+						newCompositeNode(grammarAccess.getConditionAccess().getActionsActionCrossReference_5_1_0());
 					}
 					ruleEString
 					{
@@ -645,88 +651,6 @@ ruleHomeTimeStamp returns [EObject current=null]
 						"sec",
 						lv_sec_4_0,
 						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-	)
-;
-
-// Entry rule entryRuleEvent
-entryRuleEvent returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEventRule()); }
-	iv_ruleEvent=ruleEvent
-	{ $current=$iv_ruleEvent.current; }
-	EOF;
-
-// Rule Event
-ruleEvent returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='Event'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getEventAccess().getEventKeyword_0());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEventAccess().getNameEStringParserRuleCall_1_0());
-				}
-				lv_name_1_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEventRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_1_0,
-						"fr.unice.polytech.si5.smarthome.am.shome.Shome.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_2=':'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getEventAccess().getColonKeyword_2());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEventRule());
-					}
-				}
-				{
-					newCompositeNode(grammarAccess.getEventAccess().getActorActorCrossReference_3_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4='do'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getEventAccess().getDoKeyword_4());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEventRule());
-					}
-				}
-				{
-					newCompositeNode(grammarAccess.getEventAccess().getActionActionCrossReference_5_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
 				}
 			)
 		)

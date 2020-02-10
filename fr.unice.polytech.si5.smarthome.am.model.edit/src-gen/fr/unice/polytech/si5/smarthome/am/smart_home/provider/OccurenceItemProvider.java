@@ -55,6 +55,8 @@ public class OccurenceItemProvider extends ItemProviderAdapter implements IEditi
 			super.getPropertyDescriptors(object);
 
 			addOwnedTimePropertyDescriptor(object);
+			addActorPropertyDescriptor(object);
+			addActionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -72,6 +74,36 @@ public class OccurenceItemProvider extends ItemProviderAdapter implements IEditi
 						getString("_UI_PropertyDescriptor_description", "_UI_Occurence_ownedTime_feature",
 								"_UI_Occurence_type"),
 						SmartHomePackage.Literals.OCCURENCE__OWNED_TIME, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Actor feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Occurence_actor_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Occurence_actor_feature",
+								"_UI_Occurence_type"),
+						SmartHomePackage.Literals.OCCURENCE__ACTOR, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Action feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Occurence_action_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Occurence_action_feature",
+								"_UI_Occurence_type"),
+						SmartHomePackage.Literals.OCCURENCE__ACTION, true, false, true, null, null, null));
 	}
 
 	/**

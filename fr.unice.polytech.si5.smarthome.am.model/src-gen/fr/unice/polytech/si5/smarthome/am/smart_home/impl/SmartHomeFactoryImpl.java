@@ -64,8 +64,6 @@ public class SmartHomeFactoryImpl extends EFactoryImpl implements SmartHomeFacto
 			return createHome();
 		case SmartHomePackage.ACTION:
 			return createAction();
-		case SmartHomePackage.EVENT:
-			return createEvent();
 		case SmartHomePackage.OCCURENCE:
 			return createOccurence();
 		case SmartHomePackage.CONDITION:
@@ -115,16 +113,6 @@ public class SmartHomeFactoryImpl extends EFactoryImpl implements SmartHomeFacto
 	public Action createAction() {
 		ActionImpl action = new ActionImpl();
 		return action;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Event createEvent() {
-		EventImpl event = new EventImpl();
-		return event;
 	}
 
 	/**

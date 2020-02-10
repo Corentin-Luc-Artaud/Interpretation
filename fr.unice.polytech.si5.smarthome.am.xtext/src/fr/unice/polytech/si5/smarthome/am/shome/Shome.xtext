@@ -10,7 +10,6 @@ Home returns Home:
 	'{'
 		ownedSubjects+=Subject (ownedSubjects+=Subject)*
 		ownedActors+=Actor (ownedActors+=Actor)*
-		ownedEvents+=Event (ownedEvents+=Event)*
 		ownedConditions+=Condition (ownedConditions+=Condition)*
 		ownedOccurences+=Occurence (ownedOccurences+=Occurence)*
 	'}';
@@ -26,19 +25,13 @@ Actor returns Actor:
 	name=EString;
 
 Occurence returns Occurence:
-	ownedTime=HomeTimeStamp '->' event=[Event|EString];
+	ownedTime=HomeTimeStamp '->' (actor=[Actor|EString] 'do')? action=[Action|EString];
 
 Condition returns Condition:
-	'if' event=[Event|EString] 'then' actions+=[Action|EString] ( 'and' actions+=[Action|EString])*;
+	'if' (actor=[Actor|EString] 'do')? action=[Action|EString] 'then' actions+=[Action|EString] ( 'and' actions+=[Action|EString])*;
 	
 HomeTimeStamp returns HomeTimeStamp:
 	hour=INT ':' min=INT ':' sec=INT;
-
-
-Event returns Event:
-	'Event'
-	name=EString
-	':' actor=[Actor|EString]  'do' action=[Action|EString];
 
 EString returns ecore::EString:
 	STRING | ID;

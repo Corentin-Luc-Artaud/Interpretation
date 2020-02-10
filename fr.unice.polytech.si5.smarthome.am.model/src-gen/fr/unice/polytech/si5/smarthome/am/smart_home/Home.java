@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedActors <em>Owned Actors</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedOccurences <em>Owned Occurences</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedConditions <em>Owned Conditions</em>}</li>
- *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedEvents <em>Owned Events</em>}</li>
  * </ul>
  *
  * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getHome()
@@ -90,21 +89,5 @@ public interface Home extends EObject {
 	 * @generated
 	 */
 	EList<Condition> getOwnedConditions();
-
-	/**
-	 * Returns the value of the '<em><b>Owned Events</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.unice.polytech.si5.smarthome.am.smart_home.Event}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Owned Events</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owned Events</em>' containment reference list.
-	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getHome_OwnedEvents()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Event> getOwnedEvents();
 
 } // Home

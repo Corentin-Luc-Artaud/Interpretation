@@ -165,29 +165,6 @@ public class SmartHomeItemProviderAdapterFactory extends SmartHomeAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.si5.smarthome.am.smart_home.Event} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EventItemProvider eventItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.unice.polytech.si5.smarthome.am.smart_home.Event}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEventAdapter() {
-		if (eventItemProvider == null) {
-			eventItemProvider = new EventItemProvider(this);
-		}
-
-		return eventItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.si5.smarthome.am.smart_home.Occurence} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -363,8 +340,6 @@ public class SmartHomeItemProviderAdapterFactory extends SmartHomeAdapterFactory
 			homeItemProvider.dispose();
 		if (actionItemProvider != null)
 			actionItemProvider.dispose();
-		if (eventItemProvider != null)
-			eventItemProvider.dispose();
 		if (occurenceItemProvider != null)
 			occurenceItemProvider.dispose();
 		if (conditionItemProvider != null)

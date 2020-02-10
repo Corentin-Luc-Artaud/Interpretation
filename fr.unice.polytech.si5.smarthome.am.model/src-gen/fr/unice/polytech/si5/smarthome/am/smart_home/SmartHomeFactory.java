@@ -58,15 +58,6 @@ public interface SmartHomeFactory extends EFactory {
 	Action createAction();
 
 	/**
-	 * Returns a new object of class '<em>Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Event</em>'.
-	 * @generated
-	 */
-	Event createEvent();
-
-	/**
 	 * Returns a new object of class '<em>Occurence</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

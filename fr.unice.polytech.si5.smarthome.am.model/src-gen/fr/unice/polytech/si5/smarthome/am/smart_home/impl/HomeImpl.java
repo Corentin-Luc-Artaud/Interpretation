@@ -4,7 +4,6 @@ package fr.unice.polytech.si5.smarthome.am.smart_home.impl;
 
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition;
-import fr.unice.polytech.si5.smarthome.am.smart_home.Event;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence;
 import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage;
@@ -36,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedActors <em>Owned Actors</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedOccurences <em>Owned Occurences</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedConditions <em>Owned Conditions</em>}</li>
- *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedEvents <em>Owned Events</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,16 +79,6 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 	 * @ordered
 	 */
 	protected EList<Condition> ownedConditions;
-
-	/**
-	 * The cached value of the '{@link #getOwnedEvents() <em>Owned Events</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedEvents()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Event> ownedEvents;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,18 +155,6 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Event> getOwnedEvents() {
-		if (ownedEvents == null) {
-			ownedEvents = new EObjectContainmentEList<Event>(Event.class, this, SmartHomePackage.HOME__OWNED_EVENTS);
-		}
-		return ownedEvents;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -190,8 +166,6 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			return ((InternalEList<?>) getOwnedOccurences()).basicRemove(otherEnd, msgs);
 		case SmartHomePackage.HOME__OWNED_CONDITIONS:
 			return ((InternalEList<?>) getOwnedConditions()).basicRemove(otherEnd, msgs);
-		case SmartHomePackage.HOME__OWNED_EVENTS:
-			return ((InternalEList<?>) getOwnedEvents()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -212,8 +186,6 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			return getOwnedOccurences();
 		case SmartHomePackage.HOME__OWNED_CONDITIONS:
 			return getOwnedConditions();
-		case SmartHomePackage.HOME__OWNED_EVENTS:
-			return getOwnedEvents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -243,10 +215,6 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			getOwnedConditions().clear();
 			getOwnedConditions().addAll((Collection<? extends Condition>) newValue);
 			return;
-		case SmartHomePackage.HOME__OWNED_EVENTS:
-			getOwnedEvents().clear();
-			getOwnedEvents().addAll((Collection<? extends Event>) newValue);
-			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -271,9 +239,6 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 		case SmartHomePackage.HOME__OWNED_CONDITIONS:
 			getOwnedConditions().clear();
 			return;
-		case SmartHomePackage.HOME__OWNED_EVENTS:
-			getOwnedEvents().clear();
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -294,8 +259,6 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			return ownedOccurences != null && !ownedOccurences.isEmpty();
 		case SmartHomePackage.HOME__OWNED_CONDITIONS:
 			return ownedConditions != null && !ownedConditions.isEmpty();
-		case SmartHomePackage.HOME__OWNED_EVENTS:
-			return ownedEvents != null && !ownedEvents.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
