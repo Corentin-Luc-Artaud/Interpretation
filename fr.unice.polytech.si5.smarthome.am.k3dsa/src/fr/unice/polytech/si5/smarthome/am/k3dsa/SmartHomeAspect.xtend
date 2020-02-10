@@ -18,64 +18,59 @@ import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspect
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.SmartHomeAspect.*
 
 
-import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action
-import fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeTimeStampImpl
-import fr.unice.polytech.si5.smarthome.am.smart_home.impl.OccurenceImpl
-import fr.unice.polytech.si5.smarthome.am.smart_home.util.SmartHomeAdapterFactory
-import fr.unice.polytech.si5.smarthome.am.smart_home.impl.SmartHomeFactoryImpl
-import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomeFactory
+import fr.unice.polytech.si5.smarthome.am.smart_home.Actor
 
 /**
  * Sample aspect that gives java.io.File the ability to store Text content and save it to disk
  */
 @Aspect(className=Home)
 class SmartHomeAspect {	
-	private Integer curtime
-	private Queue<Occurence> pendingEvents;
+	Integer curtime
+    Queue<AbstractOccurence> pendingEvents
 	
 	@Main
-	public def void execute(){		
+	def void execute(){		
 		_self.curtime = 0
-		_self.pendingEvents = new LinkedList<Occurence>()
+		_self.pendingEvents = new LinkedList<AbstractOccurence>()
+		_self.prepareOccurences()
 		_self.loop()
 	}
 	
-	private def void loop() {
-		var Integer curpos = 0;
-		for (; _self.curtime < 24*60*60; _self.curtime = _self.curtime+1) {
-			if (curpos < _self.ownedOccurences.length) {
-				if (_self.ownedOccurences.get(curpos).ownedTime.toSec() == _self.curtime) {
-					_self.pendingEvents.add(_self.ownedOccurences.get(curpos))
-					curpos++
-				}
-			}
-			_self.triggerAllPendingEvents()
+	private def void prepareOccurences() {
+		for (Occurence occurence : _self.ownedOccurences) {
+			var AbstractOccurence o = occurence.toAbstractOccurence()
+			_self.pendingEvents.add(o)
 		}
-		_self.curtime = 0
-		//_self.loop()
+		_self.pendingEvents.sortBy[timestamp]
 	}
 	
-	public def void addPendingEvent(Occurence occurence) {
+	private def void loop() {
+		for (; _self.curtime < 24*60*60; _self.curtime = _self.curtime+1) {
+			_self.tick()
+		}
+		_self.curtime = 0
+	}
+	
+	private def void tick() {
+		while (_self.pendingEvents.peek() !== null && _self.pendingEvents.peek().timestamp == _self.curtime) {
+			_self.pendingEvents.poll().happenNow(_self)
+		}	
+	}
+	
+	def void addPendingEvent(AbstractOccurence occurence) {
 		_self.pendingEvents.add(occurence)
+		_self.pendingEvents.sortBy[timestamp]		
 	}
 	
 	@Step
-	public def void addNewOccurenceOfAction(Action action, HomeTimeStamp timestamp) {
-		val Occurence occurence = SmartHomeFactory.eINSTANCE.createOccurence()
-		occurence.action = action
-		occurence.ownedTime = timestamp.clone()
+	def void addNewOccurenceOfAction(Action action, Integer timestamp) {
+		val AbstractOccurence occurence = new AbstractOccurence(timestamp, action, null)
 		_self.addPendingEvent(occurence);
 	}
 	
-	private def void triggerAllPendingEvents() {
-		while(! _self.pendingEvents.isEmpty()) {
-			_self.pendingEvents.poll().happenNow(_self)
-		}
-	}
-	
-	def public Integer wichTime() {
+	def Integer wichTime() {
 		return _self.curtime
 	}
 }
@@ -84,41 +79,54 @@ class SmartHomeAspect {
 @Aspect(className = Occurence)
 class OccurenceAspect {
 	
-	def public void happenNow(Home home) {
-		println(""+_self.ownedTime.toSec()+" : "+_self.action.name)
+	def AbstractOccurence toAbstractOccurence() {
+		return new AbstractOccurence(_self.ownedTime.toSec(), _self.action, _self.actor)
+	}
+	
+}
+
+class AbstractOccurence {
+	public Integer timestamp
+	public Actor actor
+	public Action action
+	
+	new(Integer timestamp, Action action, Actor actor) {
+		this.timestamp = timestamp
+		this.action = action
+		this.actor = actor
+	}
+	
+	@Step
+	def void happenNow(Home home) {
+		println(""+this.timestamp+" : "+this.action.name)
 		//check all condition
 		for (Condition condition: home.ownedConditions) {
-			condition.tryTrigger(_self)
+			condition.tryTrigger(this)
 		}
 		
 	}
 	
+	override String toString() {
+		return "{ "+this.action+" "+this.timestamp+" "+" }"
+	}
 }
 
 @Aspect(className=HomeTimeStamp)
 class HomeTimeStampAspect {
-	def public Integer toSec() {
+	def Integer toSec() {
 		return _self.sec+_self.min*60+_self.hour*24*60
 	}
 	
-	def public HomeTimeStamp clone() {
-		val HomeTimeStamp timeStamp = SmartHomeFactory.eINSTANCE.createHomeTimeStamp()
-		timeStamp.min = _self.min;
-		timeStamp.sec = _self.sec;
-		timeStamp.hour = _self.hour;
-		return timeStamp;
-	}
 }
 
 @Aspect(className=Condition)
 class ConditionAspect {
-	@Step
-	def public void tryTrigger(Occurence occurence) {
+	def void tryTrigger(AbstractOccurence occurence) {
 		if(occurence.action == _self.action){
 			//TODO : add condition with Actor & Time
 			for (Action a: _self.actions) {
-				a.trigger(occurence.ownedTime.toSec())
-				(_self.eContainer() as Home).addNewOccurenceOfAction(a, occurence.ownedTime)
+				a.trigger(occurence.timestamp)
+				(_self.eContainer() as Home).addNewOccurenceOfAction(a, occurence.timestamp)
 			}
 		}
 	}
@@ -127,7 +135,7 @@ class ConditionAspect {
 @Aspect(className=Action)
 class ActionAspect {
 	@Step
-	def public void trigger(Integer time) {
+	def void trigger(Integer time) {
 		println(""+time+" -> "+_self.name+" triggered")
 	}
 }
