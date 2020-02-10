@@ -3,7 +3,7 @@ package fr.unice.polytech.si5.smarthome.am.k3dsa;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.HomeTimeStampAspectHomeTimeStampAspectProperties;
 import fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp;
-import fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeTimeStampImpl;
+import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomeFactory;
 
 @Aspect(className = HomeTimeStamp.class)
 @SuppressWarnings("all")
@@ -40,7 +40,7 @@ public class HomeTimeStampAspect {
   }
   
   protected static HomeTimeStamp _privk3_clone(final HomeTimeStampAspectHomeTimeStampAspectProperties _self_, final HomeTimeStamp _self) {
-    final HomeTimeStamp timeStamp = new HomeTimeStampImpl();
+    final HomeTimeStamp timeStamp = SmartHomeFactory.eINSTANCE.createHomeTimeStamp();
     timeStamp.setMin(_self.getMin());
     timeStamp.setSec(_self.getSec());
     timeStamp.setHour(_self.getHour());

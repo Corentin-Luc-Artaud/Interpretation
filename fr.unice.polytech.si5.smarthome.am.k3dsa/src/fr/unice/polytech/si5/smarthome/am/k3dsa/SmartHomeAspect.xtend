@@ -23,6 +23,9 @@ import fr.unice.polytech.si5.smarthome.am.smart_home.Condition
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action
 import fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeTimeStampImpl
 import fr.unice.polytech.si5.smarthome.am.smart_home.impl.OccurenceImpl
+import fr.unice.polytech.si5.smarthome.am.smart_home.util.SmartHomeAdapterFactory
+import fr.unice.polytech.si5.smarthome.am.smart_home.impl.SmartHomeFactoryImpl
+import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomeFactory
 
 /**
  * Sample aspect that gives java.io.File the ability to store Text content and save it to disk
@@ -60,7 +63,7 @@ class SmartHomeAspect {
 	
 	@Step
 	public def void addNewOccurenceOfAction(Action action, HomeTimeStamp timestamp) {
-		val Occurence occurence = new OccurenceImpl()
+		val Occurence occurence = SmartHomeFactory.eINSTANCE.createOccurence()
 		occurence.action = action
 		occurence.ownedTime = timestamp.clone()
 		_self.addPendingEvent(occurence);
@@ -99,7 +102,7 @@ class HomeTimeStampAspect {
 	}
 	
 	def public HomeTimeStamp clone() {
-		val HomeTimeStamp timeStamp = new HomeTimeStampImpl();
+		val HomeTimeStamp timeStamp = SmartHomeFactory.eINSTANCE.createHomeTimeStamp()
 		timeStamp.min = _self.min;
 		timeStamp.sec = _self.sec;
 		timeStamp.hour = _self.hour;
