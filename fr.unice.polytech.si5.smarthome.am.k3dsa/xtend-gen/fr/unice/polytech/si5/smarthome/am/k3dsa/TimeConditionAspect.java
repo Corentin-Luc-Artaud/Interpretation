@@ -6,8 +6,8 @@ import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.AbstractOccurence;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.ActionAspect;
+import fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.HomeTimeStampAspect;
-import fr.unice.polytech.si5.smarthome.am.k3dsa.SmartHomeAspect;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.TimeConditionAspectTimeEleapsedConditionAspectProperties;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
@@ -38,7 +38,7 @@ public class TimeConditionAspect extends AConditionAspect {
           EObject _eContainer = _self.eContainer();
           Integer _sec = HomeTimeStampAspect.toSec(_self.getOwnedTimestampEleapsed());
           int _plus = ((occurence.timestamp).intValue() + (_sec).intValue());
-          SmartHomeAspect.addNewOccurenceOfAction(((Home) _eContainer), a, Integer.valueOf(_plus));
+          HomeAspect.addNewOccurenceOfAction(((Home) _eContainer), a, Integer.valueOf(_plus));
         }
       }
     }

@@ -14,4 +14,4 @@ Require-Bundle: fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version
  fr.unice.polytech.si5.smarthome.am.model;bundle-version="0.1.0",
  org.aspectj.runtime;bundle-version=0.0.0;visibility:=reexport
 Bundle-ManifestVersion: 2
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8,JavaSE-1.7

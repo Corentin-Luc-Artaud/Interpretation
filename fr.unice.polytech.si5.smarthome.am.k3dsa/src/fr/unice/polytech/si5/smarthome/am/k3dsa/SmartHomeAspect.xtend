@@ -15,14 +15,13 @@ import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.OccurenceAspect
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.HomeTimeStampAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.ActionAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect.*
-import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.SmartHomeAspect.*
+import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect.*
 
 
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor
 import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition
-import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition
 
@@ -30,9 +29,9 @@ import fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition
  * Sample aspect that gives java.io.File the ability to store Text content and save it to disk
  */
 @Aspect(className=Home)
-class SmartHomeAspect {	
-	Integer curtime
-    Queue<AbstractOccurence> pendingEvents
+class HomeAspect {	
+	public Integer curtime = 0;
+    public var Queue<AbstractOccurence> pendingEvents
 	
 	@Main
 	def void execute(){		
@@ -90,9 +89,9 @@ class OccurenceAspect {
 }
 
 class AbstractOccurence {
-	public Integer timestamp
-	public Actor actor
-	public Action action
+	public var Integer timestamp
+	public var Actor actor
+	public var Action action
 	
 	new(Integer timestamp, Action action, Actor actor) {
 		this.timestamp = timestamp
@@ -128,8 +127,10 @@ abstract class AConditionAspect {
 	def abstract void tryTrigger(AbstractOccurence occurence)
 }
 
+
 @Aspect(className=Condition)
 class ConditionAspect extends AConditionAspect{
+	public var Integer iiii = 0;
 	//@ReplaceAspectMethod
 	@OverrideAspectMethod
 	def void tryTrigger(AbstractOccurence occurence) {

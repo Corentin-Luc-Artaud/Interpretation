@@ -47,8 +47,14 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Home:
-		//	{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor* ownedConditions+=ACondition
-		//	ownedConditions+=ACondition* ownedOccurences+=Occurence ownedOccurences+=Occurence* '}';
+		//	{Home}
+		//	'Home'
+		//	'{'
+		//	ownedSubjects+=Subject ownedSubjects+=Subject*
+		//	ownedActors+=Actor*
+		//	ownedConditions+=ACondition ownedConditions+=ACondition*
+		//	ownedOccurences+=Occurence ownedOccurences+=Occurence*
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor* ownedConditions+=ACondition
@@ -125,7 +131,9 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOwnedActionsActionParserRuleCall_5_1_0 = (RuleCall)cOwnedActionsAssignment_5_1.eContents().get(0);
 		
 		//Subject:
-		//	'Subject' name=EString 'ownedActions' ':' ownedActions+=Action ("-" ownedActions+=Action)*;
+		//	'Subject'
+		//	name=EString
+		//	'ownedActions' ':' ownedActions+=Action ("-" ownedActions+=Action)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Subject' name=EString 'ownedActions' ':' ownedActions+=Action ("-" ownedActions+=Action)*
@@ -173,7 +181,9 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//Actor:
-		//	{Actor} 'Actor' name=EString;
+		//	{Actor}
+		//	'Actor'
+		//	name=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Actor} 'Actor' name=EString
@@ -574,8 +584,14 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Home:
-	//	{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor* ownedConditions+=ACondition
-	//	ownedConditions+=ACondition* ownedOccurences+=Occurence ownedOccurences+=Occurence* '}';
+	//	{Home}
+	//	'Home'
+	//	'{'
+	//	ownedSubjects+=Subject ownedSubjects+=Subject*
+	//	ownedActors+=Actor*
+	//	ownedConditions+=ACondition ownedConditions+=ACondition*
+	//	ownedOccurences+=Occurence ownedOccurences+=Occurence*
+	//	'}';
 	public HomeElements getHomeAccess() {
 		return pHome;
 	}
@@ -585,7 +601,9 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Subject:
-	//	'Subject' name=EString 'ownedActions' ':' ownedActions+=Action ("-" ownedActions+=Action)*;
+	//	'Subject'
+	//	name=EString
+	//	'ownedActions' ':' ownedActions+=Action ("-" ownedActions+=Action)*;
 	public SubjectElements getSubjectAccess() {
 		return pSubject;
 	}
@@ -595,7 +613,9 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Actor:
-	//	{Actor} 'Actor' name=EString;
+	//	{Actor}
+	//	'Actor'
+	//	name=EString;
 	public ActorElements getActorAccess() {
 		return pActor;
 	}
