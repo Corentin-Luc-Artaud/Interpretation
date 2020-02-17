@@ -18,7 +18,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedOccurences" upperBound="-1"
         eType="#//Occurence" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedConditions" upperBound="-1"
-        eType="#//Condition" containment="true"/>
+        eType="#//ACondition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Occurence">
@@ -28,11 +28,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" unique="false"
         eType="#//Action"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+  <eClassifiers xsi:type="ecore:EClass" name="ACondition" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" unique="false"
         lowerBound="1" upperBound="-1" eType="#//Action"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedTime" unique="false"
-        eType="#//HomeTimeStamp" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" unique="false"
         eType="#//Action"/>
@@ -41,5 +39,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hour" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="#//ACondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeEleapsedCondition" eSuperTypes="#//ACondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedTimestampEleapsed"
+        lowerBound="1" eType="#//HomeTimeStamp" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

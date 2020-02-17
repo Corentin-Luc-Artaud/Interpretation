@@ -76,6 +76,15 @@ public interface SmartHomeFactory extends EFactory {
 	Condition createCondition();
 
 	/**
+	 * Returns a new object of class '<em>Time Eleapsed Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Time Eleapsed Condition</em>'.
+	 * @generated
+	 */
+	TimeEleapsedCondition createTimeEleapsedCondition();
+
+	/**
 	 * Returns a new object of class '<em>Home Time Stamp</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

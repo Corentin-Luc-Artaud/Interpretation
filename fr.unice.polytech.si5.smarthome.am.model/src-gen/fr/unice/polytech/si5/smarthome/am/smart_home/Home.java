@@ -76,7 +76,7 @@ public interface Home extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Owned Conditions</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition}.
+	 * The list contents are of type {@link fr.unice.polytech.si5.smarthome.am.smart_home.ACondition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Owned Conditions</em>' containment reference list isn't clear,
@@ -88,6 +88,6 @@ public interface Home extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Condition> getOwnedConditions();
+	EList<ACondition> getOwnedConditions();
 
 } // Home

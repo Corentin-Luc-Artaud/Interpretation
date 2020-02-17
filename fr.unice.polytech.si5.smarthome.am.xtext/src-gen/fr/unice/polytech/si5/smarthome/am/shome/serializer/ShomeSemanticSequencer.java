@@ -12,6 +12,7 @@ import fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence;
 import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Subject;
+import fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -58,6 +59,9 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case SmartHomePackage.SUBJECT:
 				sequence_Subject(context, (Subject) semanticObject); 
 				return; 
+			case SmartHomePackage.TIME_ELEAPSED_CONDITION:
+				sequence_TimeEleapsedCondition(context, (TimeEleapsedCondition) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -101,6 +105,7 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ACondition returns Condition
 	 *     Condition returns Condition
 	 *
 	 * Constraint:
@@ -143,10 +148,9 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (
 	 *         ownedSubjects+=Subject 
 	 *         ownedSubjects+=Subject* 
-	 *         ownedActors+=Actor 
 	 *         ownedActors+=Actor* 
-	 *         ownedConditions+=Condition 
-	 *         ownedConditions+=Condition* 
+	 *         ownedConditions+=ACondition 
+	 *         ownedConditions+=ACondition* 
 	 *         ownedOccurences+=Occurence 
 	 *         ownedOccurences+=Occurence*
 	 *     )
@@ -176,6 +180,19 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (name=EString ownedActions+=Action ownedActions+=Action*)
 	 */
 	protected void sequence_Subject(ISerializationContext context, Subject semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ACondition returns TimeEleapsedCondition
+	 *     TimeEleapsedCondition returns TimeEleapsedCondition
+	 *
+	 * Constraint:
+	 *     (action=[Action|EString] ownedTimestampEleapsed=HomeTimeStamp actions+=[Action|EString] actions+=[Action|EString]*)
+	 */
+	protected void sequence_TimeEleapsedCondition(ISerializationContext context, TimeEleapsedCondition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

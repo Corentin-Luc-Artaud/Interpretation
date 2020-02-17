@@ -31,6 +31,7 @@ public class ShomeParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, ShomeGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getAConditionAccess().getAlternatives(), "rule__ACondition__Alternatives");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getHomeAccess().getGroup(), "rule__Home__Group__0");
 			builder.put(grammarAccess.getSubjectAccess().getGroup(), "rule__Subject__Group__0");
@@ -38,6 +39,8 @@ public class ShomeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getActorAccess().getGroup(), "rule__Actor__Group__0");
 			builder.put(grammarAccess.getOccurenceAccess().getGroup(), "rule__Occurence__Group__0");
 			builder.put(grammarAccess.getOccurenceAccess().getGroup_2(), "rule__Occurence__Group_2__0");
+			builder.put(grammarAccess.getTimeEleapsedConditionAccess().getGroup(), "rule__TimeEleapsedCondition__Group__0");
+			builder.put(grammarAccess.getTimeEleapsedConditionAccess().getGroup_6(), "rule__TimeEleapsedCondition__Group_6__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup_1(), "rule__Condition__Group_1__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup_5(), "rule__Condition__Group_5__0");
@@ -46,11 +49,10 @@ public class ShomeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getHomeAccess().getOwnedSubjectsAssignment_3(), "rule__Home__OwnedSubjectsAssignment_3");
 			builder.put(grammarAccess.getHomeAccess().getOwnedSubjectsAssignment_4(), "rule__Home__OwnedSubjectsAssignment_4");
 			builder.put(grammarAccess.getHomeAccess().getOwnedActorsAssignment_5(), "rule__Home__OwnedActorsAssignment_5");
-			builder.put(grammarAccess.getHomeAccess().getOwnedActorsAssignment_6(), "rule__Home__OwnedActorsAssignment_6");
+			builder.put(grammarAccess.getHomeAccess().getOwnedConditionsAssignment_6(), "rule__Home__OwnedConditionsAssignment_6");
 			builder.put(grammarAccess.getHomeAccess().getOwnedConditionsAssignment_7(), "rule__Home__OwnedConditionsAssignment_7");
-			builder.put(grammarAccess.getHomeAccess().getOwnedConditionsAssignment_8(), "rule__Home__OwnedConditionsAssignment_8");
+			builder.put(grammarAccess.getHomeAccess().getOwnedOccurencesAssignment_8(), "rule__Home__OwnedOccurencesAssignment_8");
 			builder.put(grammarAccess.getHomeAccess().getOwnedOccurencesAssignment_9(), "rule__Home__OwnedOccurencesAssignment_9");
-			builder.put(grammarAccess.getHomeAccess().getOwnedOccurencesAssignment_10(), "rule__Home__OwnedOccurencesAssignment_10");
 			builder.put(grammarAccess.getSubjectAccess().getNameAssignment_1(), "rule__Subject__NameAssignment_1");
 			builder.put(grammarAccess.getSubjectAccess().getOwnedActionsAssignment_4(), "rule__Subject__OwnedActionsAssignment_4");
 			builder.put(grammarAccess.getSubjectAccess().getOwnedActionsAssignment_5_1(), "rule__Subject__OwnedActionsAssignment_5_1");
@@ -58,6 +60,10 @@ public class ShomeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOccurenceAccess().getOwnedTimeAssignment_0(), "rule__Occurence__OwnedTimeAssignment_0");
 			builder.put(grammarAccess.getOccurenceAccess().getActorAssignment_2_0(), "rule__Occurence__ActorAssignment_2_0");
 			builder.put(grammarAccess.getOccurenceAccess().getActionAssignment_3(), "rule__Occurence__ActionAssignment_3");
+			builder.put(grammarAccess.getTimeEleapsedConditionAccess().getActionAssignment_1(), "rule__TimeEleapsedCondition__ActionAssignment_1");
+			builder.put(grammarAccess.getTimeEleapsedConditionAccess().getOwnedTimestampEleapsedAssignment_3(), "rule__TimeEleapsedCondition__OwnedTimestampEleapsedAssignment_3");
+			builder.put(grammarAccess.getTimeEleapsedConditionAccess().getActionsAssignment_5(), "rule__TimeEleapsedCondition__ActionsAssignment_5");
+			builder.put(grammarAccess.getTimeEleapsedConditionAccess().getActionsAssignment_6_1(), "rule__TimeEleapsedCondition__ActionsAssignment_6_1");
 			builder.put(grammarAccess.getConditionAccess().getActorAssignment_1_0(), "rule__Condition__ActorAssignment_1_0");
 			builder.put(grammarAccess.getConditionAccess().getActionAssignment_2(), "rule__Condition__ActionAssignment_2");
 			builder.put(grammarAccess.getConditionAccess().getActionsAssignment_4(), "rule__Condition__ActionsAssignment_4");

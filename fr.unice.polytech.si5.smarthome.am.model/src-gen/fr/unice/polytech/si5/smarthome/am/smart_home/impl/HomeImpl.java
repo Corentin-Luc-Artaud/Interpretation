@@ -2,8 +2,8 @@
  */
 package fr.unice.polytech.si5.smarthome.am.smart_home.impl;
 
+import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
-import fr.unice.polytech.si5.smarthome.am.smart_home.Condition;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence;
 import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage;
@@ -78,7 +78,7 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Condition> ownedConditions;
+	protected EList<ACondition> ownedConditions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,9 +142,9 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Condition> getOwnedConditions() {
+	public EList<ACondition> getOwnedConditions() {
 		if (ownedConditions == null) {
-			ownedConditions = new EObjectContainmentEList<Condition>(Condition.class, this,
+			ownedConditions = new EObjectContainmentEList<ACondition>(ACondition.class, this,
 					SmartHomePackage.HOME__OWNED_CONDITIONS);
 		}
 		return ownedConditions;
@@ -213,7 +213,7 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			return;
 		case SmartHomePackage.HOME__OWNED_CONDITIONS:
 			getOwnedConditions().clear();
-			getOwnedConditions().addAll((Collection<? extends Condition>) newValue);
+			getOwnedConditions().addAll((Collection<? extends ACondition>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);

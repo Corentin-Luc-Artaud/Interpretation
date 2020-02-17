@@ -333,14 +333,14 @@ public interface SmartHomePackage extends EPackage {
 	int OCCURENCE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.ConditionImpl <em>Condition</em>}' class.
+	 * The meta object id for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.AConditionImpl <em>ACondition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.ConditionImpl
-	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.SmartHomePackageImpl#getCondition()
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.AConditionImpl
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.SmartHomePackageImpl#getACondition()
 	 * @generated
 	 */
-	int CONDITION = 6;
+	int ACONDITION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Actions</b></em>' reference list.
@@ -349,16 +349,7 @@ public interface SmartHomePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__ACTIONS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Owned Time</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION__OWNED_TIME = 1;
+	int ACONDITION__ACTIONS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Actor</b></em>' reference.
@@ -367,7 +358,7 @@ public interface SmartHomePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__ACTOR = 2;
+	int ACONDITION__ACTOR = 1;
 
 	/**
 	 * The feature id for the '<em><b>Action</b></em>' reference.
@@ -376,25 +367,45 @@ public interface SmartHomePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__ACTION = 3;
+	int ACONDITION__ACTION = 2;
 
 	/**
-	 * The number of structural features of the '<em>Condition</em>' class.
+	 * The number of structural features of the '<em>ACondition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = 4;
+	int ACONDITION_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>Condition</em>' class.
+	 * The number of operations of the '<em>ACondition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_OPERATION_COUNT = 0;
+	int ACONDITION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.ConditionImpl <em>Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.ConditionImpl
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.SmartHomePackageImpl#getCondition()
+	 * @generated
+	 */
+	int CONDITION = 8;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.TimeEleapsedConditionImpl <em>Time Eleapsed Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.TimeEleapsedConditionImpl
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.SmartHomePackageImpl#getTimeEleapsedCondition()
+	 * @generated
+	 */
+	int TIME_ELEAPSED_CONDITION = 9;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeTimeStampImpl <em>Home Time Stamp</em>}' class.
@@ -450,6 +461,105 @@ public interface SmartHomePackage extends EPackage {
 	 * @ordered
 	 */
 	int HOME_TIME_STAMP_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__ACTIONS = ACONDITION__ACTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__ACTOR = ACONDITION__ACTOR;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__ACTION = ACONDITION__ACTION;
+
+	/**
+	 * The number of structural features of the '<em>Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_FEATURE_COUNT = ACONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_OPERATION_COUNT = ACONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_ELEAPSED_CONDITION__ACTIONS = ACONDITION__ACTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_ELEAPSED_CONDITION__ACTOR = ACONDITION__ACTOR;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_ELEAPSED_CONDITION__ACTION = ACONDITION__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Owned Timestamp Eleapsed</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_ELEAPSED_CONDITION__OWNED_TIMESTAMP_ELEAPSED = ACONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Time Eleapsed Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_ELEAPSED_CONDITION_FEATURE_COUNT = ACONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Time Eleapsed Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_ELEAPSED_CONDITION_OPERATION_COUNT = ACONDITION_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.NamedElement <em>Named Element</em>}'.
@@ -611,6 +721,49 @@ public interface SmartHomePackage extends EPackage {
 	EReference getOccurence_Action();
 
 	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.ACondition <em>ACondition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>ACondition</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.ACondition
+	 * @generated
+	 */
+	EClass getACondition();
+
+	/**
+	 * Returns the meta object for the reference list '{@link fr.unice.polytech.si5.smarthome.am.smart_home.ACondition#getActions <em>Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Actions</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.ACondition#getActions()
+	 * @see #getACondition()
+	 * @generated
+	 */
+	EReference getACondition_Actions();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.unice.polytech.si5.smarthome.am.smart_home.ACondition#getActor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Actor</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.ACondition#getActor()
+	 * @see #getACondition()
+	 * @generated
+	 */
+	EReference getACondition_Actor();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.unice.polytech.si5.smarthome.am.smart_home.ACondition#getAction <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Action</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.ACondition#getAction()
+	 * @see #getACondition()
+	 * @generated
+	 */
+	EReference getACondition_Action();
+
+	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -621,48 +774,25 @@ public interface SmartHomePackage extends EPackage {
 	EClass getCondition();
 
 	/**
-	 * Returns the meta object for the reference list '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getActions <em>Actions</em>}'.
+	 * Returns the meta object for class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition <em>Time Eleapsed Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Actions</em>'.
-	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getActions()
-	 * @see #getCondition()
+	 * @return the meta object for class '<em>Time Eleapsed Condition</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition
 	 * @generated
 	 */
-	EReference getCondition_Actions();
+	EClass getTimeEleapsedCondition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getOwnedTime <em>Owned Time</em>}'.
+	 * Returns the meta object for the containment reference '{@link fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition#getOwnedTimestampEleapsed <em>Owned Timestamp Eleapsed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Owned Time</em>'.
-	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getOwnedTime()
-	 * @see #getCondition()
+	 * @return the meta object for the containment reference '<em>Owned Timestamp Eleapsed</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition#getOwnedTimestampEleapsed()
+	 * @see #getTimeEleapsedCondition()
 	 * @generated
 	 */
-	EReference getCondition_OwnedTime();
-
-	/**
-	 * Returns the meta object for the reference '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getActor <em>Actor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Actor</em>'.
-	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getActor()
-	 * @see #getCondition()
-	 * @generated
-	 */
-	EReference getCondition_Actor();
-
-	/**
-	 * Returns the meta object for the reference '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getAction <em>Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Action</em>'.
-	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.Condition#getAction()
-	 * @see #getCondition()
-	 * @generated
-	 */
-	EReference getCondition_Action();
+	EReference getTimeEleapsedCondition_OwnedTimestampEleapsed();
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp <em>Home Time Stamp</em>}'.
@@ -863,6 +993,40 @@ public interface SmartHomePackage extends EPackage {
 		EReference OCCURENCE__ACTION = eINSTANCE.getOccurence_Action();
 
 		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.AConditionImpl <em>ACondition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.AConditionImpl
+		 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.SmartHomePackageImpl#getACondition()
+		 * @generated
+		 */
+		EClass ACONDITION = eINSTANCE.getACondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACONDITION__ACTIONS = eINSTANCE.getACondition_Actions();
+
+		/**
+		 * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACONDITION__ACTOR = eINSTANCE.getACondition_Actor();
+
+		/**
+		 * The meta object literal for the '<em><b>Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACONDITION__ACTION = eINSTANCE.getACondition_Action();
+
+		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.ConditionImpl <em>Condition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -873,36 +1037,23 @@ public interface SmartHomePackage extends EPackage {
 		EClass CONDITION = eINSTANCE.getCondition();
 
 		/**
-		 * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
+		 * The meta object literal for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.TimeEleapsedConditionImpl <em>Time Eleapsed Condition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.TimeEleapsedConditionImpl
+		 * @see fr.unice.polytech.si5.smarthome.am.smart_home.impl.SmartHomePackageImpl#getTimeEleapsedCondition()
 		 * @generated
 		 */
-		EReference CONDITION__ACTIONS = eINSTANCE.getCondition_Actions();
+		EClass TIME_ELEAPSED_CONDITION = eINSTANCE.getTimeEleapsedCondition();
 
 		/**
-		 * The meta object literal for the '<em><b>Owned Time</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Owned Timestamp Eleapsed</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONDITION__OWNED_TIME = eINSTANCE.getCondition_OwnedTime();
-
-		/**
-		 * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONDITION__ACTOR = eINSTANCE.getCondition_Actor();
-
-		/**
-		 * The meta object literal for the '<em><b>Action</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONDITION__ACTION = eINSTANCE.getCondition_Action();
+		EReference TIME_ELEAPSED_CONDITION__OWNED_TIMESTAMP_ELEAPSED = eINSTANCE
+				.getTimeEleapsedCondition_OwnedTimestampEleapsed();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeTimeStampImpl <em>Home Time Stamp</em>}' class.

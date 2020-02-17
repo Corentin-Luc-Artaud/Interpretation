@@ -67,7 +67,7 @@ public class OccurenceImpl extends MinimalEObjectImpl.Container implements Occur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OccurenceImpl() {
+	protected OccurenceImpl() {
 		super();
 	}
 

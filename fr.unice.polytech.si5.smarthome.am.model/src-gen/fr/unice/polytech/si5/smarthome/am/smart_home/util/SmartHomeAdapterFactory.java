@@ -97,13 +97,23 @@ public class SmartHomeAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseCondition(Condition object) {
-			return createConditionAdapter();
+		public Adapter caseACondition(ACondition object) {
+			return createAConditionAdapter();
 		}
 
 		@Override
 		public Adapter caseHomeTimeStamp(HomeTimeStamp object) {
 			return createHomeTimeStampAdapter();
+		}
+
+		@Override
+		public Adapter caseCondition(Condition object) {
+			return createConditionAdapter();
+		}
+
+		@Override
+		public Adapter caseTimeEleapsedCondition(TimeEleapsedCondition object) {
+			return createTimeEleapsedConditionAdapter();
 		}
 
 		@Override
@@ -210,6 +220,20 @@ public class SmartHomeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.ACondition <em>ACondition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.ACondition
+	 * @generated
+	 */
+	public Adapter createAConditionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Condition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -220,6 +244,20 @@ public class SmartHomeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition <em>Time Eleapsed Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition
+	 * @generated
+	 */
+	public Adapter createTimeEleapsedConditionAdapter() {
 		return null;
 	}
 

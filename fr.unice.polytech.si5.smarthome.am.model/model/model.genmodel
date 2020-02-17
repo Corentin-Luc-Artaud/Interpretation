@@ -30,16 +30,19 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Occurence/actor"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Occurence/action"/>
     </genClasses>
-    <genClasses ecoreClass="model.ecore#//Condition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Condition/actions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Condition/ownedTime"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Condition/actor"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Condition/action"/>
+    <genClasses ecoreClass="model.ecore#//ACondition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ACondition/actions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ACondition/actor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ACondition/action"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//HomeTimeStamp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//HomeTimeStamp/hour"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//HomeTimeStamp/min"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//HomeTimeStamp/sec"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Condition"/>
+    <genClasses ecoreClass="model.ecore#//TimeEleapsedCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TimeEleapsedCondition/ownedTimestampEleapsed"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

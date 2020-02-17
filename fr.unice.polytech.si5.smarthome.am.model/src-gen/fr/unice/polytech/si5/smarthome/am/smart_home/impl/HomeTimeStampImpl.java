@@ -93,7 +93,7 @@ public class HomeTimeStampImpl extends MinimalEObjectImpl.Container implements H
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HomeTimeStampImpl() {
+	protected HomeTimeStampImpl() {
 		super();
 	}
 

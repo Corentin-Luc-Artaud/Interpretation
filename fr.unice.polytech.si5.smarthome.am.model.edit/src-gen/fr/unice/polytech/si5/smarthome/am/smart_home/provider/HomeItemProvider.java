@@ -167,6 +167,9 @@ public class HomeItemProvider extends ItemProviderAdapter implements IEditingDom
 
 		newChildDescriptors.add(createChildParameter(SmartHomePackage.Literals.HOME__OWNED_CONDITIONS,
 				SmartHomeFactory.eINSTANCE.createCondition()));
+
+		newChildDescriptors.add(createChildParameter(SmartHomePackage.Literals.HOME__OWNED_CONDITIONS,
+				SmartHomeFactory.eINSTANCE.createTimeEleapsedCondition()));
 	}
 
 	/**

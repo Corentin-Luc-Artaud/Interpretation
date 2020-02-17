@@ -39,3 +39,9 @@
 /OccurenceAspectOccurenceAspectContext.java
 /OccurenceAspectOccurenceAspectProperties.java
 /.AbstractOccurence.java._trace
+/.AConditionAspect.java._trace
+/.AConditionAspectAConditionAspectContext.java._trace
+/.AConditionAspectAConditionAspectProperties.java._trace
+/.TimeConditionAspect.java._trace
+/.TimeConditionAspectTimeEleapsedConditionAspectContext.java._trace
+/.TimeConditionAspectTimeEleapsedConditionAspectProperties.java._trace

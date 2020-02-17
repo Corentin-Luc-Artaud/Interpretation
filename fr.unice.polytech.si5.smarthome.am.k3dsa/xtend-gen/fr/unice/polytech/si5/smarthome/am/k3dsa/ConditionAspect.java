@@ -2,6 +2,8 @@ package fr.unice.polytech.si5.smarthome.am.k3dsa;
 
 import com.google.common.base.Objects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
+import fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.AbstractOccurence;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.ActionAspect;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspectConditionAspectProperties;
@@ -14,7 +16,8 @@ import org.eclipse.emf.ecore.EObject;
 
 @Aspect(className = Condition.class)
 @SuppressWarnings("all")
-public class ConditionAspect {
+public class ConditionAspect extends AConditionAspect {
+  @OverrideAspectMethod
   public static void tryTrigger(final Condition _self, final AbstractOccurence occurence) {
     final fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspectConditionAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspectConditionAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void tryTrigger(AbstractOccurence)

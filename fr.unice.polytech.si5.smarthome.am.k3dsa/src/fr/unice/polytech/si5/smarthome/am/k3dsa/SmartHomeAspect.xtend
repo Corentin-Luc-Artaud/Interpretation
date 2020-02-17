@@ -14,13 +14,17 @@ import fr.inria.diverse.k3.al.annotationprocessor.Step
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.OccurenceAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.HomeTimeStampAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.ActionAspect.*
-import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspect.*
+import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.SmartHomeAspect.*
 
 
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor
+import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition
+import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
+import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
+import fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition
 
 /**
  * Sample aspect that gives java.io.File the ability to store Text content and save it to disk
@@ -100,7 +104,7 @@ class AbstractOccurence {
 	def void happenNow(Home home) {
 		println(""+this.timestamp+" : "+this.action.name)
 		//check all condition
-		for (Condition condition: home.ownedConditions) {
+		for (ACondition condition: home.ownedConditions) {
 			condition.tryTrigger(this)
 		}
 		
@@ -119,14 +123,34 @@ class HomeTimeStampAspect {
 	
 }
 
+@Aspect(className=ACondition)
+abstract class AConditionAspect {
+	def abstract void tryTrigger(AbstractOccurence occurence)
+}
+
 @Aspect(className=Condition)
-class ConditionAspect {
+class ConditionAspect extends AConditionAspect{
+	//@ReplaceAspectMethod
+	@OverrideAspectMethod
 	def void tryTrigger(AbstractOccurence occurence) {
 		if(occurence.action == _self.action){
-			//TODO : add condition with Actor & Time
 			for (Action a: _self.actions) {
 				a.trigger(occurence.timestamp)
 				(_self.eContainer() as Home).addNewOccurenceOfAction(a, occurence.timestamp)
+			}
+		}
+	}
+}
+
+@Aspect(className=TimeEleapsedCondition)
+class TimeConditionAspect extends AConditionAspect{
+	//@ReplaceAspectMethod
+	@OverrideAspectMethod
+	def void tryTrigger(AbstractOccurence occurence) {
+		if(occurence.action == _self.action){
+			for (Action a: _self.actions) {
+				a.trigger(occurence.timestamp)
+				(_self.eContainer() as Home).addNewOccurenceOfAction(a, occurence.timestamp+_self.ownedTimestampEleapsed.toSec())
 			}
 		}
 	}

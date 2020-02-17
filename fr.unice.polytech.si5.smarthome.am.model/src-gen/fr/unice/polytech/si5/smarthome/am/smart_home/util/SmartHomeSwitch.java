@@ -114,9 +114,9 @@ public class SmartHomeSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case SmartHomePackage.CONDITION: {
-			Condition condition = (Condition) theEObject;
-			T result = caseCondition(condition);
+		case SmartHomePackage.ACONDITION: {
+			ACondition aCondition = (ACondition) theEObject;
+			T result = caseACondition(aCondition);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -124,6 +124,24 @@ public class SmartHomeSwitch<T> extends Switch<T> {
 		case SmartHomePackage.HOME_TIME_STAMP: {
 			HomeTimeStamp homeTimeStamp = (HomeTimeStamp) theEObject;
 			T result = caseHomeTimeStamp(homeTimeStamp);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SmartHomePackage.CONDITION: {
+			Condition condition = (Condition) theEObject;
+			T result = caseCondition(condition);
+			if (result == null)
+				result = caseACondition(condition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SmartHomePackage.TIME_ELEAPSED_CONDITION: {
+			TimeEleapsedCondition timeEleapsedCondition = (TimeEleapsedCondition) theEObject;
+			T result = caseTimeEleapsedCondition(timeEleapsedCondition);
+			if (result == null)
+				result = caseACondition(timeEleapsedCondition);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -224,6 +242,21 @@ public class SmartHomeSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ACondition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ACondition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseACondition(ACondition object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -235,6 +268,21 @@ public class SmartHomeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCondition(Condition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Time Eleapsed Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Time Eleapsed Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTimeEleapsedCondition(TimeEleapsedCondition object) {
 		return null;
 	}
 

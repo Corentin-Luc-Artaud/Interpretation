@@ -2,6 +2,7 @@
  */
 package fr.unice.polytech.si5.smarthome.am.smart_home.impl;
 
+import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition;
@@ -13,6 +14,7 @@ import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomeFactory;
 import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Subject;
 
+import fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -74,7 +76,21 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass aConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass conditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass timeEleapsedConditionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -287,6 +303,42 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getACondition() {
+		return aConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getACondition_Actions() {
+		return (EReference) aConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getACondition_Actor() {
+		return (EReference) aConditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getACondition_Action() {
+		return (EReference) aConditionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCondition() {
 		return conditionEClass;
 	}
@@ -296,8 +348,8 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCondition_Actions() {
-		return (EReference) conditionEClass.getEStructuralFeatures().get(0);
+	public EClass getTimeEleapsedCondition() {
+		return timeEleapsedConditionEClass;
 	}
 
 	/**
@@ -305,26 +357,8 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCondition_OwnedTime() {
-		return (EReference) conditionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCondition_Actor() {
-		return (EReference) conditionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCondition_Action() {
-		return (EReference) conditionEClass.getEStructuralFeatures().get(3);
+	public EReference getTimeEleapsedCondition_OwnedTimestampEleapsed() {
+		return (EReference) timeEleapsedConditionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -413,16 +447,20 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		createEReference(occurenceEClass, OCCURENCE__ACTOR);
 		createEReference(occurenceEClass, OCCURENCE__ACTION);
 
-		conditionEClass = createEClass(CONDITION);
-		createEReference(conditionEClass, CONDITION__ACTIONS);
-		createEReference(conditionEClass, CONDITION__OWNED_TIME);
-		createEReference(conditionEClass, CONDITION__ACTOR);
-		createEReference(conditionEClass, CONDITION__ACTION);
+		aConditionEClass = createEClass(ACONDITION);
+		createEReference(aConditionEClass, ACONDITION__ACTIONS);
+		createEReference(aConditionEClass, ACONDITION__ACTOR);
+		createEReference(aConditionEClass, ACONDITION__ACTION);
 
 		homeTimeStampEClass = createEClass(HOME_TIME_STAMP);
 		createEAttribute(homeTimeStampEClass, HOME_TIME_STAMP__HOUR);
 		createEAttribute(homeTimeStampEClass, HOME_TIME_STAMP__MIN);
 		createEAttribute(homeTimeStampEClass, HOME_TIME_STAMP__SEC);
+
+		conditionEClass = createEClass(CONDITION);
+
+		timeEleapsedConditionEClass = createEClass(TIME_ELEAPSED_CONDITION);
+		createEReference(timeEleapsedConditionEClass, TIME_ELEAPSED_CONDITION__OWNED_TIMESTAMP_ELEAPSED);
 	}
 
 	/**
@@ -457,6 +495,8 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		subjectEClass.getESuperTypes().add(this.getNamedElement());
 		actorEClass.getESuperTypes().add(this.getNamedElement());
 		actionEClass.getESuperTypes().add(this.getNamedElement());
+		conditionEClass.getESuperTypes().add(this.getACondition());
+		timeEleapsedConditionEClass.getESuperTypes().add(this.getACondition());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
@@ -481,9 +521,9 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		initEReference(getHome_OwnedOccurences(), this.getOccurence(), null, "ownedOccurences", null, 0, -1, Home.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getHome_OwnedConditions(), this.getCondition(), null, "ownedConditions", null, 0, -1, Home.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHome_OwnedConditions(), this.getACondition(), null, "ownedConditions", null, 0, -1,
+				Home.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -499,18 +539,15 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(aConditionEClass, ACondition.class, "ACondition", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCondition_Actions(), this.getAction(), null, "actions", null, 1, -1, Condition.class,
+		initEReference(getACondition_Actions(), this.getAction(), null, "actions", null, 1, -1, ACondition.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCondition_OwnedTime(), this.getHomeTimeStamp(), null, "ownedTime", null, 0, 1,
-				Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCondition_Actor(), this.getActor(), null, "actor", null, 0, 1, Condition.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getCondition_Action(), this.getAction(), null, "action", null, 0, 1, Condition.class,
+		initEReference(getACondition_Actor(), this.getActor(), null, "actor", null, 0, 1, ACondition.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getACondition_Action(), this.getAction(), null, "action", null, 0, 1, ACondition.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -522,6 +559,15 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHomeTimeStamp_Sec(), ecorePackage.getEInt(), "sec", null, 0, 1, HomeTimeStamp.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(timeEleapsedConditionEClass, TimeEleapsedCondition.class, "TimeEleapsedCondition", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTimeEleapsedCondition_OwnedTimestampEleapsed(), this.getHomeTimeStamp(), null,
+				"ownedTimestampEleapsed", null, 1, 1, TimeEleapsedCondition.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

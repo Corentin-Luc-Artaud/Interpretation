@@ -9,8 +9,8 @@ Home returns Home:
 	'Home'
 	'{'
 		ownedSubjects+=Subject (ownedSubjects+=Subject)*
-		ownedActors+=Actor (ownedActors+=Actor)*
-		ownedConditions+=Condition (ownedConditions+=Condition)*
+		(ownedActors+=Actor)*
+		ownedConditions+=ACondition (ownedConditions+=ACondition)*
 		ownedOccurences+=Occurence (ownedOccurences+=Occurence)*
 	'}';
 
@@ -26,6 +26,12 @@ Actor returns Actor:
 
 Occurence returns Occurence:
 	ownedTime=HomeTimeStamp '->' (actor=[Actor|EString] 'do')? action=[Action|EString];
+
+ACondition returns ACondition:
+	(Condition|TimeEleapsedCondition);
+
+TimeEleapsedCondition returns TimeEleapsedCondition:
+	'if' action=[Action|EString] 'during' ownedTimestampEleapsed=HomeTimeStamp 'then' actions+=[Action|EString] ( 'and' actions+=[Action|EString])*;
 
 Condition returns Condition:
 	'if' (actor=[Actor|EString] 'do')? action=[Action|EString] 'then' actions+=[Action|EString] ( 'and' actions+=[Action|EString])*;

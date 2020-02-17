@@ -1,10 +1,10 @@
 package fr.unice.polytech.si5.smarthome.am.k3dsa;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
-import fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspect;
+import fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect;
+import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
-import fr.unice.polytech.si5.smarthome.am.smart_home.Condition;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.InputOutput;
@@ -28,9 +28,9 @@ public class AbstractOccurence {
     String _name = this.action.getName();
     String _plus = ((("" + this.timestamp) + " : ") + _name);
     InputOutput.<String>println(_plus);
-    EList<Condition> _ownedConditions = home.getOwnedConditions();
-    for (final Condition condition : _ownedConditions) {
-      ConditionAspect.tryTrigger(condition, this);
+    EList<ACondition> _ownedConditions = home.getOwnedConditions();
+    for (final ACondition condition : _ownedConditions) {
+      AConditionAspect.tryTrigger(condition, this);
     }
   }
   
