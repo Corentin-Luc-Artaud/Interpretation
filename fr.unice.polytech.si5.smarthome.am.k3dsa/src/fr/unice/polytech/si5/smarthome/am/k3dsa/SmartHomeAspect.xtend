@@ -114,7 +114,7 @@ class AbstractOccurence {
 @Aspect(className=HomeTimeStamp)
 class HomeTimeStampAspect {
 	def Integer toSec() {
-		return _self.sec+_self.min*60+_self.hour*24*60
+		return _self.sec+_self.min*60+_self.hour*60*60
 	}
 	
 }

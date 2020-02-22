@@ -93,7 +93,7 @@ public interface Home extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Initial Time</b></em>' attribute.
-	 * The default value is <code>"00:00:00"</code>.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Initial Time</em>' attribute isn't clear,
@@ -103,7 +103,7 @@ public interface Home extends EObject {
 	 * @return the value of the '<em>Initial Time</em>' attribute.
 	 * @see #setInitialTime(String)
 	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getHome_InitialTime()
-	 * @model default="00:00:00" unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	String getInitialTime();

@@ -500,7 +500,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_gQPFMFU_EeqJGZ6MAA4HiA" name="initialTime : EString = 00:00:00" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_gQPFMFU_EeqJGZ6MAA4HiA" name="initialTime : EString = 0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="model.ecore#//Home/initialTime"/>
         <semanticElements xmi:type="ecore:EAttribute" href="model.ecore#//Home/initialTime"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_tDVkQFU_EeqJGZ6MAA4HiA" labelAlignment="LEFT">

@@ -21,7 +21,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedConditions" upperBound="-1"
         eType="#//ACondition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialTime" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="00:00:00"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Occurence">

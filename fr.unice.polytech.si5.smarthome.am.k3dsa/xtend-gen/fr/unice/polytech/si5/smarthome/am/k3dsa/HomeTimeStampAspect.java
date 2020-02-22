@@ -23,7 +23,7 @@ public class HomeTimeStampAspect {
     int _multiply = (_min * 60);
     int _plus = (_sec + _multiply);
     int _hour = _self.getHour();
-    int _multiply_1 = (_hour * 24);
+    int _multiply_1 = (_hour * 60);
     int _multiply_2 = (_multiply_1 * 60);
     return Integer.valueOf((_plus + _multiply_2));
   }

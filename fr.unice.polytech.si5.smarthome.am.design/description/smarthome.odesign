@@ -34,7 +34,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="CurrentTime" semanticCandidatesExpression="aql:self" domainClass="Home">
-          <style xsi:type="style:SquareDescription" labelSize="3" showIcon="false" labelExpression="feature:initialTime" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelSize="3" showIcon="false" labelExpression="[self.getCurrentTime(self.oclAsType(Home))/]" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
@@ -86,9 +86,12 @@
       </additionalLayers>
       <additionalLayers name="Animation" activeByDefault="true">
         <customization>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.magicPrint(self, self.eContainer().oclAsType(Subject))/]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(Action) and self.magicPrint(self, self.eContainer().oclAsType(Subject))/]">
             <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@conditionnalStyles.0/@style //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@style" referenceName="color">
               <value href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </featureCustomizations>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@conditionnalStyles.0/@style //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@style" referenceName="labelColor">
+              <value href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </featureCustomizations>
           </vsmElementCustomizations>
         </customization>

@@ -547,7 +547,7 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		initEReference(getHome_OwnedConditions(), this.getACondition(), null, "ownedConditions", null, 0, -1,
 				Home.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHome_InitialTime(), ecorePackage.getEString(), "initialTime", "00:00:00", 0, 1, Home.class,
+		initEAttribute(getHome_InitialTime(), ecorePackage.getEString(), "initialTime", "0", 0, 1, Home.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 

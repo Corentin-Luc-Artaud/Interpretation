@@ -91,7 +91,7 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String INITIAL_TIME_EDEFAULT = "00:00:00";
+	protected static final String INITIAL_TIME_EDEFAULT = "0";
 
 	/**
 	 * The cached value of the '{@link #getInitialTime() <em>Initial Time</em>}' attribute.
