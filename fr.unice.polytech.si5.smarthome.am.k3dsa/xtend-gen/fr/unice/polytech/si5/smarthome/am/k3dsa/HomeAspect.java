@@ -10,7 +10,6 @@ import fr.unice.polytech.si5.smarthome.am.k3dsa.OccurenceAspect;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence;
-import java.util.LinkedList;
 import java.util.Queue;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -84,17 +83,7 @@ public class HomeAspect {
     };
   }
   
-  public static Integer wichTime(final Home _self) {
-    final fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectContext.getSelf(_self);
-    Object result = null;
-    // #DispatchPointCut_before# Integer wichTime()
-    if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.Home){
-    	result = fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect._privk3_wichTime(_self_, (fr.unice.polytech.si5.smarthome.am.smart_home.Home)_self);
-    };
-    return (java.lang.Integer)result;
-  }
-  
-  public static Integer curtime(final Home _self) {
+  private static Integer curtime(final Home _self) {
     final fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# Integer curtime()
@@ -104,7 +93,7 @@ public class HomeAspect {
     return (java.lang.Integer)result;
   }
   
-  public static void curtime(final Home _self, final Integer curtime) {
+  private static void curtime(final Home _self, final Integer curtime) {
     final fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void curtime(Integer)
     if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.Home){
@@ -112,7 +101,7 @@ public class HomeAspect {
     };
   }
   
-  public static Queue<AbstractOccurence> pendingEvents(final Home _self) {
+  private static Queue<AbstractOccurence> pendingEvents(final Home _self) {
     final fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# Queue<AbstractOccurence> pendingEvents()
@@ -122,7 +111,7 @@ public class HomeAspect {
     return (java.util.Queue<fr.unice.polytech.si5.smarthome.am.k3dsa.AbstractOccurence>)result;
   }
   
-  public static void pendingEvents(final Home _self, final Queue<AbstractOccurence> pendingEvents) {
+  private static void pendingEvents(final Home _self, final Queue<AbstractOccurence> pendingEvents) {
     final fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void pendingEvents(Queue<AbstractOccurence>)
     if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.Home){
@@ -132,8 +121,7 @@ public class HomeAspect {
   
   protected static void _privk3_execute(final HomeAspectHomeAspectProperties _self_, final Home _self) {
     HomeAspect.curtime(_self, Integer.valueOf(0));
-    LinkedList<AbstractOccurence> _linkedList = new LinkedList<AbstractOccurence>();
-    HomeAspect.pendingEvents(_self, _linkedList);
+    HomeAspect.pendingEvents(_self);
     HomeAspect.prepareOccurences(_self);
     HomeAspect.loop(_self);
   }
@@ -185,12 +173,9 @@ public class HomeAspect {
   }
   
   protected static void _privk3_addNewOccurenceOfAction(final HomeAspectHomeAspectProperties _self_, final Home _self, final Action action, final Integer timestamp) {
+    _self.setInitialTime(HomeAspect.curtime(_self).toString());
     final AbstractOccurence occurence = new AbstractOccurence(timestamp, action, null);
     HomeAspect.addPendingEvent(_self, occurence);
-  }
-  
-  protected static Integer _privk3_wichTime(final HomeAspectHomeAspectProperties _self_, final Home _self) {
-    return HomeAspect.curtime(_self);
   }
   
   protected static Integer _privk3_curtime(final HomeAspectHomeAspectProperties _self_, final Home _self) {

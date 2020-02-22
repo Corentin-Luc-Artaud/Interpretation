@@ -1,5 +1,8 @@
 package fr.unice.polytech.si5.smarthome.am.design;
 
+import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
+import fr.unice.polytech.si5.smarthome.am.smart_home.Subject;
+
 import org.eclipse.emf.ecore.EObject;
 import shome.xdsml.api.impl.ShomeRTDAccessor;
 
@@ -16,10 +19,18 @@ public class Services {
       return self;
     }
     
-    public String getCurrentTime(EObject eObject) {
-    	System.out.println("get current time");
-    	Integer time = ShomeRTDAccessor.getcurtime(eObject);
-    	System.out.println("time : " + time);
-    	return (time != null ? time.toString() : "00:00:00");
+    public boolean magicPrint(EObject self, Subject s) {
+    	System.out.println("MAGIC PRINT");
+    	System.out.println(self + " ____ " + s);
+    	
+    	Action act = (Action)self;
+    	
+    	boolean result = act.equals(s.getLastAction());
+    	System.out.println("ici -> " + result);
+    	
+    	System.out.println(" dual - " + act.getName() + " " + ((Subject)self.eContainer()).getLastAction());
+    	if(s.getLastAction() == null) return false;
+    	return act.getName().equals(s.getLastAction().getName());
+    	
     }
 }

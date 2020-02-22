@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="smarthome" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="smarthome" version="12.0.0.2017041100">
   <ownedViewpoints name="SmartHomeViewpoint">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="smart_diagram" domainClass="Home" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="smart_diagram" initialisation="true" showOnStartup="true" domainClass="Home" enablePopupBars="true">
       <metamodel href="../../fr.unice.polytech.si5.smarthome.am.model/model/model.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="Subject" domainClass="Subject">
-          <borderedNodeMappings name="Action" semanticCandidatesExpression="[self.ownedActions/]" domainClass="Action">
+        <nodeMappings name="Subject" synchronizationLock="true" domainClass="Subject">
+          <borderedNodeMappings name="Action" semanticCandidatesExpression="[self.ownedActions/]" synchronizationLock="true" domainClass="Action">
             <style xsi:type="style:SquareDescription" labelSize="3" showIcon="false" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
-            <conditionnalStyles predicateExpression="[//TODO : si l'action est la dernière action effectuée]">
+            <conditionnalStyles predicateExpression="[self.magicPrint(self, self.eContainer().oclAsType(Subject))/]">
               <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
               </style>
             </conditionnalStyles>
           </borderedNodeMappings>
@@ -34,7 +34,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="CurrentTime" semanticCandidatesExpression="aql:self" domainClass="Home">
-          <style xsi:type="style:SquareDescription" labelSize="3" showIcon="false" labelExpression="['Current time : ' + self.getCurrentTime()/]" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelSize="3" showIcon="false" labelExpression="feature:initialTime" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
@@ -84,38 +84,19 @@
           </vsmElementCustomizations>
         </customization>
       </additionalLayers>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:SequenceDiagramDescription" name="smart_home_sequence" label="smart_home_sequence" initialisation="true" showOnStartup="true" domainClass="Home" enablePopupBars="true">
-      <metamodel href="../../fr.unice.polytech.si5.smarthome.am.model/model/model.ecore#/"/>
-      <defaultLayer name="Default">
-        <nodeMappings xsi:type="description_2:InstanceRoleMapping" name="Actor" domainClass="Actor">
-          <borderedNodeMappings xsi:type="description_2:ExecutionMapping"/>
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings xsi:type="description_2:InstanceRoleMapping" name="Subject" domainClass="Subject">
-          <borderedNodeMappings xsi:type="description_2:ExecutionMapping"/>
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings xsi:type="description_2:BasicMessageMapping" name="Action" sourceMapping="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_home_sequence']/@defaultLayer/@nodeMappings[name='Subject'] //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_home_sequence']/@defaultLayer/@nodeMappings[name='Actor']" targetMapping="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_home_sequence']/@defaultLayer/@nodeMappings[name='Subject']" domainClass="Action">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-      </defaultLayer>
+      <additionalLayers name="Animation" activeByDefault="true">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.magicPrint(self, self.eContainer().oclAsType(Subject))/]">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@conditionnalStyles.0/@style //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@style" referenceName="color">
+              <value href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </featureCustomizations>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.unice.polytech.si5.smarthome.am.design.Services"/>
     <ownedJavaExtensions qualifiedClassName="fr.unice.polytech.si5.smarthome.am.design.services.SmartDiagramDebugServices"/>
+    <ownedJavaExtensions qualifiedClassName="fr.unice.polytech.si5.smarthome.am.design.services.SmartDiagramAnimatorService"/>
   </ownedViewpoints>
   <userColorsPalettes name="smart_diagram Palette">
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="0" name="current instruction"/>

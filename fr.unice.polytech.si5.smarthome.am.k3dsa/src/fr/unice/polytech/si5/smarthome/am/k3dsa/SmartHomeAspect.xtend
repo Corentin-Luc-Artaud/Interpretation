@@ -9,8 +9,6 @@ import java.util.LinkedList
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence
 import fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp
 
-import fr.inria.diverse.k3.al.annotationprocessor.Step
-
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.OccurenceAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.HomeTimeStampAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.ActionAspect.*
@@ -24,19 +22,21 @@ import fr.unice.polytech.si5.smarthome.am.smart_home.Actor
 import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition
+import fr.inria.diverse.k3.al.annotationprocessor.Step
+import fr.unice.polytech.si5.smarthome.am.smart_home.Subject
 
 /**
  * Sample aspect that gives java.io.File the ability to store Text content and save it to disk
  */
 @Aspect(className=Home)
 class HomeAspect {	
-	public Integer curtime = 0;
-    public var Queue<AbstractOccurence> pendingEvents
+	Integer curtime = 0
+    Queue<AbstractOccurence> pendingEvents = new LinkedList<AbstractOccurence>()
 	
 	@Main
 	def void execute(){		
 		_self.curtime = 0
-		_self.pendingEvents = new LinkedList<AbstractOccurence>()
+		_self.pendingEvents
 		_self.prepareOccurences()
 		_self.loop()
 	}
@@ -69,15 +69,12 @@ class HomeAspect {
 	
 	@Step
 	def void addNewOccurenceOfAction(Action action, Integer timestamp) {
+		_self.initialTime = _self.curtime.toString()
 		val AbstractOccurence occurence = new AbstractOccurence(timestamp, action, null)
 		_self.addPendingEvent(occurence);
 	}
 	
-	def Integer wichTime() {
-		return _self.curtime
-	}
 }
-
 
 @Aspect(className = Occurence)
 class OccurenceAspect {
@@ -89,9 +86,9 @@ class OccurenceAspect {
 }
 
 class AbstractOccurence {
-	public var Integer timestamp
-	public var Actor actor
-	public var Action action
+	public Integer timestamp
+	public Actor actor
+	public Action action
 	
 	new(Integer timestamp, Action action, Actor actor) {
 		this.timestamp = timestamp
@@ -130,11 +127,12 @@ abstract class AConditionAspect {
 
 @Aspect(className=Condition)
 class ConditionAspect extends AConditionAspect{
-	public var Integer iiii = 0;
 	//@ReplaceAspectMethod
+	@Step
 	@OverrideAspectMethod
 	def void tryTrigger(AbstractOccurence occurence) {
 		if(occurence.action == _self.action){
+			(_self.action.eContainer() as Subject).lastAction = occurence.action;
 			for (Action a: _self.actions) {
 				a.trigger(occurence.timestamp)
 				(_self.eContainer() as Home).addNewOccurenceOfAction(a, occurence.timestamp)
@@ -162,6 +160,8 @@ class ActionAspect {
 	@Step
 	def void trigger(Integer time) {
 		println(""+time+" -> "+_self.name+" triggered")
+		(_self.eContainer() as Subject).lastAction= _self;
+		println("lastAction " + (_self.eContainer() as Subject).name + "  = " + (_self.eContainer() as Subject).lastAction);
 	}
 }
 

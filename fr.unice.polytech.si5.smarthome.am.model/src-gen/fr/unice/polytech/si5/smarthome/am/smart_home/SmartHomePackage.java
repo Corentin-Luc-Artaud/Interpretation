@@ -122,13 +122,22 @@ public interface SmartHomePackage extends EPackage {
 	int SUBJECT__OWNED_ACTIONS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Last Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT__LAST_ACTION = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Subject</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SUBJECT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Subject</em>' class.
@@ -223,13 +232,22 @@ public interface SmartHomePackage extends EPackage {
 	int HOME__OWNED_CONDITIONS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Initial Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOME__INITIAL_TIME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Home</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HOME_FEATURE_COUNT = 4;
+	int HOME_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Home</em>' class.
@@ -604,6 +622,17 @@ public interface SmartHomePackage extends EPackage {
 	EReference getSubject_OwnedActions();
 
 	/**
+	 * Returns the meta object for the reference '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Subject#getLastAction <em>Last Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Last Action</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.Subject#getLastAction()
+	 * @see #getSubject()
+	 * @generated
+	 */
+	EReference getSubject_LastAction();
+
+	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Actor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -666,6 +695,17 @@ public interface SmartHomePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getHome_OwnedConditions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getInitialTime <em>Initial Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initial Time</em>'.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.Home#getInitialTime()
+	 * @see #getHome()
+	 * @generated
+	 */
+	EAttribute getHome_InitialTime();
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Action <em>Action</em>}'.
@@ -897,6 +937,14 @@ public interface SmartHomePackage extends EPackage {
 		EReference SUBJECT__OWNED_ACTIONS = eINSTANCE.getSubject_OwnedActions();
 
 		/**
+		 * The meta object literal for the '<em><b>Last Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBJECT__LAST_ACTION = eINSTANCE.getSubject_LastAction();
+
+		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.ActorImpl <em>Actor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -947,6 +995,14 @@ public interface SmartHomePackage extends EPackage {
 		 * @generated
 		 */
 		EReference HOME__OWNED_CONDITIONS = eINSTANCE.getHome_OwnedConditions();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HOME__INITIAL_TIME = eINSTANCE.getHome_InitialTime();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.ActionImpl <em>Action</em>}' class.
