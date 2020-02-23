@@ -31,12 +31,12 @@ import fr.unice.polytech.si5.smarthome.am.smart_home.Subject
 @Aspect(className=Home)
 class HomeAspect {	
 	Integer curtime = 0
-    Queue<AbstractOccurence> pendingEvents = new LinkedList<AbstractOccurence>()
+    public Queue<AbstractOccurence> pendingEvents;
 	
 	@Main
 	def void execute(){		
 		_self.curtime = 0
-		_self.pendingEvents
+		_self.pendingEvents = new LinkedList<AbstractOccurence>()
 		_self.prepareOccurences()
 		_self.loop()
 	}

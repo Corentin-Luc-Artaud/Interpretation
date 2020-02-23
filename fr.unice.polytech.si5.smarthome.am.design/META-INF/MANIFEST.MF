@@ -20,4 +20,5 @@ Bundle-Activator: fr.unice.polytech.si5.smarthome.am.design.Activator
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
-Import-Package: fr.unice.polytech.si5.smarthome.am.smart_home
+Import-Package: fr.unice.polytech.si5.smarthome.am.k3dsa,
+ fr.unice.polytech.si5.smarthome.am.smart_home

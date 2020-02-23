@@ -10,6 +10,7 @@ import fr.unice.polytech.si5.smarthome.am.k3dsa.OccurenceAspect;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence;
+import java.util.LinkedList;
 import java.util.Queue;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -101,7 +102,7 @@ public class HomeAspect {
     };
   }
   
-  private static Queue<AbstractOccurence> pendingEvents(final Home _self) {
+  public static Queue<AbstractOccurence> pendingEvents(final Home _self) {
     final fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# Queue<AbstractOccurence> pendingEvents()
@@ -111,7 +112,7 @@ public class HomeAspect {
     return (java.util.Queue<fr.unice.polytech.si5.smarthome.am.k3dsa.AbstractOccurence>)result;
   }
   
-  private static void pendingEvents(final Home _self, final Queue<AbstractOccurence> pendingEvents) {
+  public static void pendingEvents(final Home _self, final Queue<AbstractOccurence> pendingEvents) {
     final fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void pendingEvents(Queue<AbstractOccurence>)
     if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.Home){
@@ -121,7 +122,8 @@ public class HomeAspect {
   
   protected static void _privk3_execute(final HomeAspectHomeAspectProperties _self_, final Home _self) {
     HomeAspect.curtime(_self, Integer.valueOf(0));
-    HomeAspect.pendingEvents(_self);
+    LinkedList<AbstractOccurence> _linkedList = new LinkedList<AbstractOccurence>();
+    HomeAspect.pendingEvents(_self, _linkedList);
     HomeAspect.prepareOccurences(_self);
     HomeAspect.loop(_self);
   }
