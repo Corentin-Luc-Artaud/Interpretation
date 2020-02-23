@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 	// BeginInjectInto fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect#boolean isValid(AbstractOccurence) from fr.unice.polytech.si5.smarthome.am.k3dsa.TimeConditionAspect
 		if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition){
 			result = fr.unice.polytech.si5.smarthome.am.k3dsa.TimeConditionAspect.isValid((fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition)_self,occurence);
@@ -14,6 +15,9 @@
 		} else
 		// EndInjectInto fr.unice.polytech.si5.smarthome.am.k3dsa.ABarrierAspect#void tryTrigger(AbstractOccurence) from fr.unice.polytech.si5.smarthome.am.k3dsa.BarrierAspect
 	// BeginInjectInto fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect#boolean isValid(AbstractOccurence) from fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspect
+=======
+	// BeginInjectInto fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect#void tryTrigger(AbstractOccurence) from fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspect
+>>>>>>> a1024b3d01b3bfd4f4eb14ac2bc5eef4627fa2d0
 		if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.Condition){
 			result = fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspect.isValid((fr.unice.polytech.si5.smarthome.am.smart_home.Condition)_self,occurence);
 		} else
@@ -22,4 +26,13 @@
 		if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.DifferedBarrier){
 			fr.unice.polytech.si5.smarthome.am.k3dsa.DifferedBarrierAspect.tryTrigger((fr.unice.polytech.si5.smarthome.am.smart_home.DifferedBarrier)_self,occurence);
 		} else
+<<<<<<< HEAD
 		// EndInjectInto fr.unice.polytech.si5.smarthome.am.k3dsa.ABarrierAspect#void tryTrigger(AbstractOccurence) from fr.unice.polytech.si5.smarthome.am.k3dsa.DifferedBarrierAspect
+=======
+		// EndInjectInto fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect#void tryTrigger(AbstractOccurence) from fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspect
+	// BeginInjectInto fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect#void tryTrigger(AbstractOccurence) from fr.unice.polytech.si5.smarthome.am.k3dsa.TimeConditionAspect
+		if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition){
+			fr.unice.polytech.si5.smarthome.am.k3dsa.TimeConditionAspect.tryTrigger((fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition)_self,occurence);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect#void tryTrigger(AbstractOccurence) from fr.unice.polytech.si5.smarthome.am.k3dsa.TimeConditionAspect
+>>>>>>> a1024b3d01b3bfd4f4eb14ac2bc5eef4627fa2d0
