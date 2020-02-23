@@ -15,15 +15,9 @@ import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.OccurenceAspect
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.HomeTimeStampAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.ActionAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect.*
-<<<<<<< HEAD
-import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.SmartHomeAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.SubjectAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.ABarrierAspect.*
-
-=======
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect.*
->>>>>>> a1024b3d01b3bfd4f4eb14ac2bc5eef4627fa2d0
-
 
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action
@@ -159,16 +153,8 @@ abstract class ABarrierAspect {
 	def abstract void tryTrigger(AbstractOccurence occurence)
 }
 
-<<<<<<< HEAD
 @Aspect(className=Barrier)
 class BarrierAspect extends ABarrierAspect{
-=======
-
-@Aspect(className=Condition)
-class ConditionAspect extends AConditionAspect{
-	public var Integer iiii = 0;
-	//@ReplaceAspectMethod
->>>>>>> a1024b3d01b3bfd4f4eb14ac2bc5eef4627fa2d0
 	@OverrideAspectMethod
 	def void tryTrigger(AbstractOccurence occurence) {
 		if (_self.ownedCondition.isValid(occurence)){
@@ -204,7 +190,7 @@ class ConditionAspect extends AConditionAspect{
 	@OverrideAspectMethod
 	def boolean isValid(AbstractOccurence occurence) {
 		if (occurence === null ) return false;
-		return (occurence.action == _self.action && (_self.actor == null || _self.actor == occurence.actor))
+		return (occurence.action == _self.action && (_self.actor === null || _self.actor == occurence.actor))
 	}
 }
 

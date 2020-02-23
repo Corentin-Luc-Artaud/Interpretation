@@ -50,26 +50,10 @@ public class AConditionItemProvider extends ItemProviderAdapter implements IEdit
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addActionsPropertyDescriptor(object);
 			addActorPropertyDescriptor(object);
 			addActionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Actions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addActionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ACondition_actions_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ACondition_actions_feature",
-								"_UI_ACondition_type"),
-						SmartHomePackage.Literals.ACONDITION__ACTIONS, true, false, true, null, null, null));
 	}
 
 	/**

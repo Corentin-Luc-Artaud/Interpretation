@@ -49,16 +49,6 @@ public class ShomeModelStateHelper implements IK3ModelStateHelper{
 			EObject elem = allContentIt.next();
 
 			Class<?> clazz =null;
-			clazz = K3DslHelper.getTarget(fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect.class);
-			if (clazz.isInstance(elem)) {
-				ElementState elemState = theFactory.createElementState();
-				elemState.setModelElement(elem);
-				res.getOwnedElementstates().add(elemState);
-				AttributeNameToValue n2v0 = new AttributeNameToValue("curtime", ShomeRTDAccessor.getcurtime(elem));
-				elemState.getSavedRTDs().add(n2v0);
-				AttributeNameToValue n2v1 = new AttributeNameToValue("pendingEvents", ShomeRTDAccessor.getpendingEvents(elem));
-				elemState.getSavedRTDs().add(n2v1);
-			}
 		}
 		return res;
 		}
