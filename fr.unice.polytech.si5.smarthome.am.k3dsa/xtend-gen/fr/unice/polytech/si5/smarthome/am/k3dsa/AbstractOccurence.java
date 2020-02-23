@@ -1,12 +1,15 @@
 package fr.unice.polytech.si5.smarthome.am.k3dsa;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
-import fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect;
-import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition;
+import fr.unice.polytech.si5.smarthome.am.k3dsa.ABarrierAspect;
+import fr.unice.polytech.si5.smarthome.am.k3dsa.SubjectAspect;
+import fr.unice.polytech.si5.smarthome.am.smart_home.ABarrier;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
+import fr.unice.polytech.si5.smarthome.am.smart_home.Subject;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @SuppressWarnings("all")
@@ -28,9 +31,11 @@ public class AbstractOccurence {
     String _name = this.action.getName();
     String _plus = ((("" + this.timestamp) + " : ") + _name);
     InputOutput.<String>println(_plus);
-    EList<ACondition> _ownedConditions = home.getOwnedConditions();
-    for (final ACondition condition : _ownedConditions) {
-      AConditionAspect.tryTrigger(condition, this);
+    EObject _eContainer = this.action.eContainer();
+    SubjectAspect.occur(((Subject) _eContainer), this);
+    EList<ABarrier> _ownedBarrier = home.getOwnedBarrier();
+    for (final ABarrier barrier : _ownedBarrier) {
+      ABarrierAspect.tryTrigger(barrier, this);
     }
   }
   

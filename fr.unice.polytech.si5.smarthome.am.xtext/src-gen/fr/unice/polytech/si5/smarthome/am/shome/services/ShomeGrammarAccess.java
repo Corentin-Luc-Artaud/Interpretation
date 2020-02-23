@@ -36,10 +36,10 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOwnedSubjectsSubjectParserRuleCall_4_0 = (RuleCall)cOwnedSubjectsAssignment_4.eContents().get(0);
 		private final Assignment cOwnedActorsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cOwnedActorsActorParserRuleCall_5_0 = (RuleCall)cOwnedActorsAssignment_5.eContents().get(0);
-		private final Assignment cOwnedConditionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cOwnedConditionsAConditionParserRuleCall_6_0 = (RuleCall)cOwnedConditionsAssignment_6.eContents().get(0);
-		private final Assignment cOwnedConditionsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cOwnedConditionsAConditionParserRuleCall_7_0 = (RuleCall)cOwnedConditionsAssignment_7.eContents().get(0);
+		private final Assignment cOwnedBarrierAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cOwnedBarrierABarrierParserRuleCall_6_0 = (RuleCall)cOwnedBarrierAssignment_6.eContents().get(0);
+		private final Assignment cOwnedBarrierAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cOwnedBarrierABarrierParserRuleCall_7_0 = (RuleCall)cOwnedBarrierAssignment_7.eContents().get(0);
 		private final Assignment cOwnedOccurencesAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cOwnedOccurencesOccurenceParserRuleCall_8_0 = (RuleCall)cOwnedOccurencesAssignment_8.eContents().get(0);
 		private final Assignment cOwnedOccurencesAssignment_9 = (Assignment)cGroup.eContents().get(9);
@@ -47,12 +47,12 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Home:
-		//	{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor* ownedConditions+=ACondition
-		//	ownedConditions+=ACondition* ownedOccurences+=Occurence ownedOccurences+=Occurence* '}';
+		//	{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor* ownedBarrier+=ABarrier
+		//	ownedBarrier+=ABarrier* ownedOccurences+=Occurence ownedOccurences+=Occurence* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor* ownedConditions+=ACondition
-		//ownedConditions+=ACondition* ownedOccurences+=Occurence ownedOccurences+=Occurence* '}'
+		//{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor* ownedBarrier+=ABarrier
+		//ownedBarrier+=ABarrier* ownedOccurences+=Occurence ownedOccurences+=Occurence* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Home}
@@ -82,17 +82,17 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		//Actor
 		public RuleCall getOwnedActorsActorParserRuleCall_5_0() { return cOwnedActorsActorParserRuleCall_5_0; }
 		
-		//ownedConditions+=ACondition
-		public Assignment getOwnedConditionsAssignment_6() { return cOwnedConditionsAssignment_6; }
+		//ownedBarrier+=ABarrier
+		public Assignment getOwnedBarrierAssignment_6() { return cOwnedBarrierAssignment_6; }
 		
-		//ACondition
-		public RuleCall getOwnedConditionsAConditionParserRuleCall_6_0() { return cOwnedConditionsAConditionParserRuleCall_6_0; }
+		//ABarrier
+		public RuleCall getOwnedBarrierABarrierParserRuleCall_6_0() { return cOwnedBarrierABarrierParserRuleCall_6_0; }
 		
-		//ownedConditions+=ACondition*
-		public Assignment getOwnedConditionsAssignment_7() { return cOwnedConditionsAssignment_7; }
+		//ownedBarrier+=ABarrier*
+		public Assignment getOwnedBarrierAssignment_7() { return cOwnedBarrierAssignment_7; }
 		
-		//ACondition
-		public RuleCall getOwnedConditionsAConditionParserRuleCall_7_0() { return cOwnedConditionsAConditionParserRuleCall_7_0; }
+		//ABarrier
+		public RuleCall getOwnedBarrierABarrierParserRuleCall_7_0() { return cOwnedBarrierABarrierParserRuleCall_7_0; }
 		
 		//ownedOccurences+=Occurence
 		public Assignment getOwnedOccurencesAssignment_8() { return cOwnedOccurencesAssignment_8; }
@@ -246,115 +246,33 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getActionActionEStringParserRuleCall_3_0_1() { return cActionActionEStringParserRuleCall_3_0_1; }
 	}
-	public class AConditionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.ACondition");
+	public class ABarrierElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.ABarrier");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cConditionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cTimeEleapsedConditionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cBarrierParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDifferedBarrierParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//ACondition:
-		//	Condition | TimeEleapsedCondition;
+		//ABarrier:
+		//	Barrier | DifferedBarrier;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Condition | TimeEleapsedCondition
+		//Barrier | DifferedBarrier
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Condition
-		public RuleCall getConditionParserRuleCall_0() { return cConditionParserRuleCall_0; }
+		//Barrier
+		public RuleCall getBarrierParserRuleCall_0() { return cBarrierParserRuleCall_0; }
 		
-		//TimeEleapsedCondition
-		public RuleCall getTimeEleapsedConditionParserRuleCall_1() { return cTimeEleapsedConditionParserRuleCall_1; }
+		//DifferedBarrier
+		public RuleCall getDifferedBarrierParserRuleCall_1() { return cDifferedBarrierParserRuleCall_1; }
 	}
-	public class TimeEleapsedConditionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.TimeEleapsedCondition");
+	public class BarrierElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.Barrier");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cIfKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cActionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cActionActionCrossReference_1_0 = (CrossReference)cActionAssignment_1.eContents().get(0);
-		private final RuleCall cActionActionEStringParserRuleCall_1_0_1 = (RuleCall)cActionActionCrossReference_1_0.eContents().get(1);
-		private final Keyword cDuringKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cOwnedTimestampEleapsedAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cOwnedTimestampEleapsedHomeTimeStampParserRuleCall_3_0 = (RuleCall)cOwnedTimestampEleapsedAssignment_3.eContents().get(0);
-		private final Keyword cThenKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cActionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cActionsActionCrossReference_5_0 = (CrossReference)cActionsAssignment_5.eContents().get(0);
-		private final RuleCall cActionsActionEStringParserRuleCall_5_0_1 = (RuleCall)cActionsActionCrossReference_5_0.eContents().get(1);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cAndKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cActionsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cActionsActionCrossReference_6_1_0 = (CrossReference)cActionsAssignment_6_1.eContents().get(0);
-		private final RuleCall cActionsActionEStringParserRuleCall_6_1_0_1 = (RuleCall)cActionsActionCrossReference_6_1_0.eContents().get(1);
-		
-		//TimeEleapsedCondition:
-		//	'if' action=[Action|EString] 'during' ownedTimestampEleapsed=HomeTimeStamp 'then' actions+=[Action|EString] ('and'
-		//	actions+=[Action|EString])*;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'if' action=[Action|EString] 'during' ownedTimestampEleapsed=HomeTimeStamp 'then' actions+=[Action|EString] ('and'
-		//actions+=[Action|EString])*
-		public Group getGroup() { return cGroup; }
-		
-		//'if'
-		public Keyword getIfKeyword_0() { return cIfKeyword_0; }
-		
-		//action=[Action|EString]
-		public Assignment getActionAssignment_1() { return cActionAssignment_1; }
-		
-		//[Action|EString]
-		public CrossReference getActionActionCrossReference_1_0() { return cActionActionCrossReference_1_0; }
-		
-		//EString
-		public RuleCall getActionActionEStringParserRuleCall_1_0_1() { return cActionActionEStringParserRuleCall_1_0_1; }
-		
-		//'during'
-		public Keyword getDuringKeyword_2() { return cDuringKeyword_2; }
-		
-		//ownedTimestampEleapsed=HomeTimeStamp
-		public Assignment getOwnedTimestampEleapsedAssignment_3() { return cOwnedTimestampEleapsedAssignment_3; }
-		
-		//HomeTimeStamp
-		public RuleCall getOwnedTimestampEleapsedHomeTimeStampParserRuleCall_3_0() { return cOwnedTimestampEleapsedHomeTimeStampParserRuleCall_3_0; }
-		
-		//'then'
-		public Keyword getThenKeyword_4() { return cThenKeyword_4; }
-		
-		//actions+=[Action|EString]
-		public Assignment getActionsAssignment_5() { return cActionsAssignment_5; }
-		
-		//[Action|EString]
-		public CrossReference getActionsActionCrossReference_5_0() { return cActionsActionCrossReference_5_0; }
-		
-		//EString
-		public RuleCall getActionsActionEStringParserRuleCall_5_0_1() { return cActionsActionEStringParserRuleCall_5_0_1; }
-		
-		//('and' actions+=[Action|EString])*
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'and'
-		public Keyword getAndKeyword_6_0() { return cAndKeyword_6_0; }
-		
-		//actions+=[Action|EString]
-		public Assignment getActionsAssignment_6_1() { return cActionsAssignment_6_1; }
-		
-		//[Action|EString]
-		public CrossReference getActionsActionCrossReference_6_1_0() { return cActionsActionCrossReference_6_1_0; }
-		
-		//EString
-		public RuleCall getActionsActionEStringParserRuleCall_6_1_0_1() { return cActionsActionEStringParserRuleCall_6_1_0_1; }
-	}
-	public class ConditionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.Condition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cIfKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cActorAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final CrossReference cActorActorCrossReference_1_0_0 = (CrossReference)cActorAssignment_1_0.eContents().get(0);
-		private final RuleCall cActorActorEStringParserRuleCall_1_0_0_1 = (RuleCall)cActorActorCrossReference_1_0_0.eContents().get(1);
-		private final Keyword cDoKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cActionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cActionActionCrossReference_2_0 = (CrossReference)cActionAssignment_2.eContents().get(0);
-		private final RuleCall cActionActionEStringParserRuleCall_2_0_1 = (RuleCall)cActionActionCrossReference_2_0.eContents().get(1);
-		private final Keyword cThenKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cWhenKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cOwnedConditionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cOwnedConditionAConditionParserRuleCall_1_0 = (RuleCall)cOwnedConditionAssignment_1.eContents().get(0);
+		private final Keyword cThenKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTriggerKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cActionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cActionsActionCrossReference_4_0 = (CrossReference)cActionsAssignment_4.eContents().get(0);
 		private final RuleCall cActionsActionEStringParserRuleCall_4_0_1 = (RuleCall)cActionsActionCrossReference_4_0.eContents().get(1);
@@ -364,44 +282,27 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cActionsActionCrossReference_5_1_0 = (CrossReference)cActionsAssignment_5_1.eContents().get(0);
 		private final RuleCall cActionsActionEStringParserRuleCall_5_1_0_1 = (RuleCall)cActionsActionCrossReference_5_1_0.eContents().get(1);
 		
-		//Condition:
-		//	'if' (actor=[Actor|EString] 'do')? action=[Action|EString] 'then' actions+=[Action|EString] ('and'
-		//	actions+=[Action|EString])*;
+		//Barrier:
+		//	'when' ownedCondition=ACondition 'then' 'trigger' actions+=[Action|EString] ('and' actions+=[Action|EString])*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'if' (actor=[Actor|EString] 'do')? action=[Action|EString] 'then' actions+=[Action|EString] ('and'
-		//actions+=[Action|EString])*
+		//'when' ownedCondition=ACondition 'then' 'trigger' actions+=[Action|EString] ('and' actions+=[Action|EString])*
 		public Group getGroup() { return cGroup; }
 		
-		//'if'
-		public Keyword getIfKeyword_0() { return cIfKeyword_0; }
+		//'when'
+		public Keyword getWhenKeyword_0() { return cWhenKeyword_0; }
 		
-		//(actor=[Actor|EString] 'do')?
-		public Group getGroup_1() { return cGroup_1; }
+		//ownedCondition=ACondition
+		public Assignment getOwnedConditionAssignment_1() { return cOwnedConditionAssignment_1; }
 		
-		//actor=[Actor|EString]
-		public Assignment getActorAssignment_1_0() { return cActorAssignment_1_0; }
-		
-		//[Actor|EString]
-		public CrossReference getActorActorCrossReference_1_0_0() { return cActorActorCrossReference_1_0_0; }
-		
-		//EString
-		public RuleCall getActorActorEStringParserRuleCall_1_0_0_1() { return cActorActorEStringParserRuleCall_1_0_0_1; }
-		
-		//'do'
-		public Keyword getDoKeyword_1_1() { return cDoKeyword_1_1; }
-		
-		//action=[Action|EString]
-		public Assignment getActionAssignment_2() { return cActionAssignment_2; }
-		
-		//[Action|EString]
-		public CrossReference getActionActionCrossReference_2_0() { return cActionActionCrossReference_2_0; }
-		
-		//EString
-		public RuleCall getActionActionEStringParserRuleCall_2_0_1() { return cActionActionEStringParserRuleCall_2_0_1; }
+		//ACondition
+		public RuleCall getOwnedConditionAConditionParserRuleCall_1_0() { return cOwnedConditionAConditionParserRuleCall_1_0; }
 		
 		//'then'
-		public Keyword getThenKeyword_3() { return cThenKeyword_3; }
+		public Keyword getThenKeyword_2() { return cThenKeyword_2; }
+		
+		//'trigger'
+		public Keyword getTriggerKeyword_3() { return cTriggerKeyword_3; }
 		
 		//actions+=[Action|EString]
 		public Assignment getActionsAssignment_4() { return cActionsAssignment_4; }
@@ -426,6 +327,271 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EString
 		public RuleCall getActionsActionEStringParserRuleCall_5_1_0_1() { return cActionsActionEStringParserRuleCall_5_1_0_1; }
+	}
+	public class DifferedBarrierElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.DifferedBarrier");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cWhenKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cOwnedConditionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cOwnedConditionAConditionParserRuleCall_1_0 = (RuleCall)cOwnedConditionAssignment_1.eContents().get(0);
+		private final Keyword cThenKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cAfterKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTriggerAfterAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTriggerAfterHomeTimeStampParserRuleCall_4_0 = (RuleCall)cTriggerAfterAssignment_4.eContents().get(0);
+		private final Keyword cTriggerKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cActionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cActionsActionCrossReference_6_0 = (CrossReference)cActionsAssignment_6.eContents().get(0);
+		private final RuleCall cActionsActionEStringParserRuleCall_6_0_1 = (RuleCall)cActionsActionCrossReference_6_0.eContents().get(1);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cAndKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cActionsAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cActionsActionCrossReference_7_1_0 = (CrossReference)cActionsAssignment_7_1.eContents().get(0);
+		private final RuleCall cActionsActionEStringParserRuleCall_7_1_0_1 = (RuleCall)cActionsActionCrossReference_7_1_0.eContents().get(1);
+		
+		//DifferedBarrier:
+		//	'when' ownedCondition=ACondition 'then' 'after' TriggerAfter=HomeTimeStamp 'trigger' actions+=[Action|EString] ('and'
+		//	actions+=[Action|EString])*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'when' ownedCondition=ACondition 'then' 'after' TriggerAfter=HomeTimeStamp 'trigger' actions+=[Action|EString] ('and'
+		//actions+=[Action|EString])*
+		public Group getGroup() { return cGroup; }
+		
+		//'when'
+		public Keyword getWhenKeyword_0() { return cWhenKeyword_0; }
+		
+		//ownedCondition=ACondition
+		public Assignment getOwnedConditionAssignment_1() { return cOwnedConditionAssignment_1; }
+		
+		//ACondition
+		public RuleCall getOwnedConditionAConditionParserRuleCall_1_0() { return cOwnedConditionAConditionParserRuleCall_1_0; }
+		
+		//'then'
+		public Keyword getThenKeyword_2() { return cThenKeyword_2; }
+		
+		//'after'
+		public Keyword getAfterKeyword_3() { return cAfterKeyword_3; }
+		
+		//TriggerAfter=HomeTimeStamp
+		public Assignment getTriggerAfterAssignment_4() { return cTriggerAfterAssignment_4; }
+		
+		//HomeTimeStamp
+		public RuleCall getTriggerAfterHomeTimeStampParserRuleCall_4_0() { return cTriggerAfterHomeTimeStampParserRuleCall_4_0; }
+		
+		//'trigger'
+		public Keyword getTriggerKeyword_5() { return cTriggerKeyword_5; }
+		
+		//actions+=[Action|EString]
+		public Assignment getActionsAssignment_6() { return cActionsAssignment_6; }
+		
+		//[Action|EString]
+		public CrossReference getActionsActionCrossReference_6_0() { return cActionsActionCrossReference_6_0; }
+		
+		//EString
+		public RuleCall getActionsActionEStringParserRuleCall_6_0_1() { return cActionsActionEStringParserRuleCall_6_0_1; }
+		
+		//('and' actions+=[Action|EString])*
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'and'
+		public Keyword getAndKeyword_7_0() { return cAndKeyword_7_0; }
+		
+		//actions+=[Action|EString]
+		public Assignment getActionsAssignment_7_1() { return cActionsAssignment_7_1; }
+		
+		//[Action|EString]
+		public CrossReference getActionsActionCrossReference_7_1_0() { return cActionsActionCrossReference_7_1_0; }
+		
+		//EString
+		public RuleCall getActionsActionEStringParserRuleCall_7_1_0_1() { return cActionsActionEStringParserRuleCall_7_1_0_1; }
+	}
+	public class AConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.ACondition");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cConditionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTimeEleapsedConditionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cComposeConditionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//ACondition:
+		//	Condition | TimeEleapsedCondition | ComposeCondition;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Condition | TimeEleapsedCondition | ComposeCondition
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Condition
+		public RuleCall getConditionParserRuleCall_0() { return cConditionParserRuleCall_0; }
+		
+		//TimeEleapsedCondition
+		public RuleCall getTimeEleapsedConditionParserRuleCall_1() { return cTimeEleapsedConditionParserRuleCall_1; }
+		
+		//ComposeCondition
+		public RuleCall getComposeConditionParserRuleCall_2() { return cComposeConditionParserRuleCall_2; }
+	}
+	public class TimeEleapsedConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.TimeEleapsedCondition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cActorAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final CrossReference cActorActorCrossReference_0_0_0 = (CrossReference)cActorAssignment_0_0.eContents().get(0);
+		private final RuleCall cActorActorEStringParserRuleCall_0_0_0_1 = (RuleCall)cActorActorCrossReference_0_0_0.eContents().get(1);
+		private final Keyword cDoKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cActionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cActionActionCrossReference_1_0 = (CrossReference)cActionAssignment_1.eContents().get(0);
+		private final RuleCall cActionActionEStringParserRuleCall_1_0_1 = (RuleCall)cActionActionCrossReference_1_0.eContents().get(1);
+		private final Keyword cDuringKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cOwnedTimestampEleapsedAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cOwnedTimestampEleapsedHomeTimeStampParserRuleCall_3_0 = (RuleCall)cOwnedTimestampEleapsedAssignment_3.eContents().get(0);
+		
+		//TimeEleapsedCondition:
+		//	(actor=[Actor|EString] 'do')? action=[Action|EString] 'during' ownedTimestampEleapsed=HomeTimeStamp;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(actor=[Actor|EString] 'do')? action=[Action|EString] 'during' ownedTimestampEleapsed=HomeTimeStamp
+		public Group getGroup() { return cGroup; }
+		
+		//(actor=[Actor|EString] 'do')?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//actor=[Actor|EString]
+		public Assignment getActorAssignment_0_0() { return cActorAssignment_0_0; }
+		
+		//[Actor|EString]
+		public CrossReference getActorActorCrossReference_0_0_0() { return cActorActorCrossReference_0_0_0; }
+		
+		//EString
+		public RuleCall getActorActorEStringParserRuleCall_0_0_0_1() { return cActorActorEStringParserRuleCall_0_0_0_1; }
+		
+		//'do'
+		public Keyword getDoKeyword_0_1() { return cDoKeyword_0_1; }
+		
+		//action=[Action|EString]
+		public Assignment getActionAssignment_1() { return cActionAssignment_1; }
+		
+		//[Action|EString]
+		public CrossReference getActionActionCrossReference_1_0() { return cActionActionCrossReference_1_0; }
+		
+		//EString
+		public RuleCall getActionActionEStringParserRuleCall_1_0_1() { return cActionActionEStringParserRuleCall_1_0_1; }
+		
+		//'during'
+		public Keyword getDuringKeyword_2() { return cDuringKeyword_2; }
+		
+		//ownedTimestampEleapsed=HomeTimeStamp
+		public Assignment getOwnedTimestampEleapsedAssignment_3() { return cOwnedTimestampEleapsedAssignment_3; }
+		
+		//HomeTimeStamp
+		public RuleCall getOwnedTimestampEleapsedHomeTimeStampParserRuleCall_3_0() { return cOwnedTimestampEleapsedHomeTimeStampParserRuleCall_3_0; }
+	}
+	public class ConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.Condition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cActorAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final CrossReference cActorActorCrossReference_0_0_0 = (CrossReference)cActorAssignment_0_0.eContents().get(0);
+		private final RuleCall cActorActorEStringParserRuleCall_0_0_0_1 = (RuleCall)cActorActorCrossReference_0_0_0.eContents().get(1);
+		private final Keyword cDoKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cActionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cActionActionCrossReference_1_0 = (CrossReference)cActionAssignment_1.eContents().get(0);
+		private final RuleCall cActionActionEStringParserRuleCall_1_0_1 = (RuleCall)cActionActionCrossReference_1_0.eContents().get(1);
+		
+		//Condition:
+		//	(actor=[Actor|EString] 'do')? action=[Action|EString];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(actor=[Actor|EString] 'do')? action=[Action|EString]
+		public Group getGroup() { return cGroup; }
+		
+		//(actor=[Actor|EString] 'do')?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//actor=[Actor|EString]
+		public Assignment getActorAssignment_0_0() { return cActorAssignment_0_0; }
+		
+		//[Actor|EString]
+		public CrossReference getActorActorCrossReference_0_0_0() { return cActorActorCrossReference_0_0_0; }
+		
+		//EString
+		public RuleCall getActorActorEStringParserRuleCall_0_0_0_1() { return cActorActorEStringParserRuleCall_0_0_0_1; }
+		
+		//'do'
+		public Keyword getDoKeyword_0_1() { return cDoKeyword_0_1; }
+		
+		//action=[Action|EString]
+		public Assignment getActionAssignment_1() { return cActionAssignment_1; }
+		
+		//[Action|EString]
+		public CrossReference getActionActionCrossReference_1_0() { return cActionActionCrossReference_1_0; }
+		
+		//EString
+		public RuleCall getActionActionEStringParserRuleCall_1_0_1() { return cActionActionEStringParserRuleCall_1_0_1; }
+	}
+	public class TerminalConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.TerminalCondition");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cConditionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTimeEleapsedConditionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//TerminalCondition ACondition:
+		//	Condition | TimeEleapsedCondition;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Condition | TimeEleapsedCondition
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Condition
+		public RuleCall getConditionParserRuleCall_0() { return cConditionParserRuleCall_0; }
+		
+		//TimeEleapsedCondition
+		public RuleCall getTimeEleapsedConditionParserRuleCall_1() { return cTimeEleapsedConditionParserRuleCall_1; }
+	}
+	public class ComposeConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.ComposeCondition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cOwnedConditionsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cOwnedConditionsTerminalConditionParserRuleCall_0_0 = (RuleCall)cOwnedConditionsAssignment_0.eContents().get(0);
+		private final Keyword cAndKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cOwnedConditionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOwnedConditionsTerminalConditionParserRuleCall_2_0 = (RuleCall)cOwnedConditionsAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cAndKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cOwnedConditionsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cOwnedConditionsTerminalConditionParserRuleCall_3_1_0 = (RuleCall)cOwnedConditionsAssignment_3_1.eContents().get(0);
+		
+		//ComposeCondition:
+		//	ownedConditions+=TerminalCondition 'and' ownedConditions+=TerminalCondition ('and'
+		//	ownedConditions+=TerminalCondition)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ownedConditions+=TerminalCondition 'and' ownedConditions+=TerminalCondition ('and' ownedConditions+=TerminalCondition)*
+		public Group getGroup() { return cGroup; }
+		
+		//ownedConditions+=TerminalCondition
+		public Assignment getOwnedConditionsAssignment_0() { return cOwnedConditionsAssignment_0; }
+		
+		//TerminalCondition
+		public RuleCall getOwnedConditionsTerminalConditionParserRuleCall_0_0() { return cOwnedConditionsTerminalConditionParserRuleCall_0_0; }
+		
+		//'and'
+		public Keyword getAndKeyword_1() { return cAndKeyword_1; }
+		
+		//ownedConditions+=TerminalCondition
+		public Assignment getOwnedConditionsAssignment_2() { return cOwnedConditionsAssignment_2; }
+		
+		//TerminalCondition
+		public RuleCall getOwnedConditionsTerminalConditionParserRuleCall_2_0() { return cOwnedConditionsTerminalConditionParserRuleCall_2_0; }
+		
+		//('and' ownedConditions+=TerminalCondition)*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'and'
+		public Keyword getAndKeyword_3_0() { return cAndKeyword_3_0; }
+		
+		//ownedConditions+=TerminalCondition
+		public Assignment getOwnedConditionsAssignment_3_1() { return cOwnedConditionsAssignment_3_1; }
+		
+		//TerminalCondition
+		public RuleCall getOwnedConditionsTerminalConditionParserRuleCall_3_1_0() { return cOwnedConditionsTerminalConditionParserRuleCall_3_1_0; }
 	}
 	public class HomeTimeStampElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.smarthome.am.shome.Shome.HomeTimeStamp");
@@ -518,9 +684,14 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	private final SubjectElements pSubject;
 	private final ActorElements pActor;
 	private final OccurenceElements pOccurence;
+	private final ABarrierElements pABarrier;
+	private final BarrierElements pBarrier;
+	private final DifferedBarrierElements pDifferedBarrier;
 	private final AConditionElements pACondition;
 	private final TimeEleapsedConditionElements pTimeEleapsedCondition;
 	private final ConditionElements pCondition;
+	private final TerminalConditionElements pTerminalCondition;
+	private final ComposeConditionElements pComposeCondition;
 	private final HomeTimeStampElements pHomeTimeStamp;
 	private final EStringElements pEString;
 	private final ActionElements pAction;
@@ -538,9 +709,14 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSubject = new SubjectElements();
 		this.pActor = new ActorElements();
 		this.pOccurence = new OccurenceElements();
+		this.pABarrier = new ABarrierElements();
+		this.pBarrier = new BarrierElements();
+		this.pDifferedBarrier = new DifferedBarrierElements();
 		this.pACondition = new AConditionElements();
 		this.pTimeEleapsedCondition = new TimeEleapsedConditionElements();
 		this.pCondition = new ConditionElements();
+		this.pTerminalCondition = new TerminalConditionElements();
+		this.pComposeCondition = new ComposeConditionElements();
 		this.pHomeTimeStamp = new HomeTimeStampElements();
 		this.pEString = new EStringElements();
 		this.pAction = new ActionElements();
@@ -574,8 +750,8 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Home:
-	//	{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor* ownedConditions+=ACondition
-	//	ownedConditions+=ACondition* ownedOccurences+=Occurence ownedOccurences+=Occurence* '}';
+	//	{Home} 'Home' '{' ownedSubjects+=Subject ownedSubjects+=Subject* ownedActors+=Actor* ownedBarrier+=ABarrier
+	//	ownedBarrier+=ABarrier* ownedOccurences+=Occurence ownedOccurences+=Occurence* '}';
 	public HomeElements getHomeAccess() {
 		return pHome;
 	}
@@ -614,8 +790,39 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 		return getOccurenceAccess().getRule();
 	}
 	
+	//ABarrier:
+	//	Barrier | DifferedBarrier;
+	public ABarrierElements getABarrierAccess() {
+		return pABarrier;
+	}
+	
+	public ParserRule getABarrierRule() {
+		return getABarrierAccess().getRule();
+	}
+	
+	//Barrier:
+	//	'when' ownedCondition=ACondition 'then' 'trigger' actions+=[Action|EString] ('and' actions+=[Action|EString])*;
+	public BarrierElements getBarrierAccess() {
+		return pBarrier;
+	}
+	
+	public ParserRule getBarrierRule() {
+		return getBarrierAccess().getRule();
+	}
+	
+	//DifferedBarrier:
+	//	'when' ownedCondition=ACondition 'then' 'after' TriggerAfter=HomeTimeStamp 'trigger' actions+=[Action|EString] ('and'
+	//	actions+=[Action|EString])*;
+	public DifferedBarrierElements getDifferedBarrierAccess() {
+		return pDifferedBarrier;
+	}
+	
+	public ParserRule getDifferedBarrierRule() {
+		return getDifferedBarrierAccess().getRule();
+	}
+	
 	//ACondition:
-	//	Condition | TimeEleapsedCondition;
+	//	Condition | TimeEleapsedCondition | ComposeCondition;
 	public AConditionElements getAConditionAccess() {
 		return pACondition;
 	}
@@ -625,8 +832,7 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TimeEleapsedCondition:
-	//	'if' action=[Action|EString] 'during' ownedTimestampEleapsed=HomeTimeStamp 'then' actions+=[Action|EString] ('and'
-	//	actions+=[Action|EString])*;
+	//	(actor=[Actor|EString] 'do')? action=[Action|EString] 'during' ownedTimestampEleapsed=HomeTimeStamp;
 	public TimeEleapsedConditionElements getTimeEleapsedConditionAccess() {
 		return pTimeEleapsedCondition;
 	}
@@ -636,14 +842,34 @@ public class ShomeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Condition:
-	//	'if' (actor=[Actor|EString] 'do')? action=[Action|EString] 'then' actions+=[Action|EString] ('and'
-	//	actions+=[Action|EString])*;
+	//	(actor=[Actor|EString] 'do')? action=[Action|EString];
 	public ConditionElements getConditionAccess() {
 		return pCondition;
 	}
 	
 	public ParserRule getConditionRule() {
 		return getConditionAccess().getRule();
+	}
+	
+	//TerminalCondition ACondition:
+	//	Condition | TimeEleapsedCondition;
+	public TerminalConditionElements getTerminalConditionAccess() {
+		return pTerminalCondition;
+	}
+	
+	public ParserRule getTerminalConditionRule() {
+		return getTerminalConditionAccess().getRule();
+	}
+	
+	//ComposeCondition:
+	//	ownedConditions+=TerminalCondition 'and' ownedConditions+=TerminalCondition ('and'
+	//	ownedConditions+=TerminalCondition)*;
+	public ComposeConditionElements getComposeConditionAccess() {
+		return pComposeCondition;
+	}
+	
+	public ParserRule getComposeConditionRule() {
+		return getComposeConditionAccess().getRule();
 	}
 	
 	//HomeTimeStamp:

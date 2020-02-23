@@ -72,6 +72,14 @@ public class SmartHomeFactoryImpl extends EFactoryImpl implements SmartHomeFacto
 			return createCondition();
 		case SmartHomePackage.TIME_ELEAPSED_CONDITION:
 			return createTimeEleapsedCondition();
+		case SmartHomePackage.COMPOSE_CONDITION:
+			return createComposeCondition();
+		case SmartHomePackage.ABARRIER:
+			return createABarrier();
+		case SmartHomePackage.BARRIER:
+			return createBarrier();
+		case SmartHomePackage.DIFFERED_BARRIER:
+			return createDifferedBarrier();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -145,6 +153,46 @@ public class SmartHomeFactoryImpl extends EFactoryImpl implements SmartHomeFacto
 	public TimeEleapsedCondition createTimeEleapsedCondition() {
 		TimeEleapsedConditionImpl timeEleapsedCondition = new TimeEleapsedConditionImpl();
 		return timeEleapsedCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComposeCondition createComposeCondition() {
+		ComposeConditionImpl composeCondition = new ComposeConditionImpl();
+		return composeCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ABarrier createABarrier() {
+		ABarrierImpl aBarrier = new ABarrierImpl();
+		return aBarrier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Barrier createBarrier() {
+		BarrierImpl barrier = new BarrierImpl();
+		return barrier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DifferedBarrier createDifferedBarrier() {
+		DifferedBarrierImpl differedBarrier = new DifferedBarrierImpl();
+		return differedBarrier;
 	}
 
 	/**

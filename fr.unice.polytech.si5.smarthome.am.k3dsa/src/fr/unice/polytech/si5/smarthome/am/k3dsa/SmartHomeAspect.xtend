@@ -16,6 +16,9 @@ import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.HomeTimeStampAs
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.ActionAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.AConditionAspect.*
 import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.SmartHomeAspect.*
+import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.SubjectAspect.*
+import static extension fr.unice.polytech.si5.smarthome.am.k3dsa.ABarrierAspect.*
+
 
 
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition
@@ -25,6 +28,11 @@ import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition
 import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition
+import fr.unice.polytech.si5.smarthome.am.smart_home.ComposeCondition
+import fr.unice.polytech.si5.smarthome.am.smart_home.Barrier
+import fr.unice.polytech.si5.smarthome.am.smart_home.ABarrier
+import fr.unice.polytech.si5.smarthome.am.smart_home.Subject
+import fr.unice.polytech.si5.smarthome.am.smart_home.DifferedBarrier
 
 /**
  * Sample aspect that gives java.io.File the ability to store Text content and save it to disk
@@ -52,20 +60,26 @@ class SmartHomeAspect {
 	
 	private def void loop() {
 		for (; _self.curtime < 24*60*60; _self.curtime = _self.curtime+1) {
+			//println("pending events "+_self.pendingEvents.size())
 			_self.tick()
 		}
 		_self.curtime = 0
 	}
 	
 	private def void tick() {
+		//println(_self.pendingEvents.peek())
 		while (_self.pendingEvents.peek() !== null && _self.pendingEvents.peek().timestamp == _self.curtime) {
 			_self.pendingEvents.poll().happenNow(_self)
 		}	
+		for (ABarrier barrier : _self.ownedBarrier) {
+			barrier.tryTrigger(null);
+		}
 	}
 	
 	def void addPendingEvent(AbstractOccurence occurence) {
 		_self.pendingEvents.add(occurence)
-		_self.pendingEvents.sortBy[timestamp]		
+		_self.pendingEvents = new LinkedList(_self.pendingEvents.sortBy[timestamp])
+		println(_self.pendingEvents)		
 	}
 	
 	@Step
@@ -89,6 +103,19 @@ class OccurenceAspect {
 	
 }
 
+@Aspect(className=Subject)
+class SubjectAspect {
+	AbstractOccurence lastOccurence
+	
+	def void occur(AbstractOccurence occurence) {
+		_self.lastOccurence = occurence
+	}
+	
+	def AbstractOccurence lastEvent() {
+		return _self.lastOccurence
+	}
+}
+
 class AbstractOccurence {
 	public Integer timestamp
 	public Actor actor
@@ -104,8 +131,9 @@ class AbstractOccurence {
 	def void happenNow(Home home) {
 		println(""+this.timestamp+" : "+this.action.name)
 		//check all condition
-		for (ACondition condition: home.ownedConditions) {
-			condition.tryTrigger(this)
+		(this.action.eContainer as Subject).occur(this)
+		for (ABarrier barrier: home.ownedBarrier) {
+			barrier.tryTrigger(this)
 		}
 		
 	}
@@ -118,22 +146,21 @@ class AbstractOccurence {
 @Aspect(className=HomeTimeStamp)
 class HomeTimeStampAspect {
 	def Integer toSec() {
-		return _self.sec+_self.min*60+_self.hour*24*60
+		return _self.sec+_self.min*60+_self.hour*60*60
 	}
 	
 }
 
-@Aspect(className=ACondition)
-abstract class AConditionAspect {
+@Aspect(className=ABarrier)
+abstract class ABarrierAspect {
 	def abstract void tryTrigger(AbstractOccurence occurence)
 }
 
-@Aspect(className=Condition)
-class ConditionAspect extends AConditionAspect{
-	//@ReplaceAspectMethod
+@Aspect(className=Barrier)
+class BarrierAspect extends ABarrierAspect{
 	@OverrideAspectMethod
 	def void tryTrigger(AbstractOccurence occurence) {
-		if(occurence.action == _self.action){
+		if (_self.ownedCondition.isValid(occurence)){
 			for (Action a: _self.actions) {
 				a.trigger(occurence.timestamp)
 				(_self.eContainer() as Home).addNewOccurenceOfAction(a, occurence.timestamp)
@@ -142,18 +169,76 @@ class ConditionAspect extends AConditionAspect{
 	}
 }
 
-@Aspect(className=TimeEleapsedCondition)
-class TimeConditionAspect extends AConditionAspect{
-	//@ReplaceAspectMethod
+@Aspect(className=DifferedBarrier)
+class DifferedBarrierAspect extends ABarrierAspect{
 	@OverrideAspectMethod
 	def void tryTrigger(AbstractOccurence occurence) {
-		if(occurence.action == _self.action){
+		if (_self.ownedCondition.isValid(occurence)){
 			for (Action a: _self.actions) {
 				a.trigger(occurence.timestamp)
-				(_self.eContainer() as Home).addNewOccurenceOfAction(a, occurence.timestamp+_self.ownedTimestampEleapsed.toSec())
+				(_self.eContainer() as Home).addNewOccurenceOfAction(a, occurence.timestamp)
 			}
 		}
 	}
+}
+
+@Aspect(className=ACondition)
+abstract class AConditionAspect {
+	def abstract boolean isValid(AbstractOccurence occurence)
+}
+
+@Aspect(className=Condition)
+class ConditionAspect extends AConditionAspect{
+	//@ReplaceAspectMethod
+	@OverrideAspectMethod
+	def boolean isValid(AbstractOccurence occurence) {
+		if (occurence === null ) return false;
+		return (occurence.action == _self.action && (_self.actor == null || _self.actor == occurence.actor))
+	}
+}
+
+@Aspect(className=TimeEleapsedCondition)
+class TimeConditionAspect extends AConditionAspect{
+	@OverrideAspectMethod
+	def boolean isValid(AbstractOccurence occurence) {
+		
+		var AbstractOccurence lastOccurence = (_self.action.eContainer as Subject).lastEvent()
+		
+		//println("check last occurences "+lastOccurence)
+		var Home home = ((_self.action.eContainer as Subject).eContainer as Home)
+		var Boolean last_occurence = false
+		var Boolean time = false
+		var Boolean actor = false
+		if (lastOccurence !== null ){
+			actor = (_self.actor === null || _self.actor == lastOccurence.actor)
+			last_occurence = lastOccurence.action == _self.action
+			time = (home.wichTime()-lastOccurence.timestamp) >= _self.ownedTimestampEleapsed.toSec()
+			
+		} 
+		
+		var Boolean value = actor && last_occurence
+			 && time
+		/*if (actor){
+			println("last occurence of "+ _self.action.name)
+			println(home.wichTime()+"-"+lastOccurence.timestamp+" >= "+_self.ownedTimestampEleapsed.toSec())
+			
+			println("occurence and actor: "+actor+" lastoccur: "+last_occurence+" time: "+time)
+			println(value)
+		}*/
+		return value
+	}
+}
+
+@Aspect(className=ComposeCondition)
+class ComposeConditionAspect extends AConditionAspect{
+	@OverrideAspectMethod
+	def boolean isValid(AbstractOccurence occurence) {
+		for (ACondition condition: _self.ownedConditions) {
+			if (! condition.isValid(occurence)) return false
+		}
+		return true
+	}
+	
 }
 
 @Aspect(className=Action)

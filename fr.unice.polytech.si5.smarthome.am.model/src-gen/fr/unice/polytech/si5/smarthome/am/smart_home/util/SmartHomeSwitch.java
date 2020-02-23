@@ -146,6 +146,40 @@ public class SmartHomeSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case SmartHomePackage.COMPOSE_CONDITION: {
+			ComposeCondition composeCondition = (ComposeCondition) theEObject;
+			T result = caseComposeCondition(composeCondition);
+			if (result == null)
+				result = caseACondition(composeCondition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SmartHomePackage.ABARRIER: {
+			ABarrier aBarrier = (ABarrier) theEObject;
+			T result = caseABarrier(aBarrier);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SmartHomePackage.BARRIER: {
+			Barrier barrier = (Barrier) theEObject;
+			T result = caseBarrier(barrier);
+			if (result == null)
+				result = caseABarrier(barrier);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SmartHomePackage.DIFFERED_BARRIER: {
+			DifferedBarrier differedBarrier = (DifferedBarrier) theEObject;
+			T result = caseDifferedBarrier(differedBarrier);
+			if (result == null)
+				result = caseABarrier(differedBarrier);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -283,6 +317,66 @@ public class SmartHomeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTimeEleapsedCondition(TimeEleapsedCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Compose Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Compose Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComposeCondition(ComposeCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ABarrier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ABarrier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseABarrier(ABarrier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Barrier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Barrier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBarrier(Barrier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Differed Barrier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Differed Barrier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDifferedBarrier(DifferedBarrier object) {
 		return null;
 	}
 

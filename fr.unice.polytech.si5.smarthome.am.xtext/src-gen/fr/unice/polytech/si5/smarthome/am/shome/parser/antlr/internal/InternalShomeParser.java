@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalShomeParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Home'", "'{'", "'}'", "'Subject'", "'ownedActions'", "':'", "'-'", "'Actor'", "'->'", "'do'", "'if'", "'during'", "'then'", "'and'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Home'", "'{'", "'}'", "'Subject'", "'ownedActions'", "':'", "'-'", "'Actor'", "'->'", "'do'", "'when'", "'then'", "'trigger'", "'and'", "'after'", "'during'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -38,11 +38,13 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
     public static final int RULE_ID=6;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
+    public static final int T__26=26;
     public static final int RULE_INT=4;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
     public static final int T__24=24;
+    public static final int T__25=25;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -122,7 +124,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleHome"
-    // InternalShome.g:71:1: ruleHome returns [EObject current=null] : ( () otherlv_1= 'Home' otherlv_2= '{' ( (lv_ownedSubjects_3_0= ruleSubject ) ) ( (lv_ownedSubjects_4_0= ruleSubject ) )* ( (lv_ownedActors_5_0= ruleActor ) )* ( (lv_ownedConditions_6_0= ruleACondition ) ) ( (lv_ownedConditions_7_0= ruleACondition ) )* ( (lv_ownedOccurences_8_0= ruleOccurence ) ) ( (lv_ownedOccurences_9_0= ruleOccurence ) )* otherlv_10= '}' ) ;
+    // InternalShome.g:71:1: ruleHome returns [EObject current=null] : ( () otherlv_1= 'Home' otherlv_2= '{' ( (lv_ownedSubjects_3_0= ruleSubject ) ) ( (lv_ownedSubjects_4_0= ruleSubject ) )* ( (lv_ownedActors_5_0= ruleActor ) )* ( (lv_ownedBarrier_6_0= ruleABarrier ) ) ( (lv_ownedBarrier_7_0= ruleABarrier ) )* ( (lv_ownedOccurences_8_0= ruleOccurence ) ) ( (lv_ownedOccurences_9_0= ruleOccurence ) )* otherlv_10= '}' ) ;
     public final EObject ruleHome() throws RecognitionException {
         EObject current = null;
 
@@ -135,9 +137,9 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
         EObject lv_ownedActors_5_0 = null;
 
-        EObject lv_ownedConditions_6_0 = null;
+        EObject lv_ownedBarrier_6_0 = null;
 
-        EObject lv_ownedConditions_7_0 = null;
+        EObject lv_ownedBarrier_7_0 = null;
 
         EObject lv_ownedOccurences_8_0 = null;
 
@@ -148,11 +150,11 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalShome.g:77:2: ( ( () otherlv_1= 'Home' otherlv_2= '{' ( (lv_ownedSubjects_3_0= ruleSubject ) ) ( (lv_ownedSubjects_4_0= ruleSubject ) )* ( (lv_ownedActors_5_0= ruleActor ) )* ( (lv_ownedConditions_6_0= ruleACondition ) ) ( (lv_ownedConditions_7_0= ruleACondition ) )* ( (lv_ownedOccurences_8_0= ruleOccurence ) ) ( (lv_ownedOccurences_9_0= ruleOccurence ) )* otherlv_10= '}' ) )
-            // InternalShome.g:78:2: ( () otherlv_1= 'Home' otherlv_2= '{' ( (lv_ownedSubjects_3_0= ruleSubject ) ) ( (lv_ownedSubjects_4_0= ruleSubject ) )* ( (lv_ownedActors_5_0= ruleActor ) )* ( (lv_ownedConditions_6_0= ruleACondition ) ) ( (lv_ownedConditions_7_0= ruleACondition ) )* ( (lv_ownedOccurences_8_0= ruleOccurence ) ) ( (lv_ownedOccurences_9_0= ruleOccurence ) )* otherlv_10= '}' )
+            // InternalShome.g:77:2: ( ( () otherlv_1= 'Home' otherlv_2= '{' ( (lv_ownedSubjects_3_0= ruleSubject ) ) ( (lv_ownedSubjects_4_0= ruleSubject ) )* ( (lv_ownedActors_5_0= ruleActor ) )* ( (lv_ownedBarrier_6_0= ruleABarrier ) ) ( (lv_ownedBarrier_7_0= ruleABarrier ) )* ( (lv_ownedOccurences_8_0= ruleOccurence ) ) ( (lv_ownedOccurences_9_0= ruleOccurence ) )* otherlv_10= '}' ) )
+            // InternalShome.g:78:2: ( () otherlv_1= 'Home' otherlv_2= '{' ( (lv_ownedSubjects_3_0= ruleSubject ) ) ( (lv_ownedSubjects_4_0= ruleSubject ) )* ( (lv_ownedActors_5_0= ruleActor ) )* ( (lv_ownedBarrier_6_0= ruleABarrier ) ) ( (lv_ownedBarrier_7_0= ruleABarrier ) )* ( (lv_ownedOccurences_8_0= ruleOccurence ) ) ( (lv_ownedOccurences_9_0= ruleOccurence ) )* otherlv_10= '}' )
             {
-            // InternalShome.g:78:2: ( () otherlv_1= 'Home' otherlv_2= '{' ( (lv_ownedSubjects_3_0= ruleSubject ) ) ( (lv_ownedSubjects_4_0= ruleSubject ) )* ( (lv_ownedActors_5_0= ruleActor ) )* ( (lv_ownedConditions_6_0= ruleACondition ) ) ( (lv_ownedConditions_7_0= ruleACondition ) )* ( (lv_ownedOccurences_8_0= ruleOccurence ) ) ( (lv_ownedOccurences_9_0= ruleOccurence ) )* otherlv_10= '}' )
-            // InternalShome.g:79:3: () otherlv_1= 'Home' otherlv_2= '{' ( (lv_ownedSubjects_3_0= ruleSubject ) ) ( (lv_ownedSubjects_4_0= ruleSubject ) )* ( (lv_ownedActors_5_0= ruleActor ) )* ( (lv_ownedConditions_6_0= ruleACondition ) ) ( (lv_ownedConditions_7_0= ruleACondition ) )* ( (lv_ownedOccurences_8_0= ruleOccurence ) ) ( (lv_ownedOccurences_9_0= ruleOccurence ) )* otherlv_10= '}'
+            // InternalShome.g:78:2: ( () otherlv_1= 'Home' otherlv_2= '{' ( (lv_ownedSubjects_3_0= ruleSubject ) ) ( (lv_ownedSubjects_4_0= ruleSubject ) )* ( (lv_ownedActors_5_0= ruleActor ) )* ( (lv_ownedBarrier_6_0= ruleABarrier ) ) ( (lv_ownedBarrier_7_0= ruleABarrier ) )* ( (lv_ownedOccurences_8_0= ruleOccurence ) ) ( (lv_ownedOccurences_9_0= ruleOccurence ) )* otherlv_10= '}' )
+            // InternalShome.g:79:3: () otherlv_1= 'Home' otherlv_2= '{' ( (lv_ownedSubjects_3_0= ruleSubject ) ) ( (lv_ownedSubjects_4_0= ruleSubject ) )* ( (lv_ownedActors_5_0= ruleActor ) )* ( (lv_ownedBarrier_6_0= ruleABarrier ) ) ( (lv_ownedBarrier_7_0= ruleABarrier ) )* ( (lv_ownedOccurences_8_0= ruleOccurence ) ) ( (lv_ownedOccurences_9_0= ruleOccurence ) )* otherlv_10= '}'
             {
             // InternalShome.g:79:3: ()
             // InternalShome.g:80:4: 
@@ -302,17 +304,17 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalShome.g:151:3: ( (lv_ownedConditions_6_0= ruleACondition ) )
-            // InternalShome.g:152:4: (lv_ownedConditions_6_0= ruleACondition )
+            // InternalShome.g:151:3: ( (lv_ownedBarrier_6_0= ruleABarrier ) )
+            // InternalShome.g:152:4: (lv_ownedBarrier_6_0= ruleABarrier )
             {
-            // InternalShome.g:152:4: (lv_ownedConditions_6_0= ruleACondition )
-            // InternalShome.g:153:5: lv_ownedConditions_6_0= ruleACondition
+            // InternalShome.g:152:4: (lv_ownedBarrier_6_0= ruleABarrier )
+            // InternalShome.g:153:5: lv_ownedBarrier_6_0= ruleABarrier
             {
 
-            					newCompositeNode(grammarAccess.getHomeAccess().getOwnedConditionsAConditionParserRuleCall_6_0());
+            					newCompositeNode(grammarAccess.getHomeAccess().getOwnedBarrierABarrierParserRuleCall_6_0());
             				
             pushFollow(FOLLOW_6);
-            lv_ownedConditions_6_0=ruleACondition();
+            lv_ownedBarrier_6_0=ruleABarrier();
 
             state._fsp--;
 
@@ -322,9 +324,9 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
             					}
             					add(
             						current,
-            						"ownedConditions",
-            						lv_ownedConditions_6_0,
-            						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ACondition");
+            						"ownedBarrier",
+            						lv_ownedBarrier_6_0,
+            						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ABarrier");
             					afterParserOrEnumRuleCall();
             				
 
@@ -333,7 +335,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalShome.g:170:3: ( (lv_ownedConditions_7_0= ruleACondition ) )*
+            // InternalShome.g:170:3: ( (lv_ownedBarrier_7_0= ruleABarrier ) )*
             loop3:
             do {
                 int alt3=2;
@@ -346,16 +348,16 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalShome.g:171:4: (lv_ownedConditions_7_0= ruleACondition )
+            	    // InternalShome.g:171:4: (lv_ownedBarrier_7_0= ruleABarrier )
             	    {
-            	    // InternalShome.g:171:4: (lv_ownedConditions_7_0= ruleACondition )
-            	    // InternalShome.g:172:5: lv_ownedConditions_7_0= ruleACondition
+            	    // InternalShome.g:171:4: (lv_ownedBarrier_7_0= ruleABarrier )
+            	    // InternalShome.g:172:5: lv_ownedBarrier_7_0= ruleABarrier
             	    {
 
-            	    					newCompositeNode(grammarAccess.getHomeAccess().getOwnedConditionsAConditionParserRuleCall_7_0());
+            	    					newCompositeNode(grammarAccess.getHomeAccess().getOwnedBarrierABarrierParserRuleCall_7_0());
             	    				
             	    pushFollow(FOLLOW_6);
-            	    lv_ownedConditions_7_0=ruleACondition();
+            	    lv_ownedBarrier_7_0=ruleABarrier();
 
             	    state._fsp--;
 
@@ -365,9 +367,9 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"ownedConditions",
-            	    						lv_ownedConditions_7_0,
-            	    						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ACondition");
+            	    						"ownedBarrier",
+            	    						lv_ownedBarrier_7_0,
+            	    						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ABarrier");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -1029,25 +1031,25 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleOccurence"
 
 
-    // $ANTLR start "entryRuleACondition"
-    // InternalShome.g:458:1: entryRuleACondition returns [EObject current=null] : iv_ruleACondition= ruleACondition EOF ;
-    public final EObject entryRuleACondition() throws RecognitionException {
+    // $ANTLR start "entryRuleABarrier"
+    // InternalShome.g:458:1: entryRuleABarrier returns [EObject current=null] : iv_ruleABarrier= ruleABarrier EOF ;
+    public final EObject entryRuleABarrier() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleACondition = null;
+        EObject iv_ruleABarrier = null;
 
 
         try {
-            // InternalShome.g:458:51: (iv_ruleACondition= ruleACondition EOF )
-            // InternalShome.g:459:2: iv_ruleACondition= ruleACondition EOF
+            // InternalShome.g:458:49: (iv_ruleABarrier= ruleABarrier EOF )
+            // InternalShome.g:459:2: iv_ruleABarrier= ruleABarrier EOF
             {
-             newCompositeNode(grammarAccess.getAConditionRule()); 
+             newCompositeNode(grammarAccess.getABarrierRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleACondition=ruleACondition();
+            iv_ruleABarrier=ruleABarrier();
 
             state._fsp--;
 
-             current =iv_ruleACondition; 
+             current =iv_ruleABarrier; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1062,110 +1064,61 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleACondition"
+    // $ANTLR end "entryRuleABarrier"
 
 
-    // $ANTLR start "ruleACondition"
-    // InternalShome.g:465:1: ruleACondition returns [EObject current=null] : (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition ) ;
-    public final EObject ruleACondition() throws RecognitionException {
+    // $ANTLR start "ruleABarrier"
+    // InternalShome.g:465:1: ruleABarrier returns [EObject current=null] : (this_Barrier_0= ruleBarrier | this_DifferedBarrier_1= ruleDifferedBarrier ) ;
+    public final EObject ruleABarrier() throws RecognitionException {
         EObject current = null;
 
-        EObject this_Condition_0 = null;
+        EObject this_Barrier_0 = null;
 
-        EObject this_TimeEleapsedCondition_1 = null;
+        EObject this_DifferedBarrier_1 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalShome.g:471:2: ( (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition ) )
-            // InternalShome.g:472:2: (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition )
+            // InternalShome.g:471:2: ( (this_Barrier_0= ruleBarrier | this_DifferedBarrier_1= ruleDifferedBarrier ) )
+            // InternalShome.g:472:2: (this_Barrier_0= ruleBarrier | this_DifferedBarrier_1= ruleDifferedBarrier )
             {
-            // InternalShome.g:472:2: (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition )
+            // InternalShome.g:472:2: (this_Barrier_0= ruleBarrier | this_DifferedBarrier_1= ruleDifferedBarrier )
             int alt7=2;
-            int LA7_0 = input.LA(1);
-
-            if ( (LA7_0==21) ) {
-                int LA7_1 = input.LA(2);
-
-                if ( (LA7_1==RULE_STRING) ) {
-                    int LA7_2 = input.LA(3);
-
-                    if ( (LA7_2==22) ) {
-                        alt7=2;
-                    }
-                    else if ( (LA7_2==20||LA7_2==23) ) {
-                        alt7=1;
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 7, 2, input);
-
-                        throw nvae;
-                    }
-                }
-                else if ( (LA7_1==RULE_ID) ) {
-                    int LA7_3 = input.LA(3);
-
-                    if ( (LA7_3==22) ) {
-                        alt7=2;
-                    }
-                    else if ( (LA7_3==20||LA7_3==23) ) {
-                        alt7=1;
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 7, 3, input);
-
-                        throw nvae;
-                    }
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 7, 1, input);
-
-                    throw nvae;
-                }
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
-
-                throw nvae;
-            }
+            alt7 = dfa7.predict(input);
             switch (alt7) {
                 case 1 :
-                    // InternalShome.g:473:3: this_Condition_0= ruleCondition
+                    // InternalShome.g:473:3: this_Barrier_0= ruleBarrier
                     {
 
-                    			newCompositeNode(grammarAccess.getAConditionAccess().getConditionParserRuleCall_0());
+                    			newCompositeNode(grammarAccess.getABarrierAccess().getBarrierParserRuleCall_0());
                     		
                     pushFollow(FOLLOW_2);
-                    this_Condition_0=ruleCondition();
+                    this_Barrier_0=ruleBarrier();
 
                     state._fsp--;
 
 
-                    			current = this_Condition_0;
+                    			current = this_Barrier_0;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 2 :
-                    // InternalShome.g:482:3: this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition
+                    // InternalShome.g:482:3: this_DifferedBarrier_1= ruleDifferedBarrier
                     {
 
-                    			newCompositeNode(grammarAccess.getAConditionAccess().getTimeEleapsedConditionParserRuleCall_1());
+                    			newCompositeNode(grammarAccess.getABarrierAccess().getDifferedBarrierParserRuleCall_1());
                     		
                     pushFollow(FOLLOW_2);
-                    this_TimeEleapsedCondition_1=ruleTimeEleapsedCondition();
+                    this_DifferedBarrier_1=ruleDifferedBarrier();
 
                     state._fsp--;
 
 
-                    			current = this_TimeEleapsedCondition_1;
+                    			current = this_DifferedBarrier_1;
                     			afterParserOrEnumRuleCall();
                     		
 
@@ -1190,28 +1143,28 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleACondition"
+    // $ANTLR end "ruleABarrier"
 
 
-    // $ANTLR start "entryRuleTimeEleapsedCondition"
-    // InternalShome.g:494:1: entryRuleTimeEleapsedCondition returns [EObject current=null] : iv_ruleTimeEleapsedCondition= ruleTimeEleapsedCondition EOF ;
-    public final EObject entryRuleTimeEleapsedCondition() throws RecognitionException {
+    // $ANTLR start "entryRuleBarrier"
+    // InternalShome.g:494:1: entryRuleBarrier returns [EObject current=null] : iv_ruleBarrier= ruleBarrier EOF ;
+    public final EObject entryRuleBarrier() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleTimeEleapsedCondition = null;
+        EObject iv_ruleBarrier = null;
 
 
         try {
-            // InternalShome.g:494:62: (iv_ruleTimeEleapsedCondition= ruleTimeEleapsedCondition EOF )
-            // InternalShome.g:495:2: iv_ruleTimeEleapsedCondition= ruleTimeEleapsedCondition EOF
+            // InternalShome.g:494:48: (iv_ruleBarrier= ruleBarrier EOF )
+            // InternalShome.g:495:2: iv_ruleBarrier= ruleBarrier EOF
             {
-             newCompositeNode(grammarAccess.getTimeEleapsedConditionRule()); 
+             newCompositeNode(grammarAccess.getBarrierRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleTimeEleapsedCondition=ruleTimeEleapsedCondition();
+            iv_ruleBarrier=ruleBarrier();
 
             state._fsp--;
 
-             current =iv_ruleTimeEleapsedCondition; 
+             current =iv_ruleBarrier; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1226,90 +1179,58 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleTimeEleapsedCondition"
+    // $ANTLR end "entryRuleBarrier"
 
 
-    // $ANTLR start "ruleTimeEleapsedCondition"
-    // InternalShome.g:501:1: ruleTimeEleapsedCondition returns [EObject current=null] : (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'during' ( (lv_ownedTimestampEleapsed_3_0= ruleHomeTimeStamp ) ) otherlv_4= 'then' ( ( ruleEString ) ) (otherlv_6= 'and' ( ( ruleEString ) ) )* ) ;
-    public final EObject ruleTimeEleapsedCondition() throws RecognitionException {
+    // $ANTLR start "ruleBarrier"
+    // InternalShome.g:501:1: ruleBarrier returns [EObject current=null] : (otherlv_0= 'when' ( (lv_ownedCondition_1_0= ruleACondition ) ) otherlv_2= 'then' otherlv_3= 'trigger' ( ( ruleEString ) ) (otherlv_5= 'and' ( ( ruleEString ) ) )* ) ;
+    public final EObject ruleBarrier() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        EObject lv_ownedTimestampEleapsed_3_0 = null;
+        Token otherlv_3=null;
+        Token otherlv_5=null;
+        EObject lv_ownedCondition_1_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalShome.g:507:2: ( (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'during' ( (lv_ownedTimestampEleapsed_3_0= ruleHomeTimeStamp ) ) otherlv_4= 'then' ( ( ruleEString ) ) (otherlv_6= 'and' ( ( ruleEString ) ) )* ) )
-            // InternalShome.g:508:2: (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'during' ( (lv_ownedTimestampEleapsed_3_0= ruleHomeTimeStamp ) ) otherlv_4= 'then' ( ( ruleEString ) ) (otherlv_6= 'and' ( ( ruleEString ) ) )* )
+            // InternalShome.g:507:2: ( (otherlv_0= 'when' ( (lv_ownedCondition_1_0= ruleACondition ) ) otherlv_2= 'then' otherlv_3= 'trigger' ( ( ruleEString ) ) (otherlv_5= 'and' ( ( ruleEString ) ) )* ) )
+            // InternalShome.g:508:2: (otherlv_0= 'when' ( (lv_ownedCondition_1_0= ruleACondition ) ) otherlv_2= 'then' otherlv_3= 'trigger' ( ( ruleEString ) ) (otherlv_5= 'and' ( ( ruleEString ) ) )* )
             {
-            // InternalShome.g:508:2: (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'during' ( (lv_ownedTimestampEleapsed_3_0= ruleHomeTimeStamp ) ) otherlv_4= 'then' ( ( ruleEString ) ) (otherlv_6= 'and' ( ( ruleEString ) ) )* )
-            // InternalShome.g:509:3: otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'during' ( (lv_ownedTimestampEleapsed_3_0= ruleHomeTimeStamp ) ) otherlv_4= 'then' ( ( ruleEString ) ) (otherlv_6= 'and' ( ( ruleEString ) ) )*
+            // InternalShome.g:508:2: (otherlv_0= 'when' ( (lv_ownedCondition_1_0= ruleACondition ) ) otherlv_2= 'then' otherlv_3= 'trigger' ( ( ruleEString ) ) (otherlv_5= 'and' ( ( ruleEString ) ) )* )
+            // InternalShome.g:509:3: otherlv_0= 'when' ( (lv_ownedCondition_1_0= ruleACondition ) ) otherlv_2= 'then' otherlv_3= 'trigger' ( ( ruleEString ) ) (otherlv_5= 'and' ( ( ruleEString ) ) )*
             {
             otherlv_0=(Token)match(input,21,FOLLOW_8); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getTimeEleapsedConditionAccess().getIfKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getBarrierAccess().getWhenKeyword_0());
             		
-            // InternalShome.g:513:3: ( ( ruleEString ) )
-            // InternalShome.g:514:4: ( ruleEString )
+            // InternalShome.g:513:3: ( (lv_ownedCondition_1_0= ruleACondition ) )
+            // InternalShome.g:514:4: (lv_ownedCondition_1_0= ruleACondition )
             {
-            // InternalShome.g:514:4: ( ruleEString )
-            // InternalShome.g:515:5: ruleEString
+            // InternalShome.g:514:4: (lv_ownedCondition_1_0= ruleACondition )
+            // InternalShome.g:515:5: lv_ownedCondition_1_0= ruleACondition
             {
 
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getTimeEleapsedConditionRule());
-            					}
-            				
-
-            					newCompositeNode(grammarAccess.getTimeEleapsedConditionAccess().getActionActionCrossReference_1_0());
+            					newCompositeNode(grammarAccess.getBarrierAccess().getOwnedConditionAConditionParserRuleCall_1_0());
             				
             pushFollow(FOLLOW_14);
-            ruleEString();
-
-            state._fsp--;
-
-
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            otherlv_2=(Token)match(input,22,FOLLOW_6); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getTimeEleapsedConditionAccess().getDuringKeyword_2());
-            		
-            // InternalShome.g:533:3: ( (lv_ownedTimestampEleapsed_3_0= ruleHomeTimeStamp ) )
-            // InternalShome.g:534:4: (lv_ownedTimestampEleapsed_3_0= ruleHomeTimeStamp )
-            {
-            // InternalShome.g:534:4: (lv_ownedTimestampEleapsed_3_0= ruleHomeTimeStamp )
-            // InternalShome.g:535:5: lv_ownedTimestampEleapsed_3_0= ruleHomeTimeStamp
-            {
-
-            					newCompositeNode(grammarAccess.getTimeEleapsedConditionAccess().getOwnedTimestampEleapsedHomeTimeStampParserRuleCall_3_0());
-            				
-            pushFollow(FOLLOW_15);
-            lv_ownedTimestampEleapsed_3_0=ruleHomeTimeStamp();
+            lv_ownedCondition_1_0=ruleACondition();
 
             state._fsp--;
 
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getTimeEleapsedConditionRule());
+            						current = createModelElementForParent(grammarAccess.getBarrierRule());
             					}
             					set(
             						current,
-            						"ownedTimestampEleapsed",
-            						lv_ownedTimestampEleapsed_3_0,
-            						"fr.unice.polytech.si5.smarthome.am.shome.Shome.HomeTimeStamp");
+            						"ownedCondition",
+            						lv_ownedCondition_1_0,
+            						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ACondition");
             					afterParserOrEnumRuleCall();
             				
 
@@ -1318,23 +1239,27 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,23,FOLLOW_8); 
+            otherlv_2=(Token)match(input,22,FOLLOW_15); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getTimeEleapsedConditionAccess().getThenKeyword_4());
+            			newLeafNode(otherlv_2, grammarAccess.getBarrierAccess().getThenKeyword_2());
             		
-            // InternalShome.g:556:3: ( ( ruleEString ) )
-            // InternalShome.g:557:4: ( ruleEString )
+            otherlv_3=(Token)match(input,23,FOLLOW_8); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getBarrierAccess().getTriggerKeyword_3());
+            		
+            // InternalShome.g:540:3: ( ( ruleEString ) )
+            // InternalShome.g:541:4: ( ruleEString )
             {
-            // InternalShome.g:557:4: ( ruleEString )
-            // InternalShome.g:558:5: ruleEString
+            // InternalShome.g:541:4: ( ruleEString )
+            // InternalShome.g:542:5: ruleEString
             {
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getTimeEleapsedConditionRule());
+            						current = createModelElement(grammarAccess.getBarrierRule());
             					}
             				
 
-            					newCompositeNode(grammarAccess.getTimeEleapsedConditionAccess().getActionsActionCrossReference_5_0());
+            					newCompositeNode(grammarAccess.getBarrierAccess().getActionsActionCrossReference_4_0());
             				
             pushFollow(FOLLOW_16);
             ruleEString();
@@ -1350,7 +1275,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalShome.g:572:3: (otherlv_6= 'and' ( ( ruleEString ) ) )*
+            // InternalShome.g:556:3: (otherlv_5= 'and' ( ( ruleEString ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1363,25 +1288,25 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalShome.g:573:4: otherlv_6= 'and' ( ( ruleEString ) )
+            	    // InternalShome.g:557:4: otherlv_5= 'and' ( ( ruleEString ) )
             	    {
-            	    otherlv_6=(Token)match(input,24,FOLLOW_8); 
+            	    otherlv_5=(Token)match(input,24,FOLLOW_8); 
 
-            	    				newLeafNode(otherlv_6, grammarAccess.getTimeEleapsedConditionAccess().getAndKeyword_6_0());
+            	    				newLeafNode(otherlv_5, grammarAccess.getBarrierAccess().getAndKeyword_5_0());
             	    			
-            	    // InternalShome.g:577:4: ( ( ruleEString ) )
-            	    // InternalShome.g:578:5: ( ruleEString )
+            	    // InternalShome.g:561:4: ( ( ruleEString ) )
+            	    // InternalShome.g:562:5: ( ruleEString )
             	    {
-            	    // InternalShome.g:578:5: ( ruleEString )
-            	    // InternalShome.g:579:6: ruleEString
+            	    // InternalShome.g:562:5: ( ruleEString )
+            	    // InternalShome.g:563:6: ruleEString
             	    {
 
             	    						if (current==null) {
-            	    							current = createModelElement(grammarAccess.getTimeEleapsedConditionRule());
+            	    							current = createModelElement(grammarAccess.getBarrierRule());
             	    						}
             	    					
 
-            	    						newCompositeNode(grammarAccess.getTimeEleapsedConditionAccess().getActionsActionCrossReference_6_1_0());
+            	    						newCompositeNode(grammarAccess.getBarrierAccess().getActionsActionCrossReference_5_1_0());
             	    					
             	    pushFollow(FOLLOW_16);
             	    ruleEString();
@@ -1425,11 +1350,592 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
+    // $ANTLR end "ruleBarrier"
+
+
+    // $ANTLR start "entryRuleDifferedBarrier"
+    // InternalShome.g:582:1: entryRuleDifferedBarrier returns [EObject current=null] : iv_ruleDifferedBarrier= ruleDifferedBarrier EOF ;
+    public final EObject entryRuleDifferedBarrier() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleDifferedBarrier = null;
+
+
+        try {
+            // InternalShome.g:582:56: (iv_ruleDifferedBarrier= ruleDifferedBarrier EOF )
+            // InternalShome.g:583:2: iv_ruleDifferedBarrier= ruleDifferedBarrier EOF
+            {
+             newCompositeNode(grammarAccess.getDifferedBarrierRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleDifferedBarrier=ruleDifferedBarrier();
+
+            state._fsp--;
+
+             current =iv_ruleDifferedBarrier; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleDifferedBarrier"
+
+
+    // $ANTLR start "ruleDifferedBarrier"
+    // InternalShome.g:589:1: ruleDifferedBarrier returns [EObject current=null] : (otherlv_0= 'when' ( (lv_ownedCondition_1_0= ruleACondition ) ) otherlv_2= 'then' otherlv_3= 'after' ( (lv_TriggerAfter_4_0= ruleHomeTimeStamp ) ) otherlv_5= 'trigger' ( ( ruleEString ) ) (otherlv_7= 'and' ( ( ruleEString ) ) )* ) ;
+    public final EObject ruleDifferedBarrier() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
+        EObject lv_ownedCondition_1_0 = null;
+
+        EObject lv_TriggerAfter_4_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalShome.g:595:2: ( (otherlv_0= 'when' ( (lv_ownedCondition_1_0= ruleACondition ) ) otherlv_2= 'then' otherlv_3= 'after' ( (lv_TriggerAfter_4_0= ruleHomeTimeStamp ) ) otherlv_5= 'trigger' ( ( ruleEString ) ) (otherlv_7= 'and' ( ( ruleEString ) ) )* ) )
+            // InternalShome.g:596:2: (otherlv_0= 'when' ( (lv_ownedCondition_1_0= ruleACondition ) ) otherlv_2= 'then' otherlv_3= 'after' ( (lv_TriggerAfter_4_0= ruleHomeTimeStamp ) ) otherlv_5= 'trigger' ( ( ruleEString ) ) (otherlv_7= 'and' ( ( ruleEString ) ) )* )
+            {
+            // InternalShome.g:596:2: (otherlv_0= 'when' ( (lv_ownedCondition_1_0= ruleACondition ) ) otherlv_2= 'then' otherlv_3= 'after' ( (lv_TriggerAfter_4_0= ruleHomeTimeStamp ) ) otherlv_5= 'trigger' ( ( ruleEString ) ) (otherlv_7= 'and' ( ( ruleEString ) ) )* )
+            // InternalShome.g:597:3: otherlv_0= 'when' ( (lv_ownedCondition_1_0= ruleACondition ) ) otherlv_2= 'then' otherlv_3= 'after' ( (lv_TriggerAfter_4_0= ruleHomeTimeStamp ) ) otherlv_5= 'trigger' ( ( ruleEString ) ) (otherlv_7= 'and' ( ( ruleEString ) ) )*
+            {
+            otherlv_0=(Token)match(input,21,FOLLOW_8); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getDifferedBarrierAccess().getWhenKeyword_0());
+            		
+            // InternalShome.g:601:3: ( (lv_ownedCondition_1_0= ruleACondition ) )
+            // InternalShome.g:602:4: (lv_ownedCondition_1_0= ruleACondition )
+            {
+            // InternalShome.g:602:4: (lv_ownedCondition_1_0= ruleACondition )
+            // InternalShome.g:603:5: lv_ownedCondition_1_0= ruleACondition
+            {
+
+            					newCompositeNode(grammarAccess.getDifferedBarrierAccess().getOwnedConditionAConditionParserRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_14);
+            lv_ownedCondition_1_0=ruleACondition();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getDifferedBarrierRule());
+            					}
+            					set(
+            						current,
+            						"ownedCondition",
+            						lv_ownedCondition_1_0,
+            						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ACondition");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,22,FOLLOW_17); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getDifferedBarrierAccess().getThenKeyword_2());
+            		
+            otherlv_3=(Token)match(input,25,FOLLOW_6); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getDifferedBarrierAccess().getAfterKeyword_3());
+            		
+            // InternalShome.g:628:3: ( (lv_TriggerAfter_4_0= ruleHomeTimeStamp ) )
+            // InternalShome.g:629:4: (lv_TriggerAfter_4_0= ruleHomeTimeStamp )
+            {
+            // InternalShome.g:629:4: (lv_TriggerAfter_4_0= ruleHomeTimeStamp )
+            // InternalShome.g:630:5: lv_TriggerAfter_4_0= ruleHomeTimeStamp
+            {
+
+            					newCompositeNode(grammarAccess.getDifferedBarrierAccess().getTriggerAfterHomeTimeStampParserRuleCall_4_0());
+            				
+            pushFollow(FOLLOW_15);
+            lv_TriggerAfter_4_0=ruleHomeTimeStamp();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getDifferedBarrierRule());
+            					}
+            					set(
+            						current,
+            						"TriggerAfter",
+            						lv_TriggerAfter_4_0,
+            						"fr.unice.polytech.si5.smarthome.am.shome.Shome.HomeTimeStamp");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_5=(Token)match(input,23,FOLLOW_8); 
+
+            			newLeafNode(otherlv_5, grammarAccess.getDifferedBarrierAccess().getTriggerKeyword_5());
+            		
+            // InternalShome.g:651:3: ( ( ruleEString ) )
+            // InternalShome.g:652:4: ( ruleEString )
+            {
+            // InternalShome.g:652:4: ( ruleEString )
+            // InternalShome.g:653:5: ruleEString
+            {
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getDifferedBarrierRule());
+            					}
+            				
+
+            					newCompositeNode(grammarAccess.getDifferedBarrierAccess().getActionsActionCrossReference_6_0());
+            				
+            pushFollow(FOLLOW_16);
+            ruleEString();
+
+            state._fsp--;
+
+
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalShome.g:667:3: (otherlv_7= 'and' ( ( ruleEString ) ) )*
+            loop9:
+            do {
+                int alt9=2;
+                int LA9_0 = input.LA(1);
+
+                if ( (LA9_0==24) ) {
+                    alt9=1;
+                }
+
+
+                switch (alt9) {
+            	case 1 :
+            	    // InternalShome.g:668:4: otherlv_7= 'and' ( ( ruleEString ) )
+            	    {
+            	    otherlv_7=(Token)match(input,24,FOLLOW_8); 
+
+            	    				newLeafNode(otherlv_7, grammarAccess.getDifferedBarrierAccess().getAndKeyword_7_0());
+            	    			
+            	    // InternalShome.g:672:4: ( ( ruleEString ) )
+            	    // InternalShome.g:673:5: ( ruleEString )
+            	    {
+            	    // InternalShome.g:673:5: ( ruleEString )
+            	    // InternalShome.g:674:6: ruleEString
+            	    {
+
+            	    						if (current==null) {
+            	    							current = createModelElement(grammarAccess.getDifferedBarrierRule());
+            	    						}
+            	    					
+
+            	    						newCompositeNode(grammarAccess.getDifferedBarrierAccess().getActionsActionCrossReference_7_1_0());
+            	    					
+            	    pushFollow(FOLLOW_16);
+            	    ruleEString();
+
+            	    state._fsp--;
+
+
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop9;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDifferedBarrier"
+
+
+    // $ANTLR start "entryRuleACondition"
+    // InternalShome.g:693:1: entryRuleACondition returns [EObject current=null] : iv_ruleACondition= ruleACondition EOF ;
+    public final EObject entryRuleACondition() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleACondition = null;
+
+
+        try {
+            // InternalShome.g:693:51: (iv_ruleACondition= ruleACondition EOF )
+            // InternalShome.g:694:2: iv_ruleACondition= ruleACondition EOF
+            {
+             newCompositeNode(grammarAccess.getAConditionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleACondition=ruleACondition();
+
+            state._fsp--;
+
+             current =iv_ruleACondition; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleACondition"
+
+
+    // $ANTLR start "ruleACondition"
+    // InternalShome.g:700:1: ruleACondition returns [EObject current=null] : (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition | this_ComposeCondition_2= ruleComposeCondition ) ;
+    public final EObject ruleACondition() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_Condition_0 = null;
+
+        EObject this_TimeEleapsedCondition_1 = null;
+
+        EObject this_ComposeCondition_2 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalShome.g:706:2: ( (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition | this_ComposeCondition_2= ruleComposeCondition ) )
+            // InternalShome.g:707:2: (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition | this_ComposeCondition_2= ruleComposeCondition )
+            {
+            // InternalShome.g:707:2: (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition | this_ComposeCondition_2= ruleComposeCondition )
+            int alt10=3;
+            alt10 = dfa10.predict(input);
+            switch (alt10) {
+                case 1 :
+                    // InternalShome.g:708:3: this_Condition_0= ruleCondition
+                    {
+
+                    			newCompositeNode(grammarAccess.getAConditionAccess().getConditionParserRuleCall_0());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_Condition_0=ruleCondition();
+
+                    state._fsp--;
+
+
+                    			current = this_Condition_0;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalShome.g:717:3: this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition
+                    {
+
+                    			newCompositeNode(grammarAccess.getAConditionAccess().getTimeEleapsedConditionParserRuleCall_1());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_TimeEleapsedCondition_1=ruleTimeEleapsedCondition();
+
+                    state._fsp--;
+
+
+                    			current = this_TimeEleapsedCondition_1;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 3 :
+                    // InternalShome.g:726:3: this_ComposeCondition_2= ruleComposeCondition
+                    {
+
+                    			newCompositeNode(grammarAccess.getAConditionAccess().getComposeConditionParserRuleCall_2());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_ComposeCondition_2=ruleComposeCondition();
+
+                    state._fsp--;
+
+
+                    			current = this_ComposeCondition_2;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleACondition"
+
+
+    // $ANTLR start "entryRuleTimeEleapsedCondition"
+    // InternalShome.g:738:1: entryRuleTimeEleapsedCondition returns [EObject current=null] : iv_ruleTimeEleapsedCondition= ruleTimeEleapsedCondition EOF ;
+    public final EObject entryRuleTimeEleapsedCondition() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleTimeEleapsedCondition = null;
+
+
+        try {
+            // InternalShome.g:738:62: (iv_ruleTimeEleapsedCondition= ruleTimeEleapsedCondition EOF )
+            // InternalShome.g:739:2: iv_ruleTimeEleapsedCondition= ruleTimeEleapsedCondition EOF
+            {
+             newCompositeNode(grammarAccess.getTimeEleapsedConditionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleTimeEleapsedCondition=ruleTimeEleapsedCondition();
+
+            state._fsp--;
+
+             current =iv_ruleTimeEleapsedCondition; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleTimeEleapsedCondition"
+
+
+    // $ANTLR start "ruleTimeEleapsedCondition"
+    // InternalShome.g:745:1: ruleTimeEleapsedCondition returns [EObject current=null] : ( ( ( ( ruleEString ) ) otherlv_1= 'do' )? ( ( ruleEString ) ) otherlv_3= 'during' ( (lv_ownedTimestampEleapsed_4_0= ruleHomeTimeStamp ) ) ) ;
+    public final EObject ruleTimeEleapsedCondition() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        EObject lv_ownedTimestampEleapsed_4_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalShome.g:751:2: ( ( ( ( ( ruleEString ) ) otherlv_1= 'do' )? ( ( ruleEString ) ) otherlv_3= 'during' ( (lv_ownedTimestampEleapsed_4_0= ruleHomeTimeStamp ) ) ) )
+            // InternalShome.g:752:2: ( ( ( ( ruleEString ) ) otherlv_1= 'do' )? ( ( ruleEString ) ) otherlv_3= 'during' ( (lv_ownedTimestampEleapsed_4_0= ruleHomeTimeStamp ) ) )
+            {
+            // InternalShome.g:752:2: ( ( ( ( ruleEString ) ) otherlv_1= 'do' )? ( ( ruleEString ) ) otherlv_3= 'during' ( (lv_ownedTimestampEleapsed_4_0= ruleHomeTimeStamp ) ) )
+            // InternalShome.g:753:3: ( ( ( ruleEString ) ) otherlv_1= 'do' )? ( ( ruleEString ) ) otherlv_3= 'during' ( (lv_ownedTimestampEleapsed_4_0= ruleHomeTimeStamp ) )
+            {
+            // InternalShome.g:753:3: ( ( ( ruleEString ) ) otherlv_1= 'do' )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
+
+            if ( (LA11_0==RULE_STRING) ) {
+                int LA11_1 = input.LA(2);
+
+                if ( (LA11_1==20) ) {
+                    alt11=1;
+                }
+            }
+            else if ( (LA11_0==RULE_ID) ) {
+                int LA11_2 = input.LA(2);
+
+                if ( (LA11_2==20) ) {
+                    alt11=1;
+                }
+            }
+            switch (alt11) {
+                case 1 :
+                    // InternalShome.g:754:4: ( ( ruleEString ) ) otherlv_1= 'do'
+                    {
+                    // InternalShome.g:754:4: ( ( ruleEString ) )
+                    // InternalShome.g:755:5: ( ruleEString )
+                    {
+                    // InternalShome.g:755:5: ( ruleEString )
+                    // InternalShome.g:756:6: ruleEString
+                    {
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getTimeEleapsedConditionRule());
+                    						}
+                    					
+
+                    						newCompositeNode(grammarAccess.getTimeEleapsedConditionAccess().getActorActorCrossReference_0_0_0());
+                    					
+                    pushFollow(FOLLOW_13);
+                    ruleEString();
+
+                    state._fsp--;
+
+
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+                    otherlv_1=(Token)match(input,20,FOLLOW_8); 
+
+                    				newLeafNode(otherlv_1, grammarAccess.getTimeEleapsedConditionAccess().getDoKeyword_0_1());
+                    			
+
+                    }
+                    break;
+
+            }
+
+            // InternalShome.g:775:3: ( ( ruleEString ) )
+            // InternalShome.g:776:4: ( ruleEString )
+            {
+            // InternalShome.g:776:4: ( ruleEString )
+            // InternalShome.g:777:5: ruleEString
+            {
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getTimeEleapsedConditionRule());
+            					}
+            				
+
+            					newCompositeNode(grammarAccess.getTimeEleapsedConditionAccess().getActionActionCrossReference_1_0());
+            				
+            pushFollow(FOLLOW_18);
+            ruleEString();
+
+            state._fsp--;
+
+
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_3=(Token)match(input,26,FOLLOW_6); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getTimeEleapsedConditionAccess().getDuringKeyword_2());
+            		
+            // InternalShome.g:795:3: ( (lv_ownedTimestampEleapsed_4_0= ruleHomeTimeStamp ) )
+            // InternalShome.g:796:4: (lv_ownedTimestampEleapsed_4_0= ruleHomeTimeStamp )
+            {
+            // InternalShome.g:796:4: (lv_ownedTimestampEleapsed_4_0= ruleHomeTimeStamp )
+            // InternalShome.g:797:5: lv_ownedTimestampEleapsed_4_0= ruleHomeTimeStamp
+            {
+
+            					newCompositeNode(grammarAccess.getTimeEleapsedConditionAccess().getOwnedTimestampEleapsedHomeTimeStampParserRuleCall_3_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_ownedTimestampEleapsed_4_0=ruleHomeTimeStamp();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getTimeEleapsedConditionRule());
+            					}
+            					set(
+            						current,
+            						"ownedTimestampEleapsed",
+            						lv_ownedTimestampEleapsed_4_0,
+            						"fr.unice.polytech.si5.smarthome.am.shome.Shome.HomeTimeStamp");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
     // $ANTLR end "ruleTimeEleapsedCondition"
 
 
     // $ANTLR start "entryRuleCondition"
-    // InternalShome.g:598:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
+    // InternalShome.g:818:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
     public final EObject entryRuleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1437,8 +1943,8 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalShome.g:598:50: (iv_ruleCondition= ruleCondition EOF )
-            // InternalShome.g:599:2: iv_ruleCondition= ruleCondition EOF
+            // InternalShome.g:818:50: (iv_ruleCondition= ruleCondition EOF )
+            // InternalShome.g:819:2: iv_ruleCondition= ruleCondition EOF
             {
              newCompositeNode(grammarAccess.getConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -1465,56 +1971,49 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCondition"
-    // InternalShome.g:605:1: ruleCondition returns [EObject current=null] : (otherlv_0= 'if' ( ( ( ruleEString ) ) otherlv_2= 'do' )? ( ( ruleEString ) ) otherlv_4= 'then' ( ( ruleEString ) ) (otherlv_6= 'and' ( ( ruleEString ) ) )* ) ;
+    // InternalShome.g:825:1: ruleCondition returns [EObject current=null] : ( ( ( ( ruleEString ) ) otherlv_1= 'do' )? ( ( ruleEString ) ) ) ;
     public final EObject ruleCondition() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
+        Token otherlv_1=null;
 
 
         	enterRule();
 
         try {
-            // InternalShome.g:611:2: ( (otherlv_0= 'if' ( ( ( ruleEString ) ) otherlv_2= 'do' )? ( ( ruleEString ) ) otherlv_4= 'then' ( ( ruleEString ) ) (otherlv_6= 'and' ( ( ruleEString ) ) )* ) )
-            // InternalShome.g:612:2: (otherlv_0= 'if' ( ( ( ruleEString ) ) otherlv_2= 'do' )? ( ( ruleEString ) ) otherlv_4= 'then' ( ( ruleEString ) ) (otherlv_6= 'and' ( ( ruleEString ) ) )* )
+            // InternalShome.g:831:2: ( ( ( ( ( ruleEString ) ) otherlv_1= 'do' )? ( ( ruleEString ) ) ) )
+            // InternalShome.g:832:2: ( ( ( ( ruleEString ) ) otherlv_1= 'do' )? ( ( ruleEString ) ) )
             {
-            // InternalShome.g:612:2: (otherlv_0= 'if' ( ( ( ruleEString ) ) otherlv_2= 'do' )? ( ( ruleEString ) ) otherlv_4= 'then' ( ( ruleEString ) ) (otherlv_6= 'and' ( ( ruleEString ) ) )* )
-            // InternalShome.g:613:3: otherlv_0= 'if' ( ( ( ruleEString ) ) otherlv_2= 'do' )? ( ( ruleEString ) ) otherlv_4= 'then' ( ( ruleEString ) ) (otherlv_6= 'and' ( ( ruleEString ) ) )*
+            // InternalShome.g:832:2: ( ( ( ( ruleEString ) ) otherlv_1= 'do' )? ( ( ruleEString ) ) )
+            // InternalShome.g:833:3: ( ( ( ruleEString ) ) otherlv_1= 'do' )? ( ( ruleEString ) )
             {
-            otherlv_0=(Token)match(input,21,FOLLOW_8); 
+            // InternalShome.g:833:3: ( ( ( ruleEString ) ) otherlv_1= 'do' )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            			newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getIfKeyword_0());
-            		
-            // InternalShome.g:617:3: ( ( ( ruleEString ) ) otherlv_2= 'do' )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            if ( (LA12_0==RULE_STRING) ) {
+                int LA12_1 = input.LA(2);
 
-            if ( (LA9_0==RULE_STRING) ) {
-                int LA9_1 = input.LA(2);
-
-                if ( (LA9_1==20) ) {
-                    alt9=1;
+                if ( (LA12_1==20) ) {
+                    alt12=1;
                 }
             }
-            else if ( (LA9_0==RULE_ID) ) {
-                int LA9_2 = input.LA(2);
+            else if ( (LA12_0==RULE_ID) ) {
+                int LA12_2 = input.LA(2);
 
-                if ( (LA9_2==20) ) {
-                    alt9=1;
+                if ( (LA12_2==20) ) {
+                    alt12=1;
                 }
             }
-            switch (alt9) {
+            switch (alt12) {
                 case 1 :
-                    // InternalShome.g:618:4: ( ( ruleEString ) ) otherlv_2= 'do'
+                    // InternalShome.g:834:4: ( ( ruleEString ) ) otherlv_1= 'do'
                     {
-                    // InternalShome.g:618:4: ( ( ruleEString ) )
-                    // InternalShome.g:619:5: ( ruleEString )
+                    // InternalShome.g:834:4: ( ( ruleEString ) )
+                    // InternalShome.g:835:5: ( ruleEString )
                     {
-                    // InternalShome.g:619:5: ( ruleEString )
-                    // InternalShome.g:620:6: ruleEString
+                    // InternalShome.g:835:5: ( ruleEString )
+                    // InternalShome.g:836:6: ruleEString
                     {
 
                     						if (current==null) {
@@ -1522,7 +2021,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
                     						}
                     					
 
-                    						newCompositeNode(grammarAccess.getConditionAccess().getActorActorCrossReference_1_0_0());
+                    						newCompositeNode(grammarAccess.getConditionAccess().getActorActorCrossReference_0_0_0());
                     					
                     pushFollow(FOLLOW_13);
                     ruleEString();
@@ -1538,9 +2037,9 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_2=(Token)match(input,20,FOLLOW_8); 
+                    otherlv_1=(Token)match(input,20,FOLLOW_8); 
 
-                    				newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getDoKeyword_1_1());
+                    				newLeafNode(otherlv_1, grammarAccess.getConditionAccess().getDoKeyword_0_1());
                     			
 
                     }
@@ -1548,11 +2047,11 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalShome.g:639:3: ( ( ruleEString ) )
-            // InternalShome.g:640:4: ( ruleEString )
+            // InternalShome.g:855:3: ( ( ruleEString ) )
+            // InternalShome.g:856:4: ( ruleEString )
             {
-            // InternalShome.g:640:4: ( ruleEString )
-            // InternalShome.g:641:5: ruleEString
+            // InternalShome.g:856:4: ( ruleEString )
+            // InternalShome.g:857:5: ruleEString
             {
 
             					if (current==null) {
@@ -1560,9 +2059,9 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getConditionAccess().getActionActionCrossReference_2_0());
+            					newCompositeNode(grammarAccess.getConditionAccess().getActionActionCrossReference_1_0());
             				
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
@@ -1575,94 +2074,6 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
             }
-
-            otherlv_4=(Token)match(input,23,FOLLOW_8); 
-
-            			newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getThenKeyword_3());
-            		
-            // InternalShome.g:659:3: ( ( ruleEString ) )
-            // InternalShome.g:660:4: ( ruleEString )
-            {
-            // InternalShome.g:660:4: ( ruleEString )
-            // InternalShome.g:661:5: ruleEString
-            {
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getConditionRule());
-            					}
-            				
-
-            					newCompositeNode(grammarAccess.getConditionAccess().getActionsActionCrossReference_4_0());
-            				
-            pushFollow(FOLLOW_16);
-            ruleEString();
-
-            state._fsp--;
-
-
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            // InternalShome.g:675:3: (otherlv_6= 'and' ( ( ruleEString ) ) )*
-            loop10:
-            do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
-
-                if ( (LA10_0==24) ) {
-                    alt10=1;
-                }
-
-
-                switch (alt10) {
-            	case 1 :
-            	    // InternalShome.g:676:4: otherlv_6= 'and' ( ( ruleEString ) )
-            	    {
-            	    otherlv_6=(Token)match(input,24,FOLLOW_8); 
-
-            	    				newLeafNode(otherlv_6, grammarAccess.getConditionAccess().getAndKeyword_5_0());
-            	    			
-            	    // InternalShome.g:680:4: ( ( ruleEString ) )
-            	    // InternalShome.g:681:5: ( ruleEString )
-            	    {
-            	    // InternalShome.g:681:5: ( ruleEString )
-            	    // InternalShome.g:682:6: ruleEString
-            	    {
-
-            	    						if (current==null) {
-            	    							current = createModelElement(grammarAccess.getConditionRule());
-            	    						}
-            	    					
-
-            	    						newCompositeNode(grammarAccess.getConditionAccess().getActionsActionCrossReference_5_1_0());
-            	    					
-            	    pushFollow(FOLLOW_16);
-            	    ruleEString();
-
-            	    state._fsp--;
-
-
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop10;
-                }
-            } while (true);
 
 
             }
@@ -1686,8 +2097,469 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleCondition"
 
 
+    // $ANTLR start "entryRuleTerminalCondition"
+    // InternalShome.g:875:1: entryRuleTerminalCondition returns [EObject current=null] : iv_ruleTerminalCondition= ruleTerminalCondition EOF ;
+    public final EObject entryRuleTerminalCondition() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleTerminalCondition = null;
+
+
+        try {
+            // InternalShome.g:875:58: (iv_ruleTerminalCondition= ruleTerminalCondition EOF )
+            // InternalShome.g:876:2: iv_ruleTerminalCondition= ruleTerminalCondition EOF
+            {
+             newCompositeNode(grammarAccess.getTerminalConditionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleTerminalCondition=ruleTerminalCondition();
+
+            state._fsp--;
+
+             current =iv_ruleTerminalCondition; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleTerminalCondition"
+
+
+    // $ANTLR start "ruleTerminalCondition"
+    // InternalShome.g:882:1: ruleTerminalCondition returns [EObject current=null] : (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition ) ;
+    public final EObject ruleTerminalCondition() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_Condition_0 = null;
+
+        EObject this_TimeEleapsedCondition_1 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalShome.g:888:2: ( (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition ) )
+            // InternalShome.g:889:2: (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition )
+            {
+            // InternalShome.g:889:2: (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition )
+            int alt13=2;
+            int LA13_0 = input.LA(1);
+
+            if ( (LA13_0==RULE_STRING) ) {
+                switch ( input.LA(2) ) {
+                case 20:
+                    {
+                    int LA13_3 = input.LA(3);
+
+                    if ( (LA13_3==RULE_STRING) ) {
+                        int LA13_6 = input.LA(4);
+
+                        if ( (LA13_6==EOF||LA13_6==22||LA13_6==24) ) {
+                            alt13=1;
+                        }
+                        else if ( (LA13_6==26) ) {
+                            alt13=2;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 13, 6, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else if ( (LA13_3==RULE_ID) ) {
+                        int LA13_7 = input.LA(4);
+
+                        if ( (LA13_7==EOF||LA13_7==22||LA13_7==24) ) {
+                            alt13=1;
+                        }
+                        else if ( (LA13_7==26) ) {
+                            alt13=2;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 13, 7, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 13, 3, input);
+
+                        throw nvae;
+                    }
+                    }
+                    break;
+                case EOF:
+                case 22:
+                case 24:
+                    {
+                    alt13=1;
+                    }
+                    break;
+                case 26:
+                    {
+                    alt13=2;
+                    }
+                    break;
+                default:
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 13, 1, input);
+
+                    throw nvae;
+                }
+
+            }
+            else if ( (LA13_0==RULE_ID) ) {
+                switch ( input.LA(2) ) {
+                case 20:
+                    {
+                    int LA13_3 = input.LA(3);
+
+                    if ( (LA13_3==RULE_STRING) ) {
+                        int LA13_6 = input.LA(4);
+
+                        if ( (LA13_6==EOF||LA13_6==22||LA13_6==24) ) {
+                            alt13=1;
+                        }
+                        else if ( (LA13_6==26) ) {
+                            alt13=2;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 13, 6, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else if ( (LA13_3==RULE_ID) ) {
+                        int LA13_7 = input.LA(4);
+
+                        if ( (LA13_7==EOF||LA13_7==22||LA13_7==24) ) {
+                            alt13=1;
+                        }
+                        else if ( (LA13_7==26) ) {
+                            alt13=2;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 13, 7, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 13, 3, input);
+
+                        throw nvae;
+                    }
+                    }
+                    break;
+                case EOF:
+                case 22:
+                case 24:
+                    {
+                    alt13=1;
+                    }
+                    break;
+                case 26:
+                    {
+                    alt13=2;
+                    }
+                    break;
+                default:
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 13, 2, input);
+
+                    throw nvae;
+                }
+
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 13, 0, input);
+
+                throw nvae;
+            }
+            switch (alt13) {
+                case 1 :
+                    // InternalShome.g:890:3: this_Condition_0= ruleCondition
+                    {
+
+                    			newCompositeNode(grammarAccess.getTerminalConditionAccess().getConditionParserRuleCall_0());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_Condition_0=ruleCondition();
+
+                    state._fsp--;
+
+
+                    			current = this_Condition_0;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalShome.g:899:3: this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition
+                    {
+
+                    			newCompositeNode(grammarAccess.getTerminalConditionAccess().getTimeEleapsedConditionParserRuleCall_1());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_TimeEleapsedCondition_1=ruleTimeEleapsedCondition();
+
+                    state._fsp--;
+
+
+                    			current = this_TimeEleapsedCondition_1;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleTerminalCondition"
+
+
+    // $ANTLR start "entryRuleComposeCondition"
+    // InternalShome.g:911:1: entryRuleComposeCondition returns [EObject current=null] : iv_ruleComposeCondition= ruleComposeCondition EOF ;
+    public final EObject entryRuleComposeCondition() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleComposeCondition = null;
+
+
+        try {
+            // InternalShome.g:911:57: (iv_ruleComposeCondition= ruleComposeCondition EOF )
+            // InternalShome.g:912:2: iv_ruleComposeCondition= ruleComposeCondition EOF
+            {
+             newCompositeNode(grammarAccess.getComposeConditionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleComposeCondition=ruleComposeCondition();
+
+            state._fsp--;
+
+             current =iv_ruleComposeCondition; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleComposeCondition"
+
+
+    // $ANTLR start "ruleComposeCondition"
+    // InternalShome.g:918:1: ruleComposeCondition returns [EObject current=null] : ( ( (lv_ownedConditions_0_0= ruleTerminalCondition ) ) otherlv_1= 'and' ( (lv_ownedConditions_2_0= ruleTerminalCondition ) ) (otherlv_3= 'and' ( (lv_ownedConditions_4_0= ruleTerminalCondition ) ) )* ) ;
+    public final EObject ruleComposeCondition() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        EObject lv_ownedConditions_0_0 = null;
+
+        EObject lv_ownedConditions_2_0 = null;
+
+        EObject lv_ownedConditions_4_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalShome.g:924:2: ( ( ( (lv_ownedConditions_0_0= ruleTerminalCondition ) ) otherlv_1= 'and' ( (lv_ownedConditions_2_0= ruleTerminalCondition ) ) (otherlv_3= 'and' ( (lv_ownedConditions_4_0= ruleTerminalCondition ) ) )* ) )
+            // InternalShome.g:925:2: ( ( (lv_ownedConditions_0_0= ruleTerminalCondition ) ) otherlv_1= 'and' ( (lv_ownedConditions_2_0= ruleTerminalCondition ) ) (otherlv_3= 'and' ( (lv_ownedConditions_4_0= ruleTerminalCondition ) ) )* )
+            {
+            // InternalShome.g:925:2: ( ( (lv_ownedConditions_0_0= ruleTerminalCondition ) ) otherlv_1= 'and' ( (lv_ownedConditions_2_0= ruleTerminalCondition ) ) (otherlv_3= 'and' ( (lv_ownedConditions_4_0= ruleTerminalCondition ) ) )* )
+            // InternalShome.g:926:3: ( (lv_ownedConditions_0_0= ruleTerminalCondition ) ) otherlv_1= 'and' ( (lv_ownedConditions_2_0= ruleTerminalCondition ) ) (otherlv_3= 'and' ( (lv_ownedConditions_4_0= ruleTerminalCondition ) ) )*
+            {
+            // InternalShome.g:926:3: ( (lv_ownedConditions_0_0= ruleTerminalCondition ) )
+            // InternalShome.g:927:4: (lv_ownedConditions_0_0= ruleTerminalCondition )
+            {
+            // InternalShome.g:927:4: (lv_ownedConditions_0_0= ruleTerminalCondition )
+            // InternalShome.g:928:5: lv_ownedConditions_0_0= ruleTerminalCondition
+            {
+
+            					newCompositeNode(grammarAccess.getComposeConditionAccess().getOwnedConditionsTerminalConditionParserRuleCall_0_0());
+            				
+            pushFollow(FOLLOW_19);
+            lv_ownedConditions_0_0=ruleTerminalCondition();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getComposeConditionRule());
+            					}
+            					add(
+            						current,
+            						"ownedConditions",
+            						lv_ownedConditions_0_0,
+            						"fr.unice.polytech.si5.smarthome.am.shome.Shome.TerminalCondition");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_1=(Token)match(input,24,FOLLOW_8); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getComposeConditionAccess().getAndKeyword_1());
+            		
+            // InternalShome.g:949:3: ( (lv_ownedConditions_2_0= ruleTerminalCondition ) )
+            // InternalShome.g:950:4: (lv_ownedConditions_2_0= ruleTerminalCondition )
+            {
+            // InternalShome.g:950:4: (lv_ownedConditions_2_0= ruleTerminalCondition )
+            // InternalShome.g:951:5: lv_ownedConditions_2_0= ruleTerminalCondition
+            {
+
+            					newCompositeNode(grammarAccess.getComposeConditionAccess().getOwnedConditionsTerminalConditionParserRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_16);
+            lv_ownedConditions_2_0=ruleTerminalCondition();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getComposeConditionRule());
+            					}
+            					add(
+            						current,
+            						"ownedConditions",
+            						lv_ownedConditions_2_0,
+            						"fr.unice.polytech.si5.smarthome.am.shome.Shome.TerminalCondition");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalShome.g:968:3: (otherlv_3= 'and' ( (lv_ownedConditions_4_0= ruleTerminalCondition ) ) )*
+            loop14:
+            do {
+                int alt14=2;
+                int LA14_0 = input.LA(1);
+
+                if ( (LA14_0==24) ) {
+                    alt14=1;
+                }
+
+
+                switch (alt14) {
+            	case 1 :
+            	    // InternalShome.g:969:4: otherlv_3= 'and' ( (lv_ownedConditions_4_0= ruleTerminalCondition ) )
+            	    {
+            	    otherlv_3=(Token)match(input,24,FOLLOW_8); 
+
+            	    				newLeafNode(otherlv_3, grammarAccess.getComposeConditionAccess().getAndKeyword_3_0());
+            	    			
+            	    // InternalShome.g:973:4: ( (lv_ownedConditions_4_0= ruleTerminalCondition ) )
+            	    // InternalShome.g:974:5: (lv_ownedConditions_4_0= ruleTerminalCondition )
+            	    {
+            	    // InternalShome.g:974:5: (lv_ownedConditions_4_0= ruleTerminalCondition )
+            	    // InternalShome.g:975:6: lv_ownedConditions_4_0= ruleTerminalCondition
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getComposeConditionAccess().getOwnedConditionsTerminalConditionParserRuleCall_3_1_0());
+            	    					
+            	    pushFollow(FOLLOW_16);
+            	    lv_ownedConditions_4_0=ruleTerminalCondition();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getComposeConditionRule());
+            	    						}
+            	    						add(
+            	    							current,
+            	    							"ownedConditions",
+            	    							lv_ownedConditions_4_0,
+            	    							"fr.unice.polytech.si5.smarthome.am.shome.Shome.TerminalCondition");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop14;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleComposeCondition"
+
+
     // $ANTLR start "entryRuleHomeTimeStamp"
-    // InternalShome.g:701:1: entryRuleHomeTimeStamp returns [EObject current=null] : iv_ruleHomeTimeStamp= ruleHomeTimeStamp EOF ;
+    // InternalShome.g:997:1: entryRuleHomeTimeStamp returns [EObject current=null] : iv_ruleHomeTimeStamp= ruleHomeTimeStamp EOF ;
     public final EObject entryRuleHomeTimeStamp() throws RecognitionException {
         EObject current = null;
 
@@ -1695,8 +2567,8 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalShome.g:701:54: (iv_ruleHomeTimeStamp= ruleHomeTimeStamp EOF )
-            // InternalShome.g:702:2: iv_ruleHomeTimeStamp= ruleHomeTimeStamp EOF
+            // InternalShome.g:997:54: (iv_ruleHomeTimeStamp= ruleHomeTimeStamp EOF )
+            // InternalShome.g:998:2: iv_ruleHomeTimeStamp= ruleHomeTimeStamp EOF
             {
              newCompositeNode(grammarAccess.getHomeTimeStampRule()); 
             pushFollow(FOLLOW_1);
@@ -1723,7 +2595,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleHomeTimeStamp"
-    // InternalShome.g:708:1: ruleHomeTimeStamp returns [EObject current=null] : ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) ) ;
+    // InternalShome.g:1004:1: ruleHomeTimeStamp returns [EObject current=null] : ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) ) ;
     public final EObject ruleHomeTimeStamp() throws RecognitionException {
         EObject current = null;
 
@@ -1737,17 +2609,17 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalShome.g:714:2: ( ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) ) )
-            // InternalShome.g:715:2: ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) )
+            // InternalShome.g:1010:2: ( ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) ) )
+            // InternalShome.g:1011:2: ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) )
             {
-            // InternalShome.g:715:2: ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) )
-            // InternalShome.g:716:3: ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) )
+            // InternalShome.g:1011:2: ( ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) ) )
+            // InternalShome.g:1012:3: ( (lv_hour_0_0= RULE_INT ) ) otherlv_1= ':' ( (lv_min_2_0= RULE_INT ) ) otherlv_3= ':' ( (lv_sec_4_0= RULE_INT ) )
             {
-            // InternalShome.g:716:3: ( (lv_hour_0_0= RULE_INT ) )
-            // InternalShome.g:717:4: (lv_hour_0_0= RULE_INT )
+            // InternalShome.g:1012:3: ( (lv_hour_0_0= RULE_INT ) )
+            // InternalShome.g:1013:4: (lv_hour_0_0= RULE_INT )
             {
-            // InternalShome.g:717:4: (lv_hour_0_0= RULE_INT )
-            // InternalShome.g:718:5: lv_hour_0_0= RULE_INT
+            // InternalShome.g:1013:4: (lv_hour_0_0= RULE_INT )
+            // InternalShome.g:1014:5: lv_hour_0_0= RULE_INT
             {
             lv_hour_0_0=(Token)match(input,RULE_INT,FOLLOW_10); 
 
@@ -1769,15 +2641,15 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_17); 
+            otherlv_1=(Token)match(input,16,FOLLOW_20); 
 
             			newLeafNode(otherlv_1, grammarAccess.getHomeTimeStampAccess().getColonKeyword_1());
             		
-            // InternalShome.g:738:3: ( (lv_min_2_0= RULE_INT ) )
-            // InternalShome.g:739:4: (lv_min_2_0= RULE_INT )
+            // InternalShome.g:1034:3: ( (lv_min_2_0= RULE_INT ) )
+            // InternalShome.g:1035:4: (lv_min_2_0= RULE_INT )
             {
-            // InternalShome.g:739:4: (lv_min_2_0= RULE_INT )
-            // InternalShome.g:740:5: lv_min_2_0= RULE_INT
+            // InternalShome.g:1035:4: (lv_min_2_0= RULE_INT )
+            // InternalShome.g:1036:5: lv_min_2_0= RULE_INT
             {
             lv_min_2_0=(Token)match(input,RULE_INT,FOLLOW_10); 
 
@@ -1799,15 +2671,15 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,16,FOLLOW_17); 
+            otherlv_3=(Token)match(input,16,FOLLOW_20); 
 
             			newLeafNode(otherlv_3, grammarAccess.getHomeTimeStampAccess().getColonKeyword_3());
             		
-            // InternalShome.g:760:3: ( (lv_sec_4_0= RULE_INT ) )
-            // InternalShome.g:761:4: (lv_sec_4_0= RULE_INT )
+            // InternalShome.g:1056:3: ( (lv_sec_4_0= RULE_INT ) )
+            // InternalShome.g:1057:4: (lv_sec_4_0= RULE_INT )
             {
-            // InternalShome.g:761:4: (lv_sec_4_0= RULE_INT )
-            // InternalShome.g:762:5: lv_sec_4_0= RULE_INT
+            // InternalShome.g:1057:4: (lv_sec_4_0= RULE_INT )
+            // InternalShome.g:1058:5: lv_sec_4_0= RULE_INT
             {
             lv_sec_4_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -1852,7 +2724,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalShome.g:782:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalShome.g:1078:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -1860,8 +2732,8 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalShome.g:782:47: (iv_ruleEString= ruleEString EOF )
-            // InternalShome.g:783:2: iv_ruleEString= ruleEString EOF
+            // InternalShome.g:1078:47: (iv_ruleEString= ruleEString EOF )
+            // InternalShome.g:1079:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -1888,7 +2760,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalShome.g:789:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // InternalShome.g:1085:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1899,28 +2771,28 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalShome.g:795:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // InternalShome.g:796:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalShome.g:1091:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // InternalShome.g:1092:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // InternalShome.g:796:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalShome.g:1092:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA11_0==RULE_STRING) ) {
-                alt11=1;
+            if ( (LA15_0==RULE_STRING) ) {
+                alt15=1;
             }
-            else if ( (LA11_0==RULE_ID) ) {
-                alt11=2;
+            else if ( (LA15_0==RULE_ID) ) {
+                alt15=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
             }
-            switch (alt11) {
+            switch (alt15) {
                 case 1 :
-                    // InternalShome.g:797:3: this_STRING_0= RULE_STRING
+                    // InternalShome.g:1093:3: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -1933,7 +2805,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalShome.g:805:3: this_ID_1= RULE_ID
+                    // InternalShome.g:1101:3: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -1968,7 +2840,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAction"
-    // InternalShome.g:816:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
+    // InternalShome.g:1112:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
     public final EObject entryRuleAction() throws RecognitionException {
         EObject current = null;
 
@@ -1976,8 +2848,8 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalShome.g:816:47: (iv_ruleAction= ruleAction EOF )
-            // InternalShome.g:817:2: iv_ruleAction= ruleAction EOF
+            // InternalShome.g:1112:47: (iv_ruleAction= ruleAction EOF )
+            // InternalShome.g:1113:2: iv_ruleAction= ruleAction EOF
             {
              newCompositeNode(grammarAccess.getActionRule()); 
             pushFollow(FOLLOW_1);
@@ -2004,7 +2876,7 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAction"
-    // InternalShome.g:823:1: ruleAction returns [EObject current=null] : ( () ( (lv_name_1_0= ruleEString ) ) ) ;
+    // InternalShome.g:1119:1: ruleAction returns [EObject current=null] : ( () ( (lv_name_1_0= ruleEString ) ) ) ;
     public final EObject ruleAction() throws RecognitionException {
         EObject current = null;
 
@@ -2015,14 +2887,14 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalShome.g:829:2: ( ( () ( (lv_name_1_0= ruleEString ) ) ) )
-            // InternalShome.g:830:2: ( () ( (lv_name_1_0= ruleEString ) ) )
+            // InternalShome.g:1125:2: ( ( () ( (lv_name_1_0= ruleEString ) ) ) )
+            // InternalShome.g:1126:2: ( () ( (lv_name_1_0= ruleEString ) ) )
             {
-            // InternalShome.g:830:2: ( () ( (lv_name_1_0= ruleEString ) ) )
-            // InternalShome.g:831:3: () ( (lv_name_1_0= ruleEString ) )
+            // InternalShome.g:1126:2: ( () ( (lv_name_1_0= ruleEString ) ) )
+            // InternalShome.g:1127:3: () ( (lv_name_1_0= ruleEString ) )
             {
-            // InternalShome.g:831:3: ()
-            // InternalShome.g:832:4: 
+            // InternalShome.g:1127:3: ()
+            // InternalShome.g:1128:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2032,11 +2904,11 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalShome.g:838:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalShome.g:839:4: (lv_name_1_0= ruleEString )
+            // InternalShome.g:1134:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalShome.g:1135:4: (lv_name_1_0= ruleEString )
             {
-            // InternalShome.g:839:4: (lv_name_1_0= ruleEString )
-            // InternalShome.g:840:5: lv_name_1_0= ruleEString
+            // InternalShome.g:1135:4: (lv_name_1_0= ruleEString )
+            // InternalShome.g:1136:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getActionAccess().getNameEStringParserRuleCall_1_0());
@@ -2087,6 +2959,129 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
     // Delegated rules
 
 
+    protected DFA7 dfa7 = new DFA7(this);
+    protected DFA10 dfa10 = new DFA10(this);
+    static final String dfa_1s = "\50\uffff";
+    static final String dfa_2s = "\1\25\1\5\2\24\2\5\1\27\1\4\2\26\2\24\2\uffff\1\20\2\5\2\4\2\26\2\24\2\20\1\5\3\4\2\26\2\20\1\26\2\4\1\20\1\26\1\4\1\26";
+    static final String dfa_3s = "\1\25\1\6\2\32\2\6\1\31\1\4\4\32\2\uffff\1\20\2\6\2\4\4\32\2\20\1\6\3\4\2\32\2\20\1\30\2\4\1\20\1\30\1\4\1\30";
+    static final String dfa_4s = "\14\uffff\1\2\1\1\32\uffff";
+    static final String dfa_5s = "\50\uffff}>";
+    static final String[] dfa_6s = {
+            "\1\1",
+            "\1\2\1\3",
+            "\1\4\1\uffff\1\6\1\uffff\1\5\1\uffff\1\7",
+            "\1\4\1\uffff\1\6\1\uffff\1\5\1\uffff\1\7",
+            "\1\10\1\11",
+            "\1\12\1\13",
+            "\1\15\1\uffff\1\14",
+            "\1\16",
+            "\1\6\1\uffff\1\5\1\uffff\1\7",
+            "\1\6\1\uffff\1\5\1\uffff\1\7",
+            "\1\17\1\uffff\1\6\1\uffff\1\20\1\uffff\1\21",
+            "\1\17\1\uffff\1\6\1\uffff\1\20\1\uffff\1\21",
+            "",
+            "",
+            "\1\22",
+            "\1\23\1\24",
+            "\1\25\1\26",
+            "\1\27",
+            "\1\30",
+            "\1\6\1\uffff\1\20\1\uffff\1\21",
+            "\1\6\1\uffff\1\20\1\uffff\1\21",
+            "\1\31\1\uffff\1\6\1\uffff\1\20\1\uffff\1\32",
+            "\1\31\1\uffff\1\6\1\uffff\1\20\1\uffff\1\32",
+            "\1\33",
+            "\1\34",
+            "\1\35\1\36",
+            "\1\37",
+            "\1\40",
+            "\1\41",
+            "\1\6\1\uffff\1\20\1\uffff\1\32",
+            "\1\6\1\uffff\1\20\1\uffff\1\32",
+            "\1\42",
+            "\1\43",
+            "\1\6\1\uffff\1\5",
+            "\1\44",
+            "\1\45",
+            "\1\46",
+            "\1\6\1\uffff\1\20",
+            "\1\47",
+            "\1\6\1\uffff\1\20"
+    };
+
+    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
+    static final char[] dfa_2 = DFA.unpackEncodedStringToUnsignedChars(dfa_2s);
+    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
+    static final short[] dfa_4 = DFA.unpackEncodedString(dfa_4s);
+    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
+    static final short[][] dfa_6 = unpackEncodedStringArray(dfa_6s);
+
+    class DFA7 extends DFA {
+
+        public DFA7(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 7;
+            this.eot = dfa_1;
+            this.eof = dfa_1;
+            this.min = dfa_2;
+            this.max = dfa_3;
+            this.accept = dfa_4;
+            this.special = dfa_5;
+            this.transition = dfa_6;
+        }
+        public String getDescription() {
+            return "472:2: (this_Barrier_0= ruleBarrier | this_DifferedBarrier_1= ruleDifferedBarrier )";
+        }
+    }
+    static final String dfa_7s = "\17\uffff";
+    static final String dfa_8s = "\1\uffff\2\4\4\uffff\2\4\4\uffff\1\16\1\uffff";
+    static final String dfa_9s = "\1\5\2\24\1\5\1\uffff\1\4\1\uffff\2\26\1\20\1\4\1\20\1\4\1\26\1\uffff";
+    static final String dfa_10s = "\1\6\2\32\1\6\1\uffff\1\4\1\uffff\2\32\1\20\1\4\1\20\1\4\1\30\1\uffff";
+    static final String dfa_11s = "\4\uffff\1\1\1\uffff\1\3\7\uffff\1\2";
+    static final String dfa_12s = "\17\uffff}>";
+    static final String[] dfa_13s = {
+            "\1\1\1\2",
+            "\1\3\1\uffff\1\4\1\uffff\1\6\1\uffff\1\5",
+            "\1\3\1\uffff\1\4\1\uffff\1\6\1\uffff\1\5",
+            "\1\7\1\10",
+            "",
+            "\1\11",
+            "",
+            "\1\4\1\uffff\1\6\1\uffff\1\5",
+            "\1\4\1\uffff\1\6\1\uffff\1\5",
+            "\1\12",
+            "\1\13",
+            "\1\14",
+            "\1\15",
+            "\1\16\1\uffff\1\6",
+            ""
+    };
+
+    static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
+    static final short[] dfa_8 = DFA.unpackEncodedString(dfa_8s);
+    static final char[] dfa_9 = DFA.unpackEncodedStringToUnsignedChars(dfa_9s);
+    static final char[] dfa_10 = DFA.unpackEncodedStringToUnsignedChars(dfa_10s);
+    static final short[] dfa_11 = DFA.unpackEncodedString(dfa_11s);
+    static final short[] dfa_12 = DFA.unpackEncodedString(dfa_12s);
+    static final short[][] dfa_13 = unpackEncodedStringArray(dfa_13s);
+
+    class DFA10 extends DFA {
+
+        public DFA10(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 10;
+            this.eot = dfa_7;
+            this.eof = dfa_8;
+            this.min = dfa_9;
+            this.max = dfa_10;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_13;
+        }
+        public String getDescription() {
+            return "707:2: (this_Condition_0= ruleCondition | this_TimeEleapsedCondition_1= ruleTimeEleapsedCondition | this_ComposeCondition_2= ruleComposeCondition )";
+        }
+    }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
@@ -2105,6 +3100,9 @@ public class InternalShomeParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000010L});
 
 }

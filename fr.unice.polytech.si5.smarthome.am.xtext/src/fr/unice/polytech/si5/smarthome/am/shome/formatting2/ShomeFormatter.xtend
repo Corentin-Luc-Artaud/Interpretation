@@ -22,8 +22,8 @@ class ShomeFormatter extends AbstractFormatter2 {
 		for (actor : home.ownedActors) {
 			actor.format
 		}
-		for (condition : home.ownedConditions) {
-			condition.format
+		for (barrier : home.ownedBarrier) {
+			barrier.format
 		}
 		for (occurence : home.ownedOccurences) {
 			occurence.format

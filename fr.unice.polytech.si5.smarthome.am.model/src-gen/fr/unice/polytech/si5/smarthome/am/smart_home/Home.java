@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedSubjects <em>Owned Subjects</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedActors <em>Owned Actors</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedOccurences <em>Owned Occurences</em>}</li>
- *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedConditions <em>Owned Conditions</em>}</li>
+ *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedBarrier <em>Owned Barrier</em>}</li>
  * </ul>
  *
  * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getHome()
@@ -75,19 +75,19 @@ public interface Home extends EObject {
 	EList<Occurence> getOwnedOccurences();
 
 	/**
-	 * Returns the value of the '<em><b>Owned Conditions</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.unice.polytech.si5.smarthome.am.smart_home.ACondition}.
+	 * Returns the value of the '<em><b>Owned Barrier</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.unice.polytech.si5.smarthome.am.smart_home.ABarrier}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Owned Conditions</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Owned Barrier</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owned Conditions</em>' containment reference list.
-	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getHome_OwnedConditions()
-	 * @model containment="true"
+	 * @return the value of the '<em>Owned Barrier</em>' containment reference list.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getHome_OwnedBarrier()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<ACondition> getOwnedConditions();
+	EList<ABarrier> getOwnedBarrier();
 
 } // Home

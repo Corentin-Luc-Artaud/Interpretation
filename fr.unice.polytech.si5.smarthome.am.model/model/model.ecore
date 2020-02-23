@@ -17,8 +17,8 @@
         eType="#//Actor" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedOccurences" upperBound="-1"
         eType="#//Occurence" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedConditions" upperBound="-1"
-        eType="#//ACondition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedBarrier" lowerBound="1"
+        upperBound="-1" eType="#//ABarrier" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Occurence">
@@ -29,8 +29,6 @@
         eType="#//Action"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ACondition" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" unique="false"
-        lowerBound="1" upperBound="-1" eType="#//Action"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" unique="false"
         eType="#//Action"/>
@@ -44,5 +42,20 @@
   <eClassifiers xsi:type="ecore:EClass" name="TimeEleapsedCondition" eSuperTypes="#//ACondition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedTimestampEleapsed"
         lowerBound="1" eType="#//HomeTimeStamp" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComposeCondition" eSuperTypes="#//ACondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedConditions" lowerBound="2"
+        upperBound="-1" eType="#//ACondition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ABarrier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" unique="false"
+        lowerBound="1" upperBound="-1" eType="#//Action"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedCondition" lowerBound="1"
+        eType="#//ACondition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Barrier" eSuperTypes="#//ABarrier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DifferedBarrier" eSuperTypes="#//ABarrier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TriggerAfter" lowerBound="1"
+        eType="#//HomeTimeStamp" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

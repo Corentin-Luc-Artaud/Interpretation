@@ -6,7 +6,10 @@ package fr.unice.polytech.si5.smarthome.am.shome.serializer;
 import com.google.inject.Inject;
 import fr.unice.polytech.si5.smarthome.am.shome.services.ShomeGrammarAccess;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
+import fr.unice.polytech.si5.smarthome.am.smart_home.Barrier;
+import fr.unice.polytech.si5.smarthome.am.smart_home.ComposeCondition;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition;
+import fr.unice.polytech.si5.smarthome.am.smart_home.DifferedBarrier;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
 import fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence;
@@ -44,8 +47,17 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case SmartHomePackage.ACTOR:
 				sequence_Actor(context, (Actor) semanticObject); 
 				return; 
+			case SmartHomePackage.BARRIER:
+				sequence_Barrier(context, (Barrier) semanticObject); 
+				return; 
+			case SmartHomePackage.COMPOSE_CONDITION:
+				sequence_ComposeCondition(context, (ComposeCondition) semanticObject); 
+				return; 
 			case SmartHomePackage.CONDITION:
 				sequence_Condition(context, (Condition) semanticObject); 
+				return; 
+			case SmartHomePackage.DIFFERED_BARRIER:
+				sequence_DifferedBarrier(context, (DifferedBarrier) semanticObject); 
 				return; 
 			case SmartHomePackage.HOME:
 				sequence_Home(context, (Home) semanticObject); 
@@ -105,13 +117,53 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     ACondition returns Condition
-	 *     Condition returns Condition
+	 *     ABarrier returns Barrier
+	 *     Barrier returns Barrier
 	 *
 	 * Constraint:
-	 *     (actor=[Actor|EString]? action=[Action|EString] actions+=[Action|EString] actions+=[Action|EString]*)
+	 *     (ownedCondition=ACondition actions+=[Action|EString] actions+=[Action|EString]*)
+	 */
+	protected void sequence_Barrier(ISerializationContext context, Barrier semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ACondition returns ComposeCondition
+	 *     ComposeCondition returns ComposeCondition
+	 *
+	 * Constraint:
+	 *     (ownedConditions+=TerminalCondition ownedConditions+=TerminalCondition ownedConditions+=TerminalCondition*)
+	 */
+	protected void sequence_ComposeCondition(ISerializationContext context, ComposeCondition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ACondition returns Condition
+	 *     Condition returns Condition
+	 *     TerminalCondition returns Condition
+	 *
+	 * Constraint:
+	 *     (actor=[Actor|EString]? action=[Action|EString])
 	 */
 	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ABarrier returns DifferedBarrier
+	 *     DifferedBarrier returns DifferedBarrier
+	 *
+	 * Constraint:
+	 *     (ownedCondition=ACondition TriggerAfter=HomeTimeStamp actions+=[Action|EString] actions+=[Action|EString]*)
+	 */
+	protected void sequence_DifferedBarrier(ISerializationContext context, DifferedBarrier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -149,8 +201,8 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         ownedSubjects+=Subject 
 	 *         ownedSubjects+=Subject* 
 	 *         ownedActors+=Actor* 
-	 *         ownedConditions+=ACondition 
-	 *         ownedConditions+=ACondition* 
+	 *         ownedBarrier+=ABarrier 
+	 *         ownedBarrier+=ABarrier* 
 	 *         ownedOccurences+=Occurence 
 	 *         ownedOccurences+=Occurence*
 	 *     )
@@ -188,9 +240,10 @@ public class ShomeSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 * Contexts:
 	 *     ACondition returns TimeEleapsedCondition
 	 *     TimeEleapsedCondition returns TimeEleapsedCondition
+	 *     TerminalCondition returns TimeEleapsedCondition
 	 *
 	 * Constraint:
-	 *     (action=[Action|EString] ownedTimestampEleapsed=HomeTimeStamp actions+=[Action|EString] actions+=[Action|EString]*)
+	 *     (actor=[Actor|EString]? action=[Action|EString] ownedTimestampEleapsed=HomeTimeStamp)
 	 */
 	protected void sequence_TimeEleapsedCondition(ISerializationContext context, TimeEleapsedCondition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

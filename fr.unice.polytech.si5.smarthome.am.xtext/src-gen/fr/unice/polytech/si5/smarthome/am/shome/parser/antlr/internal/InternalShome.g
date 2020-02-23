@@ -151,18 +151,18 @@ ruleHome returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getHomeAccess().getOwnedConditionsAConditionParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getHomeAccess().getOwnedBarrierABarrierParserRuleCall_6_0());
 				}
-				lv_ownedConditions_6_0=ruleACondition
+				lv_ownedBarrier_6_0=ruleABarrier
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getHomeRule());
 					}
 					add(
 						$current,
-						"ownedConditions",
-						lv_ownedConditions_6_0,
-						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ACondition");
+						"ownedBarrier",
+						lv_ownedBarrier_6_0,
+						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ABarrier");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -170,18 +170,18 @@ ruleHome returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getHomeAccess().getOwnedConditionsAConditionParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getHomeAccess().getOwnedBarrierABarrierParserRuleCall_7_0());
 				}
-				lv_ownedConditions_7_0=ruleACondition
+				lv_ownedBarrier_7_0=ruleABarrier
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getHomeRule());
 					}
 					add(
 						$current,
-						"ownedConditions",
-						lv_ownedConditions_7_0,
-						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ACondition");
+						"ownedBarrier",
+						lv_ownedBarrier_7_0,
+						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ABarrier");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -454,6 +454,241 @@ ruleOccurence returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleABarrier
+entryRuleABarrier returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getABarrierRule()); }
+	iv_ruleABarrier=ruleABarrier
+	{ $current=$iv_ruleABarrier.current; }
+	EOF;
+
+// Rule ABarrier
+ruleABarrier returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getABarrierAccess().getBarrierParserRuleCall_0());
+		}
+		this_Barrier_0=ruleBarrier
+		{
+			$current = $this_Barrier_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getABarrierAccess().getDifferedBarrierParserRuleCall_1());
+		}
+		this_DifferedBarrier_1=ruleDifferedBarrier
+		{
+			$current = $this_DifferedBarrier_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleBarrier
+entryRuleBarrier returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBarrierRule()); }
+	iv_ruleBarrier=ruleBarrier
+	{ $current=$iv_ruleBarrier.current; }
+	EOF;
+
+// Rule Barrier
+ruleBarrier returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='when'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getBarrierAccess().getWhenKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBarrierAccess().getOwnedConditionAConditionParserRuleCall_1_0());
+				}
+				lv_ownedCondition_1_0=ruleACondition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBarrierRule());
+					}
+					set(
+						$current,
+						"ownedCondition",
+						lv_ownedCondition_1_0,
+						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ACondition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='then'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getBarrierAccess().getThenKeyword_2());
+		}
+		otherlv_3='trigger'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getBarrierAccess().getTriggerKeyword_3());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getBarrierRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getBarrierAccess().getActionsActionCrossReference_4_0());
+				}
+				ruleEString
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_5='and'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getBarrierAccess().getAndKeyword_5_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getBarrierRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getBarrierAccess().getActionsActionCrossReference_5_1_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleDifferedBarrier
+entryRuleDifferedBarrier returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDifferedBarrierRule()); }
+	iv_ruleDifferedBarrier=ruleDifferedBarrier
+	{ $current=$iv_ruleDifferedBarrier.current; }
+	EOF;
+
+// Rule DifferedBarrier
+ruleDifferedBarrier returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='when'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDifferedBarrierAccess().getWhenKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDifferedBarrierAccess().getOwnedConditionAConditionParserRuleCall_1_0());
+				}
+				lv_ownedCondition_1_0=ruleACondition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDifferedBarrierRule());
+					}
+					set(
+						$current,
+						"ownedCondition",
+						lv_ownedCondition_1_0,
+						"fr.unice.polytech.si5.smarthome.am.shome.Shome.ACondition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='then'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDifferedBarrierAccess().getThenKeyword_2());
+		}
+		otherlv_3='after'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getDifferedBarrierAccess().getAfterKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDifferedBarrierAccess().getTriggerAfterHomeTimeStampParserRuleCall_4_0());
+				}
+				lv_TriggerAfter_4_0=ruleHomeTimeStamp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDifferedBarrierRule());
+					}
+					set(
+						$current,
+						"TriggerAfter",
+						lv_TriggerAfter_4_0,
+						"fr.unice.polytech.si5.smarthome.am.shome.Shome.HomeTimeStamp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5='trigger'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getDifferedBarrierAccess().getTriggerKeyword_5());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDifferedBarrierRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getDifferedBarrierAccess().getActionsActionCrossReference_6_0());
+				}
+				ruleEString
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_7='and'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getDifferedBarrierAccess().getAndKeyword_7_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDifferedBarrierRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getDifferedBarrierAccess().getActionsActionCrossReference_7_1_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
 // Entry rule entryRuleACondition
 entryRuleACondition returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getAConditionRule()); }
@@ -487,6 +722,15 @@ ruleACondition returns [EObject current=null]
 			$current = $this_TimeEleapsedCondition_1.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getAConditionAccess().getComposeConditionParserRuleCall_2());
+		}
+		this_ComposeCondition_2=ruleComposeCondition
+		{
+			$current = $this_ComposeCondition_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -506,10 +750,28 @@ ruleTimeEleapsedCondition returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='if'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getTimeEleapsedConditionAccess().getIfKeyword_0());
-		}
+		(
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getTimeEleapsedConditionRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getTimeEleapsedConditionAccess().getActorActorCrossReference_0_0_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_1='do'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getTimeEleapsedConditionAccess().getDoKeyword_0_1());
+			}
+		)?
 		(
 			(
 				{
@@ -526,16 +788,16 @@ ruleTimeEleapsedCondition returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='during'
+		otherlv_3='during'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getTimeEleapsedConditionAccess().getDuringKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getTimeEleapsedConditionAccess().getDuringKeyword_2());
 		}
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getTimeEleapsedConditionAccess().getOwnedTimestampEleapsedHomeTimeStampParserRuleCall_3_0());
 				}
-				lv_ownedTimestampEleapsed_3_0=ruleHomeTimeStamp
+				lv_ownedTimestampEleapsed_4_0=ruleHomeTimeStamp
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTimeEleapsedConditionRule());
@@ -543,54 +805,12 @@ ruleTimeEleapsedCondition returns [EObject current=null]
 					set(
 						$current,
 						"ownedTimestampEleapsed",
-						lv_ownedTimestampEleapsed_3_0,
+						lv_ownedTimestampEleapsed_4_0,
 						"fr.unice.polytech.si5.smarthome.am.shome.Shome.HomeTimeStamp");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_4='then'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getTimeEleapsedConditionAccess().getThenKeyword_4());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTimeEleapsedConditionRule());
-					}
-				}
-				{
-					newCompositeNode(grammarAccess.getTimeEleapsedConditionAccess().getActionsActionCrossReference_5_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_6='and'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getTimeEleapsedConditionAccess().getAndKeyword_6_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getTimeEleapsedConditionRule());
-						}
-					}
-					{
-						newCompositeNode(grammarAccess.getTimeEleapsedConditionAccess().getActionsActionCrossReference_6_1_0());
-					}
-					ruleEString
-					{
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
 	)
 ;
 
@@ -610,10 +830,6 @@ ruleCondition returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='if'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getIfKeyword_0());
-		}
 		(
 			(
 				(
@@ -623,7 +839,7 @@ ruleCondition returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getConditionAccess().getActorActorCrossReference_1_0_0());
+						newCompositeNode(grammarAccess.getConditionAccess().getActorActorCrossReference_0_0_0());
 					}
 					ruleEString
 					{
@@ -631,9 +847,9 @@ ruleCondition returns [EObject current=null]
 					}
 				)
 			)
-			otherlv_2='do'
+			otherlv_1='do'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getDoKeyword_1_1());
+				newLeafNode(otherlv_1, grammarAccess.getConditionAccess().getDoKeyword_0_1());
 			}
 		)?
 		(
@@ -644,7 +860,7 @@ ruleCondition returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getConditionAccess().getActionActionCrossReference_2_0());
+					newCompositeNode(grammarAccess.getConditionAccess().getActionActionCrossReference_1_0());
 				}
 				ruleEString
 				{
@@ -652,43 +868,123 @@ ruleCondition returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_4='then'
+	)
+;
+
+// Entry rule entryRuleTerminalCondition
+entryRuleTerminalCondition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTerminalConditionRule()); }
+	iv_ruleTerminalCondition=ruleTerminalCondition
+	{ $current=$iv_ruleTerminalCondition.current; }
+	EOF;
+
+// Rule TerminalCondition
+ruleTerminalCondition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		{
-			newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getThenKeyword_3());
+			newCompositeNode(grammarAccess.getTerminalConditionAccess().getConditionParserRuleCall_0());
+		}
+		this_Condition_0=ruleCondition
+		{
+			$current = $this_Condition_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getTerminalConditionAccess().getTimeEleapsedConditionParserRuleCall_1());
+		}
+		this_TimeEleapsedCondition_1=ruleTimeEleapsedCondition
+		{
+			$current = $this_TimeEleapsedCondition_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleComposeCondition
+entryRuleComposeCondition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getComposeConditionRule()); }
+	iv_ruleComposeCondition=ruleComposeCondition
+	{ $current=$iv_ruleComposeCondition.current; }
+	EOF;
+
+// Rule ComposeCondition
+ruleComposeCondition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getComposeConditionAccess().getOwnedConditionsTerminalConditionParserRuleCall_0_0());
+				}
+				lv_ownedConditions_0_0=ruleTerminalCondition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getComposeConditionRule());
+					}
+					add(
+						$current,
+						"ownedConditions",
+						lv_ownedConditions_0_0,
+						"fr.unice.polytech.si5.smarthome.am.shome.Shome.TerminalCondition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_1='and'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getComposeConditionAccess().getAndKeyword_1());
 		}
 		(
 			(
 				{
+					newCompositeNode(grammarAccess.getComposeConditionAccess().getOwnedConditionsTerminalConditionParserRuleCall_2_0());
+				}
+				lv_ownedConditions_2_0=ruleTerminalCondition
+				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getConditionRule());
+						$current = createModelElementForParent(grammarAccess.getComposeConditionRule());
 					}
-				}
-				{
-					newCompositeNode(grammarAccess.getConditionAccess().getActionsActionCrossReference_4_0());
-				}
-				ruleEString
-				{
+					add(
+						$current,
+						"ownedConditions",
+						lv_ownedConditions_2_0,
+						"fr.unice.polytech.si5.smarthome.am.shome.Shome.TerminalCondition");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_6='and'
+			otherlv_3='and'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getConditionAccess().getAndKeyword_5_0());
+				newLeafNode(otherlv_3, grammarAccess.getComposeConditionAccess().getAndKeyword_3_0());
 			}
 			(
 				(
 					{
+						newCompositeNode(grammarAccess.getComposeConditionAccess().getOwnedConditionsTerminalConditionParserRuleCall_3_1_0());
+					}
+					lv_ownedConditions_4_0=ruleTerminalCondition
+					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getConditionRule());
+							$current = createModelElementForParent(grammarAccess.getComposeConditionRule());
 						}
-					}
-					{
-						newCompositeNode(grammarAccess.getConditionAccess().getActionsActionCrossReference_5_1_0());
-					}
-					ruleEString
-					{
+						add(
+							$current,
+							"ownedConditions",
+							lv_ownedConditions_4_0,
+							"fr.unice.polytech.si5.smarthome.am.shome.Shome.TerminalCondition");
 						afterParserOrEnumRuleCall();
 					}
 				)

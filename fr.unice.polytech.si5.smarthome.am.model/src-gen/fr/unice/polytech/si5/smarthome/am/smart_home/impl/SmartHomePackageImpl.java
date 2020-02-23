@@ -2,10 +2,14 @@
  */
 package fr.unice.polytech.si5.smarthome.am.smart_home.impl;
 
+import fr.unice.polytech.si5.smarthome.am.smart_home.ABarrier;
 import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
+import fr.unice.polytech.si5.smarthome.am.smart_home.Barrier;
+import fr.unice.polytech.si5.smarthome.am.smart_home.ComposeCondition;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Condition;
+import fr.unice.polytech.si5.smarthome.am.smart_home.DifferedBarrier;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
 import fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp;
 import fr.unice.polytech.si5.smarthome.am.smart_home.NamedElement;
@@ -91,6 +95,34 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * @generated
 	 */
 	private EClass timeEleapsedConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass composeConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass aBarrierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass barrierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass differedBarrierEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -249,7 +281,7 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getHome_OwnedConditions() {
+	public EReference getHome_OwnedBarrier() {
 		return (EReference) homeEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -312,7 +344,7 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getACondition_Actions() {
+	public EReference getACondition_Actor() {
 		return (EReference) aConditionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -321,17 +353,8 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getACondition_Actor() {
-		return (EReference) aConditionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getACondition_Action() {
-		return (EReference) aConditionEClass.getEStructuralFeatures().get(2);
+		return (EReference) aConditionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -359,6 +382,78 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 */
 	public EReference getTimeEleapsedCondition_OwnedTimestampEleapsed() {
 		return (EReference) timeEleapsedConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComposeCondition() {
+		return composeConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComposeCondition_OwnedConditions() {
+		return (EReference) composeConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getABarrier() {
+		return aBarrierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getABarrier_Actions() {
+		return (EReference) aBarrierEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getABarrier_OwnedCondition() {
+		return (EReference) aBarrierEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBarrier() {
+		return barrierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDifferedBarrier() {
+		return differedBarrierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDifferedBarrier_TriggerAfter() {
+		return (EReference) differedBarrierEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -438,7 +533,7 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		createEReference(homeEClass, HOME__OWNED_SUBJECTS);
 		createEReference(homeEClass, HOME__OWNED_ACTORS);
 		createEReference(homeEClass, HOME__OWNED_OCCURENCES);
-		createEReference(homeEClass, HOME__OWNED_CONDITIONS);
+		createEReference(homeEClass, HOME__OWNED_BARRIER);
 
 		actionEClass = createEClass(ACTION);
 
@@ -448,7 +543,6 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		createEReference(occurenceEClass, OCCURENCE__ACTION);
 
 		aConditionEClass = createEClass(ACONDITION);
-		createEReference(aConditionEClass, ACONDITION__ACTIONS);
 		createEReference(aConditionEClass, ACONDITION__ACTOR);
 		createEReference(aConditionEClass, ACONDITION__ACTION);
 
@@ -461,6 +555,18 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 
 		timeEleapsedConditionEClass = createEClass(TIME_ELEAPSED_CONDITION);
 		createEReference(timeEleapsedConditionEClass, TIME_ELEAPSED_CONDITION__OWNED_TIMESTAMP_ELEAPSED);
+
+		composeConditionEClass = createEClass(COMPOSE_CONDITION);
+		createEReference(composeConditionEClass, COMPOSE_CONDITION__OWNED_CONDITIONS);
+
+		aBarrierEClass = createEClass(ABARRIER);
+		createEReference(aBarrierEClass, ABARRIER__ACTIONS);
+		createEReference(aBarrierEClass, ABARRIER__OWNED_CONDITION);
+
+		barrierEClass = createEClass(BARRIER);
+
+		differedBarrierEClass = createEClass(DIFFERED_BARRIER);
+		createEReference(differedBarrierEClass, DIFFERED_BARRIER__TRIGGER_AFTER);
 	}
 
 	/**
@@ -497,6 +603,9 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		actionEClass.getESuperTypes().add(this.getNamedElement());
 		conditionEClass.getESuperTypes().add(this.getACondition());
 		timeEleapsedConditionEClass.getESuperTypes().add(this.getACondition());
+		composeConditionEClass.getESuperTypes().add(this.getACondition());
+		barrierEClass.getESuperTypes().add(this.getABarrier());
+		differedBarrierEClass.getESuperTypes().add(this.getABarrier());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
@@ -521,9 +630,9 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		initEReference(getHome_OwnedOccurences(), this.getOccurence(), null, "ownedOccurences", null, 0, -1, Home.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getHome_OwnedConditions(), this.getACondition(), null, "ownedConditions", null, 0, -1,
-				Home.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHome_OwnedBarrier(), this.getABarrier(), null, "ownedBarrier", null, 1, -1, Home.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -541,9 +650,6 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 
 		initEClass(aConditionEClass, ACondition.class, "ACondition", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getACondition_Actions(), this.getAction(), null, "actions", null, 1, -1, ACondition.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getACondition_Actor(), this.getActor(), null, "actor", null, 0, 1, ACondition.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -568,6 +674,29 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		initEReference(getTimeEleapsedCondition_OwnedTimestampEleapsed(), this.getHomeTimeStamp(), null,
 				"ownedTimestampEleapsed", null, 1, 1, TimeEleapsedCondition.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(composeConditionEClass, ComposeCondition.class, "ComposeCondition", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComposeCondition_OwnedConditions(), this.getACondition(), null, "ownedConditions", null, 2,
+				-1, ComposeCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(aBarrierEClass, ABarrier.class, "ABarrier", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getABarrier_Actions(), this.getAction(), null, "actions", null, 1, -1, ABarrier.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getABarrier_OwnedCondition(), this.getACondition(), null, "ownedCondition", null, 1, 1,
+				ABarrier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(barrierEClass, Barrier.class, "Barrier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(differedBarrierEClass, DifferedBarrier.class, "DifferedBarrier", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDifferedBarrier_TriggerAfter(), this.getHomeTimeStamp(), null, "TriggerAfter", null, 1, 1,
+				DifferedBarrier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

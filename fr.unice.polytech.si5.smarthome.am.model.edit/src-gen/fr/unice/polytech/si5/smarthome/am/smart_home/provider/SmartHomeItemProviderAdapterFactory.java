@@ -234,6 +234,98 @@ public class SmartHomeItemProviderAdapterFactory extends SmartHomeAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.si5.smarthome.am.smart_home.ComposeCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComposeConditionItemProvider composeConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.si5.smarthome.am.smart_home.ComposeCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComposeConditionAdapter() {
+		if (composeConditionItemProvider == null) {
+			composeConditionItemProvider = new ComposeConditionItemProvider(this);
+		}
+
+		return composeConditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.si5.smarthome.am.smart_home.ABarrier} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ABarrierItemProvider aBarrierItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.si5.smarthome.am.smart_home.ABarrier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createABarrierAdapter() {
+		if (aBarrierItemProvider == null) {
+			aBarrierItemProvider = new ABarrierItemProvider(this);
+		}
+
+		return aBarrierItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.si5.smarthome.am.smart_home.Barrier} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BarrierItemProvider barrierItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.si5.smarthome.am.smart_home.Barrier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBarrierAdapter() {
+		if (barrierItemProvider == null) {
+			barrierItemProvider = new BarrierItemProvider(this);
+		}
+
+		return barrierItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.si5.smarthome.am.smart_home.DifferedBarrier} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DifferedBarrierItemProvider differedBarrierItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.si5.smarthome.am.smart_home.DifferedBarrier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDifferedBarrierAdapter() {
+		if (differedBarrierItemProvider == null) {
+			differedBarrierItemProvider = new DifferedBarrierItemProvider(this);
+		}
+
+		return differedBarrierItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.si5.smarthome.am.smart_home.HomeTimeStamp} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,6 +463,14 @@ public class SmartHomeItemProviderAdapterFactory extends SmartHomeAdapterFactory
 			conditionItemProvider.dispose();
 		if (timeEleapsedConditionItemProvider != null)
 			timeEleapsedConditionItemProvider.dispose();
+		if (composeConditionItemProvider != null)
+			composeConditionItemProvider.dispose();
+		if (aBarrierItemProvider != null)
+			aBarrierItemProvider.dispose();
+		if (barrierItemProvider != null)
+			barrierItemProvider.dispose();
+		if (differedBarrierItemProvider != null)
+			differedBarrierItemProvider.dispose();
 	}
 
 }

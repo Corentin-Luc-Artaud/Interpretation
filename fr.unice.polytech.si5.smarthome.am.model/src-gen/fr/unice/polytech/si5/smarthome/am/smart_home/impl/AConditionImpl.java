@@ -6,20 +6,12 @@ import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
 import fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage;
-
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +21,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.AConditionImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.AConditionImpl#getActor <em>Actor</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.AConditionImpl#getAction <em>Action</em>}</li>
  * </ul>
@@ -37,16 +28,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * @generated
  */
 public abstract class AConditionImpl extends MinimalEObjectImpl.Container implements ACondition {
-	/**
-	 * The cached value of the '{@link #getActions() <em>Actions</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Action> actions;
-
 	/**
 	 * The cached value of the '{@link #getActor() <em>Actor</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -84,18 +65,6 @@ public abstract class AConditionImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	protected EClass eStaticClass() {
 		return SmartHomePackage.Literals.ACONDITION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Action> getActions() {
-		if (actions == null) {
-			actions = new EObjectResolvingEList<Action>(Action.class, this, SmartHomePackage.ACONDITION__ACTIONS);
-		}
-		return actions;
 	}
 
 	/**
@@ -185,8 +154,6 @@ public abstract class AConditionImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SmartHomePackage.ACONDITION__ACTIONS:
-			return getActions();
 		case SmartHomePackage.ACONDITION__ACTOR:
 			if (resolve)
 				return getActor();
@@ -208,10 +175,6 @@ public abstract class AConditionImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SmartHomePackage.ACONDITION__ACTIONS:
-			getActions().clear();
-			getActions().addAll((Collection<? extends Action>) newValue);
-			return;
 		case SmartHomePackage.ACONDITION__ACTOR:
 			setActor((Actor) newValue);
 			return;
@@ -230,9 +193,6 @@ public abstract class AConditionImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SmartHomePackage.ACONDITION__ACTIONS:
-			getActions().clear();
-			return;
 		case SmartHomePackage.ACONDITION__ACTOR:
 			setActor((Actor) null);
 			return;
@@ -251,8 +211,6 @@ public abstract class AConditionImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SmartHomePackage.ACONDITION__ACTIONS:
-			return actions != null && !actions.isEmpty();
 		case SmartHomePackage.ACONDITION__ACTOR:
 			return actor != null;
 		case SmartHomePackage.ACONDITION__ACTION:

@@ -5,7 +5,7 @@ package fr.unice.polytech.si5.smarthome.am.shome.formatting2;
 
 import com.google.inject.Inject;
 import fr.unice.polytech.si5.smarthome.am.shome.services.ShomeGrammarAccess;
-import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition;
+import fr.unice.polytech.si5.smarthome.am.smart_home.ABarrier;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
@@ -34,9 +34,9 @@ public class ShomeFormatter extends AbstractFormatter2 {
     for (final Actor actor : _ownedActors) {
       document.<Actor>format(actor);
     }
-    EList<ACondition> _ownedConditions = home.getOwnedConditions();
-    for (final ACondition condition : _ownedConditions) {
-      document.<ACondition>format(condition);
+    EList<ABarrier> _ownedBarrier = home.getOwnedBarrier();
+    for (final ABarrier barrier : _ownedBarrier) {
+      document.<ABarrier>format(barrier);
     }
     EList<Occurence> _ownedOccurences = home.getOwnedOccurences();
     for (final Occurence occurence : _ownedOccurences) {

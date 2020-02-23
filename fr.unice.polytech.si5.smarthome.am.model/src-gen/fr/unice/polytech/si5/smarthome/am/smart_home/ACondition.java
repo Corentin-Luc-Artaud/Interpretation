@@ -2,8 +2,6 @@
  */
 package fr.unice.polytech.si5.smarthome.am.smart_home;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.ACondition#getActions <em>Actions</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.ACondition#getActor <em>Actor</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.ACondition#getAction <em>Action</em>}</li>
  * </ul>
@@ -25,22 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ACondition extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Actions</b></em>' reference list.
-	 * The list contents are of type {@link fr.unice.polytech.si5.smarthome.am.smart_home.Action}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Actions</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actions</em>' reference list.
-	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getACondition_Actions()
-	 * @model required="true"
-	 * @generated
-	 */
-	EList<Action> getActions();
-
 	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -117,6 +117,26 @@ public class SmartHomeAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseComposeCondition(ComposeCondition object) {
+			return createComposeConditionAdapter();
+		}
+
+		@Override
+		public Adapter caseABarrier(ABarrier object) {
+			return createABarrierAdapter();
+		}
+
+		@Override
+		public Adapter caseBarrier(Barrier object) {
+			return createBarrierAdapter();
+		}
+
+		@Override
+		public Adapter caseDifferedBarrier(DifferedBarrier object) {
+			return createDifferedBarrierAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -258,6 +278,62 @@ public class SmartHomeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTimeEleapsedConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.ComposeCondition <em>Compose Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.ComposeCondition
+	 * @generated
+	 */
+	public Adapter createComposeConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.ABarrier <em>ABarrier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.ABarrier
+	 * @generated
+	 */
+	public Adapter createABarrierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Barrier <em>Barrier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.Barrier
+	 * @generated
+	 */
+	public Adapter createBarrierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.si5.smarthome.am.smart_home.DifferedBarrier <em>Differed Barrier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.DifferedBarrier
+	 * @generated
+	 */
+	public Adapter createDifferedBarrierAdapter() {
 		return null;
 	}
 

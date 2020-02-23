@@ -10,7 +10,7 @@ Home returns Home:
 	'{'
 		ownedSubjects+=Subject (ownedSubjects+=Subject)*
 		(ownedActors+=Actor)*
-		ownedConditions+=ACondition (ownedConditions+=ACondition)*
+		ownedBarrier+=ABarrier (ownedBarrier+=ABarrier)*
 		ownedOccurences+=Occurence (ownedOccurences+=Occurence)*
 	'}';
 
@@ -26,15 +26,30 @@ Actor returns Actor:
 
 Occurence returns Occurence:
 	ownedTime=HomeTimeStamp '->' (actor=[Actor|EString] 'do')? action=[Action|EString];
+	
+ABarrier returns ABarrier:
+	(Barrier|DifferedBarrier);
+	
+Barrier returns Barrier:
+	'when' ownedCondition=ACondition 'then' 'trigger' actions+=[Action|EString] ('and' actions+=[Action|EString])*;
+	
+DifferedBarrier returns DifferedBarrier:
+	'when' ownedCondition=ACondition 'then' 'after' TriggerAfter=HomeTimeStamp 'trigger' actions+=[Action|EString] ('and' actions+=[Action|EString])*;
 
 ACondition returns ACondition:
-	(Condition|TimeEleapsedCondition);
+	(Condition|TimeEleapsedCondition|ComposeCondition);
 
 TimeEleapsedCondition returns TimeEleapsedCondition:
-	'if' action=[Action|EString] 'during' ownedTimestampEleapsed=HomeTimeStamp 'then' actions+=[Action|EString] ( 'and' actions+=[Action|EString])*;
+	(actor=[Actor|EString] 'do')? action=[Action|EString] 'during' ownedTimestampEleapsed=HomeTimeStamp;
 
 Condition returns Condition:
-	'if' (actor=[Actor|EString] 'do')? action=[Action|EString] 'then' actions+=[Action|EString] ( 'and' actions+=[Action|EString])*;
+	(actor=[Actor|EString] 'do')? action=[Action|EString];
+	
+TerminalCondition returns ACondition:
+	(Condition|TimeEleapsedCondition);
+
+ComposeCondition returns ComposeCondition:
+	ownedConditions+=TerminalCondition 'and' ownedConditions+=TerminalCondition ('and' ownedConditions+=TerminalCondition)*;
 	
 HomeTimeStamp returns HomeTimeStamp:
 	hour=INT ':' min=INT ':' sec=INT;

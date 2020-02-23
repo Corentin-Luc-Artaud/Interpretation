@@ -2,7 +2,7 @@
  */
 package fr.unice.polytech.si5.smarthome.am.smart_home.impl;
 
-import fr.unice.polytech.si5.smarthome.am.smart_home.ACondition;
+import fr.unice.polytech.si5.smarthome.am.smart_home.ABarrier;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Actor;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Occurence;
@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedSubjects <em>Owned Subjects</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedActors <em>Owned Actors</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedOccurences <em>Owned Occurences</em>}</li>
- *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedConditions <em>Owned Conditions</em>}</li>
+ *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedBarrier <em>Owned Barrier</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,14 +71,14 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 	protected EList<Occurence> ownedOccurences;
 
 	/**
-	 * The cached value of the '{@link #getOwnedConditions() <em>Owned Conditions</em>}' containment reference list.
+	 * The cached value of the '{@link #getOwnedBarrier() <em>Owned Barrier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOwnedConditions()
+	 * @see #getOwnedBarrier()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ACondition> ownedConditions;
+	protected EList<ABarrier> ownedBarrier;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,12 +142,12 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ACondition> getOwnedConditions() {
-		if (ownedConditions == null) {
-			ownedConditions = new EObjectContainmentEList<ACondition>(ACondition.class, this,
-					SmartHomePackage.HOME__OWNED_CONDITIONS);
+	public EList<ABarrier> getOwnedBarrier() {
+		if (ownedBarrier == null) {
+			ownedBarrier = new EObjectContainmentEList<ABarrier>(ABarrier.class, this,
+					SmartHomePackage.HOME__OWNED_BARRIER);
 		}
-		return ownedConditions;
+		return ownedBarrier;
 	}
 
 	/**
@@ -164,8 +164,8 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			return ((InternalEList<?>) getOwnedActors()).basicRemove(otherEnd, msgs);
 		case SmartHomePackage.HOME__OWNED_OCCURENCES:
 			return ((InternalEList<?>) getOwnedOccurences()).basicRemove(otherEnd, msgs);
-		case SmartHomePackage.HOME__OWNED_CONDITIONS:
-			return ((InternalEList<?>) getOwnedConditions()).basicRemove(otherEnd, msgs);
+		case SmartHomePackage.HOME__OWNED_BARRIER:
+			return ((InternalEList<?>) getOwnedBarrier()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -184,8 +184,8 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			return getOwnedActors();
 		case SmartHomePackage.HOME__OWNED_OCCURENCES:
 			return getOwnedOccurences();
-		case SmartHomePackage.HOME__OWNED_CONDITIONS:
-			return getOwnedConditions();
+		case SmartHomePackage.HOME__OWNED_BARRIER:
+			return getOwnedBarrier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,9 +211,9 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			getOwnedOccurences().clear();
 			getOwnedOccurences().addAll((Collection<? extends Occurence>) newValue);
 			return;
-		case SmartHomePackage.HOME__OWNED_CONDITIONS:
-			getOwnedConditions().clear();
-			getOwnedConditions().addAll((Collection<? extends ACondition>) newValue);
+		case SmartHomePackage.HOME__OWNED_BARRIER:
+			getOwnedBarrier().clear();
+			getOwnedBarrier().addAll((Collection<? extends ABarrier>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -236,8 +236,8 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 		case SmartHomePackage.HOME__OWNED_OCCURENCES:
 			getOwnedOccurences().clear();
 			return;
-		case SmartHomePackage.HOME__OWNED_CONDITIONS:
-			getOwnedConditions().clear();
+		case SmartHomePackage.HOME__OWNED_BARRIER:
+			getOwnedBarrier().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -257,8 +257,8 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			return ownedActors != null && !ownedActors.isEmpty();
 		case SmartHomePackage.HOME__OWNED_OCCURENCES:
 			return ownedOccurences != null && !ownedOccurences.isEmpty();
-		case SmartHomePackage.HOME__OWNED_CONDITIONS:
-			return ownedConditions != null && !ownedConditions.isEmpty();
+		case SmartHomePackage.HOME__OWNED_BARRIER:
+			return ownedBarrier != null && !ownedBarrier.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

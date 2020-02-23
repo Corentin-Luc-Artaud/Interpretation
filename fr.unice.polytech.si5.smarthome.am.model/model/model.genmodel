@@ -22,7 +22,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Home/ownedSubjects"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Home/ownedActors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Home/ownedOccurences"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Home/ownedConditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Home/ownedBarrier"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Action"/>
     <genClasses ecoreClass="model.ecore#//Occurence">
@@ -31,7 +31,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Occurence/action"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//ACondition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ACondition/actions"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ACondition/actor"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ACondition/action"/>
     </genClasses>
@@ -43,6 +42,17 @@
     <genClasses ecoreClass="model.ecore#//Condition"/>
     <genClasses ecoreClass="model.ecore#//TimeEleapsedCondition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TimeEleapsedCondition/ownedTimestampEleapsed"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//ComposeCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ComposeCondition/ownedConditions"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//ABarrier">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ABarrier/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ABarrier/ownedCondition"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Barrier"/>
+    <genClasses ecoreClass="model.ecore#//DifferedBarrier">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//DifferedBarrier/TriggerAfter"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -85,6 +85,42 @@ public interface SmartHomeFactory extends EFactory {
 	TimeEleapsedCondition createTimeEleapsedCondition();
 
 	/**
+	 * Returns a new object of class '<em>Compose Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compose Condition</em>'.
+	 * @generated
+	 */
+	ComposeCondition createComposeCondition();
+
+	/**
+	 * Returns a new object of class '<em>ABarrier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>ABarrier</em>'.
+	 * @generated
+	 */
+	ABarrier createABarrier();
+
+	/**
+	 * Returns a new object of class '<em>Barrier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Barrier</em>'.
+	 * @generated
+	 */
+	Barrier createBarrier();
+
+	/**
+	 * Returns a new object of class '<em>Differed Barrier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Differed Barrier</em>'.
+	 * @generated
+	 */
+	DifferedBarrier createDifferedBarrier();
+
+	/**
 	 * Returns a new object of class '<em>Home Time Stamp</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
