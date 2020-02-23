@@ -65,18 +65,20 @@ class HomeAspect {
 	
 	private def void tick() {
 		//println(_self.pendingEvents.peek())
-		while (_self.pendingEvents.peek() !== null && _self.pendingEvents.peek().timestamp == _self.curtime) {
+		while (_self.pendingEvents.peek() !== null && _self.pendingEvents.peek().timestamp <= _self.curtime) {
 			_self.pendingEvents.poll().happenNow(_self)
 		}	
 		for (ABarrier barrier : _self.ownedBarrier) {
 			barrier.tryTrigger(null);
 		}
+		//println(_self.curtime)
 	}
 	
 	def void addPendingEvent(AbstractOccurence occurence) {
 		_self.pendingEvents.add(occurence)
 		_self.pendingEvents = new LinkedList(_self.pendingEvents.sortBy[timestamp])
-		println(_self.pendingEvents.map[action.name])		
+		println(_self.pendingEvents.map[action.name])
+		println(_self.pendingEvents.map[timestamp])	
 	}
 	
 	def void addNewOccurenceOfAction(Action action, Integer timestamp) {
@@ -236,6 +238,7 @@ class TimeConditionAspect extends AConditionAspect{
 			home = (_self.eContainer().eContainer().eContainer() as Home)
 		}
 		_self.lastSuccedTrigger = home.curtime
+		println("set last trigger to "+ home.curtime)
 	}
 }
 

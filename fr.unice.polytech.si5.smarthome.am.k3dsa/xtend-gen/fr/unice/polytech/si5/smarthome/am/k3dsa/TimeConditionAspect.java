@@ -15,6 +15,7 @@ import fr.unice.polytech.si5.smarthome.am.smart_home.Subject;
 import fr.unice.polytech.si5.smarthome.am.smart_home.TimeEleapsedCondition;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = TimeEleapsedCondition.class)
 @SuppressWarnings("all")
@@ -100,6 +101,9 @@ public class TimeConditionAspect extends AConditionAspect {
       }
     }
     TimeConditionAspect.lastSuccedTrigger(_self, HomeAspect.curtime(home));
+    Integer _curtime = HomeAspect.curtime(home);
+    String _plus = ("set last trigger to " + _curtime);
+    InputOutput.<String>println(_plus);
   }
   
   protected static Integer _privk3_lastSuccedTrigger(final TimeConditionAspectTimeEleapsedConditionAspectProperties _self_, final TimeEleapsedCondition _self) {

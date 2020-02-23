@@ -1,6 +1,5 @@
 package fr.unice.polytech.si5.smarthome.am.k3dsa;
 
-import com.google.common.base.Objects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.ABarrierAspect;
@@ -161,7 +160,7 @@ public class HomeAspect {
   }
   
   protected static void _privk3_tick(final HomeAspectHomeAspectProperties _self_, final Home _self) {
-    while (((HomeAspect.pendingEvents(_self).peek() != null) && Objects.equal(HomeAspect.pendingEvents(_self).peek().timestamp, HomeAspect.curtime(_self)))) {
+    while (((HomeAspect.pendingEvents(_self).peek() != null) && (HomeAspect.pendingEvents(_self).peek().timestamp.compareTo(HomeAspect.curtime(_self)) <= 0))) {
       HomeAspect.pendingEvents(_self).poll().happenNow(_self);
     }
     EList<ABarrier> _ownedBarrier = _self.getOwnedBarrier();
@@ -182,6 +181,10 @@ public class HomeAspect {
       return it.action.getName();
     };
     InputOutput.<Iterable<String>>println(IterableExtensions.<AbstractOccurence, String>map(HomeAspect.pendingEvents(_self), _function_1));
+    final Function1<AbstractOccurence, Integer> _function_2 = (AbstractOccurence it) -> {
+      return it.timestamp;
+    };
+    InputOutput.<Iterable<Integer>>println(IterableExtensions.<AbstractOccurence, Integer>map(HomeAspect.pendingEvents(_self), _function_2));
   }
   
   protected static void _privk3_addNewOccurenceOfAction(final HomeAspectHomeAspectProperties _self_, final Home _self, final Action action, final Integer timestamp) {
