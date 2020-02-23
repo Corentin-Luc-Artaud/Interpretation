@@ -29,12 +29,14 @@ public class BarrierAspect extends ABarrierAspect {
   protected static void _privk3_tryTrigger(final BarrierAspectBarrierAspectProperties _self_, final Barrier _self, final AbstractOccurence occurence) {
     boolean _isValid = AConditionAspect.isValid(_self.getOwnedCondition(), occurence);
     if (_isValid) {
+      EObject _eContainer = _self.eContainer();
+      Home home = ((Home) _eContainer);
+      AConditionAspect.setLastSuccessTriggerToNow(_self.getOwnedCondition());
       EList<Action> _actions = _self.getActions();
       for (final Action a : _actions) {
         {
-          ActionAspect.trigger(a, occurence.timestamp);
-          EObject _eContainer = _self.eContainer();
-          HomeAspect.addNewOccurenceOfAction(((Home) _eContainer), a, occurence.timestamp);
+          ActionAspect.trigger(a, HomeAspect.curtime(home));
+          HomeAspect.addNewOccurenceOfAction(home, a, HomeAspect.curtime(home));
         }
       }
     }

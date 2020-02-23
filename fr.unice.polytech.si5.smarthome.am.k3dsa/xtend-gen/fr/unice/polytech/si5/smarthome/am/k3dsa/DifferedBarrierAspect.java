@@ -8,6 +8,7 @@ import fr.unice.polytech.si5.smarthome.am.k3dsa.AbstractOccurence;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.ActionAspect;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.DifferedBarrierAspectDifferedBarrierAspectProperties;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect;
+import fr.unice.polytech.si5.smarthome.am.k3dsa.HomeTimeStampAspect;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
 import fr.unice.polytech.si5.smarthome.am.smart_home.DifferedBarrier;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Home;
@@ -29,12 +30,17 @@ public class DifferedBarrierAspect extends ABarrierAspect {
   protected static void _privk3_tryTrigger(final DifferedBarrierAspectDifferedBarrierAspectProperties _self_, final DifferedBarrier _self, final AbstractOccurence occurence) {
     boolean _isValid = AConditionAspect.isValid(_self.getOwnedCondition(), occurence);
     if (_isValid) {
+      EObject _eContainer = _self.eContainer();
+      Home home = ((Home) _eContainer);
+      AConditionAspect.setLastSuccessTriggerToNow(_self.getOwnedCondition());
       EList<Action> _actions = _self.getActions();
       for (final Action a : _actions) {
         {
-          ActionAspect.trigger(a, occurence.timestamp);
-          EObject _eContainer = _self.eContainer();
-          HomeAspect.addNewOccurenceOfAction(((Home) _eContainer), a, occurence.timestamp);
+          ActionAspect.trigger(a, HomeAspect.curtime(home));
+          Integer _curtime = HomeAspect.curtime(home);
+          Integer _sec = HomeTimeStampAspect.toSec(_self.getTriggerAfter());
+          int _plus = ((_curtime).intValue() + (_sec).intValue());
+          HomeAspect.addNewOccurenceOfAction(home, a, Integer.valueOf(_plus));
         }
       }
     }

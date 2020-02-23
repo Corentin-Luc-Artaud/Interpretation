@@ -76,10 +76,9 @@ class HomeAspect {
 	def void addPendingEvent(AbstractOccurence occurence) {
 		_self.pendingEvents.add(occurence)
 		_self.pendingEvents = new LinkedList(_self.pendingEvents.sortBy[timestamp])
-		println(_self.pendingEvents)		
+		println(_self.pendingEvents.map[action.name])		
 	}
 	
-	@Step
 	def void addNewOccurenceOfAction(Action action, Integer timestamp) {
 		val AbstractOccurence occurence = new AbstractOccurence(timestamp, action, null)
 		_self.addPendingEvent(occurence);
@@ -158,9 +157,11 @@ class BarrierAspect extends ABarrierAspect{
 	@OverrideAspectMethod
 	def void tryTrigger(AbstractOccurence occurence) {
 		if (_self.ownedCondition.isValid(occurence)){
+			var Home home = (_self.eContainer() as Home)
+			_self.ownedCondition.setLastSuccessTriggerToNow()
 			for (Action a: _self.actions) {
-				a.trigger(occurence.timestamp)
-				(_self.eContainer() as Home).addNewOccurenceOfAction(a, occurence.timestamp)
+				a.trigger(home.curtime)
+				home.addNewOccurenceOfAction(a, home.curtime)
 			}
 		}
 	}
@@ -171,9 +172,11 @@ class DifferedBarrierAspect extends ABarrierAspect{
 	@OverrideAspectMethod
 	def void tryTrigger(AbstractOccurence occurence) {
 		if (_self.ownedCondition.isValid(occurence)){
+			var Home home = (_self.eContainer() as Home)
+			_self.ownedCondition.setLastSuccessTriggerToNow()
 			for (Action a: _self.actions) {
-				a.trigger(occurence.timestamp)
-				(_self.eContainer() as Home).addNewOccurenceOfAction(a, occurence.timestamp)
+				a.trigger(home.curtime)
+				home.addNewOccurenceOfAction(a, home.curtime+_self.triggerAfter.toSec())
 			}
 		}
 	}
@@ -182,6 +185,7 @@ class DifferedBarrierAspect extends ABarrierAspect{
 @Aspect(className=ACondition)
 abstract class AConditionAspect {
 	def abstract boolean isValid(AbstractOccurence occurence)
+	def abstract void setLastSuccessTriggerToNow()
 }
 
 @Aspect(className=Condition)
@@ -192,10 +196,16 @@ class ConditionAspect extends AConditionAspect{
 		if (occurence === null ) return false;
 		return (occurence.action == _self.action && (_self.actor === null || _self.actor == occurence.actor))
 	}
+	@OverrideAspectMethod
+	def void setLastSuccessTriggerToNow(){
+		return //Do Nothing yes
+	}
 }
 
 @Aspect(className=TimeEleapsedCondition)
 class TimeConditionAspect extends AConditionAspect{
+	Integer lastSuccedTrigger = 0
+	
 	@OverrideAspectMethod
 	def boolean isValid(AbstractOccurence occurence) {
 		
@@ -207,22 +217,25 @@ class TimeConditionAspect extends AConditionAspect{
 		var Boolean time = false
 		var Boolean actor = false
 		if (lastOccurence !== null ){
+			if (lastOccurence.timestamp < _self.lastSuccedTrigger) return false
 			actor = (_self.actor === null || _self.actor == lastOccurence.actor)
 			last_occurence = lastOccurence.action == _self.action
 			time = (home.wichTime()-lastOccurence.timestamp) >= _self.ownedTimestampEleapsed.toSec()
-			
 		} 
-		
 		var Boolean value = actor && last_occurence
 			 && time
-		/*if (actor){
-			println("last occurence of "+ _self.action.name)
-			println(home.wichTime()+"-"+lastOccurence.timestamp+" >= "+_self.ownedTimestampEleapsed.toSec())
-			
-			println("occurence and actor: "+actor+" lastoccur: "+last_occurence+" time: "+time)
-			println(value)
-		}*/
 		return value
+	}
+	
+	@OverrideAspectMethod
+	def void setLastSuccessTriggerToNow(){
+		var Home home = null
+		try {
+			home = (_self.eContainer().eContainer() as Home)
+		}catch(ClassCastException e) {
+			home = (_self.eContainer().eContainer().eContainer() as Home)
+		}
+		_self.lastSuccedTrigger = home.curtime
 	}
 }
 
@@ -234,6 +247,13 @@ class ComposeConditionAspect extends AConditionAspect{
 			if (! condition.isValid(occurence)) return false
 		}
 		return true
+	}
+	
+	@OverrideAspectMethod
+	def void setLastSuccessTriggerToNow(){
+		for (ACondition condition : _self.ownedConditions) {
+			condition.setLastSuccessTriggerToNow()
+		}
 	}
 	
 }

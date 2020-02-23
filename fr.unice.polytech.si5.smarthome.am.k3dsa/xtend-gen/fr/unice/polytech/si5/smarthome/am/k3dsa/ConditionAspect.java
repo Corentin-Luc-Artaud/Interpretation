@@ -22,10 +22,23 @@ public class ConditionAspect extends AConditionAspect {
     return (boolean)result;
   }
   
+  @OverrideAspectMethod
+  public static void setLastSuccessTriggerToNow(final Condition _self) {
+    final fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspectConditionAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspectConditionAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void setLastSuccessTriggerToNow()
+    if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.Condition){
+    	fr.unice.polytech.si5.smarthome.am.k3dsa.ConditionAspect._privk3_setLastSuccessTriggerToNow(_self_, (fr.unice.polytech.si5.smarthome.am.smart_home.Condition)_self);
+    };
+  }
+  
   protected static boolean _privk3_isValid(final ConditionAspectConditionAspectProperties _self_, final Condition _self, final AbstractOccurence occurence) {
     if ((occurence == null)) {
       return false;
     }
     return (Objects.equal(occurence.action, _self.getAction()) && ((_self.getActor() == null) || Objects.equal(_self.getActor(), occurence.actor)));
+  }
+  
+  protected static void _privk3_setLastSuccessTriggerToNow(final ConditionAspectConditionAspectProperties _self_, final Condition _self) {
+    return;
   }
 }

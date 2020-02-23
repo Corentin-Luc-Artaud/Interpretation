@@ -23,6 +23,15 @@ public class ComposeConditionAspect extends AConditionAspect {
     return (boolean)result;
   }
   
+  @OverrideAspectMethod
+  public static void setLastSuccessTriggerToNow(final ComposeCondition _self) {
+    final fr.unice.polytech.si5.smarthome.am.k3dsa.ComposeConditionAspectComposeConditionAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.ComposeConditionAspectComposeConditionAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void setLastSuccessTriggerToNow()
+    if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.ComposeCondition){
+    	fr.unice.polytech.si5.smarthome.am.k3dsa.ComposeConditionAspect._privk3_setLastSuccessTriggerToNow(_self_, (fr.unice.polytech.si5.smarthome.am.smart_home.ComposeCondition)_self);
+    };
+  }
+  
   protected static boolean _privk3_isValid(final ComposeConditionAspectComposeConditionAspectProperties _self_, final ComposeCondition _self, final AbstractOccurence occurence) {
     EList<ACondition> _ownedConditions = _self.getOwnedConditions();
     for (final ACondition condition : _ownedConditions) {
@@ -33,5 +42,12 @@ public class ComposeConditionAspect extends AConditionAspect {
       }
     }
     return true;
+  }
+  
+  protected static void _privk3_setLastSuccessTriggerToNow(final ComposeConditionAspectComposeConditionAspectProperties _self_, final ComposeCondition _self) {
+    EList<ACondition> _ownedConditions = _self.getOwnedConditions();
+    for (final ACondition condition : _ownedConditions) {
+      AConditionAspect.setLastSuccessTriggerToNow(condition);
+    }
   }
 }
