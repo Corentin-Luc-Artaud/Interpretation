@@ -31,6 +31,7 @@ public class Services {
     }
     
     public String getCurrentTime(Home home) {
+    	if(home.getInitialTime() == null) return "00:00:00";
     	int seconds = Integer.parseInt(home.getInitialTime());
     	int minutes = seconds/60;
     	int remainingSeconds = seconds%60;

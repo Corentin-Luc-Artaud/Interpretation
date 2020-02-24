@@ -20,7 +20,8 @@
         eType="#//Occurence" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedBarrier" lowerBound="1"
         upperBound="-1" eType="#//ABarrier" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Occurence">
