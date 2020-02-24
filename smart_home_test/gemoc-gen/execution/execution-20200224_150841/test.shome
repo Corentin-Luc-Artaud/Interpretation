@@ -1,0 +1,43 @@
+Home {
+	Subject Oven ownedActions : On - Off
+	Subject Door ownedActions : Open - Close
+	Subject SentryTurret ownedActions : Watch - Fire - disarmed
+	Subject phone ownedActions: callHoussKeeper - call_911
+	Subject Alexa ownedActions: play_Classical - play_HardRock - iddle	
+	
+	Actor John // HardRock
+	Actor Jim // Classical
+	Actor housekeeper
+	Actor undesiredPerson	
+	
+	// turret behaviour
+	when "Door.Open" during 0:0:15 and "SentryTurret.Watch" during 0:0:0 then trigger "SentryTurret.Fire"
+	when "SentryTurret.Fire" then after 0:0:1 trigger "phone.call_911" and "SentryTurret.disarmed"	
+	
+	// turret security
+	when John do "Door.Open" then trigger "SentryTurret.disarmed"
+	when housekeeper do "Door.Open" then trigger "SentryTurret.disarmed"
+	when Jim do "Door.Open" then trigger "SentryTurret.disarmed"	when John do "Door.Close" then trigger "SentryTurret.Watch"
+	when housekeeper do "Door.Close" then trigger "SentryTurret.Watch"
+	when Jim do "Door.Close" then trigger "SentryTurret.Watch"	
+	
+	// Play music
+	when John do "Door.Open" and "Alexa.iddle" during 00:00:00 then trigger "Alexa.play_HardRock"
+	when Jim do "Door.Open" and "Alexa.iddle" during 00:00:00 then trigger "Alexa.play_Classical"
+	when Jim do "Door.Open" then trigger "Alexa.play_Classical"	
+	
+	// automaticaly close Door
+	when "Door.Open" then after 00:00:30 trigger "Door.Close"	
+	
+	// init //
+	00:00:00 -> "Alexa.iddle"
+	00:00:00 -> "Oven.Off"
+	00:00:00 -> "SentryTurret.disarmed"
+	00:00:00 -> "Door.Close"	
+	
+	// scenario //
+	07:59:00 -> John do "Door.Close"
+	08:00:00 -> undesiredPerson do "Door.Open" // -> Fire + call 911
+	10:50:30 -> John do "Door.Open" // -> play Hard rock
+	11:00:00 -> Jim do "Door.Open" // nothing
+}
