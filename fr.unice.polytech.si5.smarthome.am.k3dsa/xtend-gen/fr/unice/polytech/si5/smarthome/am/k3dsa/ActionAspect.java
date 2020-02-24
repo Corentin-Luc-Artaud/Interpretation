@@ -39,13 +39,5 @@ public class ActionAspect {
     InputOutput.<String>println(_plus_1);
     EObject _eContainer = _self.eContainer();
     ((Subject) _eContainer).setLastAction(_self);
-    EObject _eContainer_1 = _self.eContainer();
-    String _name_1 = ((Subject) _eContainer_1).getName();
-    String _plus_2 = ("lastAction " + _name_1);
-    String _plus_3 = (_plus_2 + "  = ");
-    EObject _eContainer_2 = _self.eContainer();
-    Action _lastAction = ((Subject) _eContainer_2).getLastAction();
-    String _plus_4 = (_plus_3 + _lastAction);
-    InputOutput.<String>println(_plus_4);
   }
 }

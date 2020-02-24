@@ -161,7 +161,7 @@ class ActionAspect {
 	def void trigger(Integer time) {
 		println(""+time+" -> "+_self.name+" triggered")
 		(_self.eContainer() as Subject).lastAction= _self;
-		println("lastAction " + (_self.eContainer() as Subject).name + "  = " + (_self.eContainer() as Subject).lastAction);
+		//println("lastAction " + (_self.eContainer() as Subject).name + "  = " + (_self.eContainer() as Subject).lastAction);
 	}
 }
 

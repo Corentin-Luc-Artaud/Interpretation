@@ -24,7 +24,7 @@ public class Services {
       return self;
     }
     
-    public boolean magicPrint(EObject self, Subject s) {
+    public boolean isLastAction(EObject self, Subject s) {
     	Action act = (Action)self;
     	if(s.getLastAction() == null) return false;
     	return act.getName().equals(s.getLastAction().getName());
@@ -36,15 +36,13 @@ public class Services {
     	int remainingSeconds = seconds%60;
     	int remainingMinutes = minutes%60;
     	int hour = minutes/60;
-    	System.out.println("Hour : " + hour + " Minutes : " + remainingMinutes + " Seconds : " + remainingSeconds);
+    	//System.out.println("Hour : " + hour + " Minutes : " + remainingMinutes + " Seconds : " + remainingSeconds);
     	return "Current time : " + hour + ":" + remainingMinutes + ":" + remainingSeconds;
     }
     
-    static boolean FIRST = true;
     public String pendingEventList(Home home) {
-    	System.out.println("Pending events");
-    	if(home == null || FIRST) {
-    		FIRST = false;
+    	//System.out.println("Pending events");
+    	if(home == null) {
     		return "Empty";
     	}
     	Queue<AbstractOccurence> pendingEvents = ShomeRTDAccessor.getpendingEvents(home);
