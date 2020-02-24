@@ -2,6 +2,7 @@ package fr.unice.polytech.si5.smarthome.am.k3dsa;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.ABarrierAspect;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.AbstractOccurence;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectProperties;
@@ -57,19 +58,45 @@ public class HomeAspect {
     };
   }
   
+  @Step
   public static void addPendingEvent(final Home _self, final AbstractOccurence occurence) {
     final fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void addPendingEvent(AbstractOccurence)
     if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.Home){
-    	fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect._privk3_addPendingEvent(_self_, (fr.unice.polytech.si5.smarthome.am.smart_home.Home)_self,occurence);
+    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    		@Override
+    		public void execute() {
+    			fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect._privk3_addPendingEvent(_self_, (fr.unice.polytech.si5.smarthome.am.smart_home.Home)_self,occurence);
+    		}
+    	};
+    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    	if (stepManager != null) {
+    		stepManager.executeStep(_self, new Object[] {occurence}, command, "Home", "addPendingEvent");
+    	} else {
+    		command.execute();
+    	}
+    	;
     };
   }
   
+  @Step
   public static void addNewOccurenceOfAction(final Home _self, final Action action, final Integer timestamp) {
     final fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectProperties _self_ = fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspectHomeAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void addNewOccurenceOfAction(Action,Integer)
     if (_self instanceof fr.unice.polytech.si5.smarthome.am.smart_home.Home){
-    	fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect._privk3_addNewOccurenceOfAction(_self_, (fr.unice.polytech.si5.smarthome.am.smart_home.Home)_self,action,timestamp);
+    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    		@Override
+    		public void execute() {
+    			fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect._privk3_addNewOccurenceOfAction(_self_, (fr.unice.polytech.si5.smarthome.am.smart_home.Home)_self,action,timestamp);
+    		}
+    	};
+    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    	if (stepManager != null) {
+    		stepManager.executeStep(_self, new Object[] {action,timestamp}, command, "Home", "addNewOccurenceOfAction");
+    	} else {
+    		command.execute();
+    	}
+    	;
     };
   }
   
@@ -170,6 +197,7 @@ public class HomeAspect {
   }
   
   protected static void _privk3_addPendingEvent(final HomeAspectHomeAspectProperties _self_, final Home _self, final AbstractOccurence occurence) {
+    _self.setInitialTime(HomeAspect.curtime(_self).toString());
     HomeAspect.pendingEvents(_self).add(occurence);
     final Function1<AbstractOccurence, Integer> _function = (AbstractOccurence it) -> {
       return it.timestamp;
@@ -188,6 +216,7 @@ public class HomeAspect {
   }
   
   protected static void _privk3_addNewOccurenceOfAction(final HomeAspectHomeAspectProperties _self_, final Home _self, final Action action, final Integer timestamp) {
+    _self.setInitialTime(HomeAspect.curtime(_self).toString());
     final AbstractOccurence occurence = new AbstractOccurence(timestamp, action, null);
     HomeAspect.addPendingEvent(_self, occurence);
   }

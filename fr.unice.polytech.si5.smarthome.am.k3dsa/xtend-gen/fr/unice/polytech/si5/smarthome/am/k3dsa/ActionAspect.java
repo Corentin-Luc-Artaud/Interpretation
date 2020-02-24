@@ -4,6 +4,8 @@ import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.smarthome.am.k3dsa.ActionAspectActionAspectProperties;
 import fr.unice.polytech.si5.smarthome.am.smart_home.Action;
+import fr.unice.polytech.si5.smarthome.am.smart_home.Subject;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = Action.class)
@@ -35,5 +37,7 @@ public class ActionAspect {
     String _plus = ((("" + time) + " -> ") + _name);
     String _plus_1 = (_plus + " triggered");
     InputOutput.<String>println(_plus_1);
+    EObject _eContainer = _self.eContainer();
+    ((Subject) _eContainer).setLastAction(_self);
   }
 }

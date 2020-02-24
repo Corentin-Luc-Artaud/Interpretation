@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedActors <em>Owned Actors</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedOccurences <em>Owned Occurences</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getOwnedBarrier <em>Owned Barrier</em>}</li>
+ *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getInitialTime <em>Initial Time</em>}</li>
  * </ul>
  *
  * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getHome()
@@ -89,5 +90,31 @@ public interface Home extends EObject {
 	 * @generated
 	 */
 	EList<ABarrier> getOwnedBarrier();
+
+	/**
+	 * Returns the value of the '<em><b>Initial Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Initial Time</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Initial Time</em>' attribute.
+	 * @see #setInitialTime(String)
+	 * @see fr.unice.polytech.si5.smarthome.am.smart_home.SmartHomePackage#getHome_InitialTime()
+	 * @model
+	 * @generated
+	 */
+	String getInitialTime();
+
+	/**
+	 * Sets the value of the '{@link fr.unice.polytech.si5.smarthome.am.smart_home.Home#getInitialTime <em>Initial Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initial Time</em>' attribute.
+	 * @see #getInitialTime()
+	 * @generated
+	 */
+	void setInitialTime(String value);
 
 } // Home

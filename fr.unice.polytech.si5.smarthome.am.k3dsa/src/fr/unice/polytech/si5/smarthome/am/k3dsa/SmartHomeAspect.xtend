@@ -74,14 +74,18 @@ class HomeAspect {
 		//println(_self.curtime)
 	}
 	
+	@Step
 	def void addPendingEvent(AbstractOccurence occurence) {
+		_self.initialTime = _self.curtime.toString()
 		_self.pendingEvents.add(occurence)
 		_self.pendingEvents = new LinkedList(_self.pendingEvents.sortBy[timestamp])
 		println(_self.pendingEvents.map[action.name])
 		println(_self.pendingEvents.map[timestamp])	
 	}
 	
+	@Step
 	def void addNewOccurenceOfAction(Action action, Integer timestamp) {
+		_self.initialTime = _self.curtime.toString()
 		val AbstractOccurence occurence = new AbstractOccurence(timestamp, action, null)
 		_self.addPendingEvent(occurence);
 	}
@@ -266,6 +270,7 @@ class ActionAspect {
 	@Step
 	def void trigger(Integer time) {
 		println(""+time+" -> "+_self.name+" triggered")
+		(_self.eContainer() as Subject).lastAction= _self; //For sirius
 	}
 }
 

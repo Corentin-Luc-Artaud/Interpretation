@@ -13,9 +13,12 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gemoc.executionframework.extensions.sirius;bundle-version="0.0.0";visibility:=reexport,
  org.eclipse.gemoc.execution.sequential.javaengine.ui;bundle-version="0.0.0";visibility:=reexport,
  fr.inria.diverse.k3.al.annotationprocessor.plugin,
- fr.unice.polytech.si5.smarthome.am.xdsml
+ fr.unice.polytech.si5.smarthome.am.xdsml,
+ org.eclipse.emf.ecore
 Bundle-ManifestVersion: 2
 Bundle-Activator: fr.unice.polytech.si5.smarthome.am.design.Activator
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
+Import-Package: fr.unice.polytech.si5.smarthome.am.k3dsa,
+ fr.unice.polytech.si5.smarthome.am.smart_home

@@ -9,6 +9,18 @@ import org.eclipse.gemoc.executionframework.engine.commons.K3DslHelper;
 
 
 public class ShomeRTDAccessor {
+  public static java.lang.Integer getcurtime(EObject eObject) {
+		return (java.lang.Integer)  getAspectProperty(eObject, "fr.unice.polytech.si5.smarthome.am.shome", "fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect", "curtime");
+	}
+	public static boolean setcurtime(EObject eObject, java.lang.Integer newValue) {
+		return setAspectProperty(eObject, "fr.unice.polytech.si5.smarthome.am.shome", "fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect", "curtime", newValue);
+	}
+  public static java.util.Queue getpendingEvents(EObject eObject) {
+		return (java.util.Queue)  getAspectProperty(eObject, "fr.unice.polytech.si5.smarthome.am.shome", "fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect", "pendingEvents");
+	}
+	public static boolean setpendingEvents(EObject eObject, java.util.Queue newValue) {
+		return setAspectProperty(eObject, "fr.unice.polytech.si5.smarthome.am.shome", "fr.unice.polytech.si5.smarthome.am.k3dsa.HomeAspect", "pendingEvents", newValue);
+	}
 
 public static Object getAspectProperty(EObject eObject, String languageName, String aspectName, String propertyName) {
 			List<Class<?>> aspects = K3DslHelper.getAspectsOn(languageName, eObject.getClass());

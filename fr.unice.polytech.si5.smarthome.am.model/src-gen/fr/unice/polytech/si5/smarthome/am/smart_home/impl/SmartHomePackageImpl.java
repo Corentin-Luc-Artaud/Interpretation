@@ -236,6 +236,15 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSubject_LastAction() {
+		return (EReference) subjectEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getActor() {
 		return actorEClass;
 	}
@@ -283,6 +292,15 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 	 */
 	public EReference getHome_OwnedBarrier() {
 		return (EReference) homeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHome_InitialTime() {
+		return (EAttribute) homeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -526,6 +544,7 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 
 		subjectEClass = createEClass(SUBJECT);
 		createEReference(subjectEClass, SUBJECT__OWNED_ACTIONS);
+		createEReference(subjectEClass, SUBJECT__LAST_ACTION);
 
 		actorEClass = createEClass(ACTOR);
 
@@ -534,6 +553,7 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		createEReference(homeEClass, HOME__OWNED_ACTORS);
 		createEReference(homeEClass, HOME__OWNED_OCCURENCES);
 		createEReference(homeEClass, HOME__OWNED_BARRIER);
+		createEAttribute(homeEClass, HOME__INITIAL_TIME);
 
 		actionEClass = createEClass(ACTION);
 
@@ -617,6 +637,9 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		initEReference(getSubject_OwnedActions(), this.getAction(), null, "ownedActions", null, 1, -1, Subject.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSubject_LastAction(), this.getAction(), null, "lastAction", null, 0, 1, Subject.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -633,6 +656,8 @@ public class SmartHomePackageImpl extends EPackageImpl implements SmartHomePacka
 		initEReference(getHome_OwnedBarrier(), this.getABarrier(), null, "ownedBarrier", null, 1, -1, Home.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHome_InitialTime(), ecorePackage.getEString(), "initialTime", null, 0, 1, Home.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

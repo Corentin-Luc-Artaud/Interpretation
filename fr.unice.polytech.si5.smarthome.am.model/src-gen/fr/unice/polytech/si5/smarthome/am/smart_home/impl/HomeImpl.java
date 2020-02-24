@@ -11,6 +11,7 @@ import fr.unice.polytech.si5.smarthome.am.smart_home.Subject;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -35,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedActors <em>Owned Actors</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedOccurences <em>Owned Occurences</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getOwnedBarrier <em>Owned Barrier</em>}</li>
+ *   <li>{@link fr.unice.polytech.si5.smarthome.am.smart_home.impl.HomeImpl#getInitialTime <em>Initial Time</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,6 +82,26 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 	 * @ordered
 	 */
 	protected EList<ABarrier> ownedBarrier;
+
+	/**
+	 * The default value of the '{@link #getInitialTime() <em>Initial Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String INITIAL_TIME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInitialTime() <em>Initial Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected String initialTime = INITIAL_TIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,6 +178,28 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getInitialTime() {
+		return initialTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialTime(String newInitialTime) {
+		String oldInitialTime = initialTime;
+		initialTime = newInitialTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SmartHomePackage.HOME__INITIAL_TIME, oldInitialTime,
+					initialTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -186,6 +231,8 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			return getOwnedOccurences();
 		case SmartHomePackage.HOME__OWNED_BARRIER:
 			return getOwnedBarrier();
+		case SmartHomePackage.HOME__INITIAL_TIME:
+			return getInitialTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -215,6 +262,9 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			getOwnedBarrier().clear();
 			getOwnedBarrier().addAll((Collection<? extends ABarrier>) newValue);
 			return;
+		case SmartHomePackage.HOME__INITIAL_TIME:
+			setInitialTime((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -239,6 +289,9 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 		case SmartHomePackage.HOME__OWNED_BARRIER:
 			getOwnedBarrier().clear();
 			return;
+		case SmartHomePackage.HOME__INITIAL_TIME:
+			setInitialTime(INITIAL_TIME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -259,8 +312,27 @@ public class HomeImpl extends MinimalEObjectImpl.Container implements Home {
 			return ownedOccurences != null && !ownedOccurences.isEmpty();
 		case SmartHomePackage.HOME__OWNED_BARRIER:
 			return ownedBarrier != null && !ownedBarrier.isEmpty();
+		case SmartHomePackage.HOME__INITIAL_TIME:
+			return INITIAL_TIME_EDEFAULT == null ? initialTime != null : !INITIAL_TIME_EDEFAULT.equals(initialTime);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (initialTime: ");
+		result.append(initialTime);
+		result.append(')');
+		return result.toString();
 	}
 
 } //HomeImpl

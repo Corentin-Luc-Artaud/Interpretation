@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="smarthome" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="smarthome" version="12.0.0.2017041100">
   <ownedViewpoints name="SmartHomeViewpoint">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="smart_diagram" domainClass="Home" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="smart_diagram" initialisation="true" showOnStartup="true" domainClass="Home" enablePopupBars="true">
       <metamodel href="../../fr.unice.polytech.si5.smarthome.am.model/model/model.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="Subject" domainClass="Subject">
@@ -11,12 +11,12 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
-            <conditionnalStyles predicateExpression="[//TODO : si l'action est la dernière action effectuée]">
+            <conditionnalStyles predicateExpression="[self.isLastAction(self, self.eContainer().oclAsType(Subject))/]">
               <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
               </style>
             </conditionnalStyles>
           </borderedNodeMappings>
@@ -26,23 +26,27 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="Actor" domainClass="Actor">
-          <style xsi:type="style:LozengeNodeDescription" labelSize="3" showIcon="false" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-          </style>
-        </nodeMappings>
         <nodeMappings name="CurrentTime" semanticCandidatesExpression="aql:self" domainClass="Home">
-          <style xsi:type="style:SquareDescription" labelSize="3" showIcon="false" labelExpression="['Current time : ' + self.getCurrentTime()/]" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelSize="3" showIcon="false" labelExpression="[self.getCurrentTime(self.oclAsType(Home))/]" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
         <containerMappings name="Pending" semanticCandidatesExpression="aql:self" domainClass="Home">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="5" showIcon="false" backgroundStyle="Liquid">
+          <borderedNodeMappings name="ContainerName" semanticCandidatesExpression="aql:self" domainClass="Home">
+            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Pending'/]" sizeComputationExpression="13" labelPosition="node" resizeKind="NORTH_SOUTH" width="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <forbiddenSides>WEST</forbiddenSides>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>EAST</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelSize="4" showIcon="false" labelExpression="['Empty'/]" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -73,8 +77,8 @@
           </ownedTools>
         </toolSections>
         <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Enabled breakpoint" position="WEST" preconditionExpression="service:self.hasEnabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_enabled.gif" mappings="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject'] //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action'] //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Actor']"/>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Disabled breakpoint" position="WEST" preconditionExpression="service:self.hasDisabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_disabled.gif" mappings="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject'] //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action'] //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Actor']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Enabled breakpoint" position="WEST" preconditionExpression="service:self.hasEnabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_enabled.gif" mappings="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject'] //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Disabled breakpoint" position="WEST" preconditionExpression="service:self.hasDisabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_disabled.gif" mappings="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject'] //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']"/>
         </decorationDescriptionsSet>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.isCurrentInstruction">
@@ -84,38 +88,28 @@
           </vsmElementCustomizations>
         </customization>
       </additionalLayers>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:SequenceDiagramDescription" name="smart_home_sequence" label="smart_home_sequence" initialisation="true" showOnStartup="true" domainClass="Home" enablePopupBars="true">
-      <metamodel href="../../fr.unice.polytech.si5.smarthome.am.model/model/model.ecore#/"/>
-      <defaultLayer name="Default">
-        <nodeMappings xsi:type="description_2:InstanceRoleMapping" name="Actor" domainClass="Actor">
-          <borderedNodeMappings xsi:type="description_2:ExecutionMapping"/>
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings xsi:type="description_2:InstanceRoleMapping" name="Subject" domainClass="Subject">
-          <borderedNodeMappings xsi:type="description_2:ExecutionMapping"/>
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings xsi:type="description_2:BasicMessageMapping" name="Action" sourceMapping="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_home_sequence']/@defaultLayer/@nodeMappings[name='Subject'] //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_home_sequence']/@defaultLayer/@nodeMappings[name='Actor']" targetMapping="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_home_sequence']/@defaultLayer/@nodeMappings[name='Subject']" domainClass="Action">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-      </defaultLayer>
+      <additionalLayers name="Animation" activeByDefault="true">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(Action) and self.isLastAction(self, self.eContainer().oclAsType(Subject))/]">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@conditionnalStyles.0/@style //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@style" referenceName="labelColor">
+              <value href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </featureCustomizations>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@conditionnalStyles.0/@style //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@style" referenceName="color">
+              <value href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </featureCustomizations>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@conditionnalStyles.0/@style //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@style" attributeName="labelExpression" value="feature:name"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@conditionnalStyles.0/@style //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@style" attributeName="labelSize" value="[3/]"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@conditionnalStyles.0/@style //@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@nodeMappings[name='Subject']/@borderedNodeMappings[name='Action']/@style" attributeName="labelFormat" value="['bold'/]"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(Home)/]">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SmartHomeViewpoint']/@ownedRepresentations[name='smart_diagram']/@defaultLayer/@containerMappings[name='Pending']/@style" attributeName="labelExpression" value="[self.pendingEventList(self.oclAsType(Home))/]"/>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.unice.polytech.si5.smarthome.am.design.Services"/>
     <ownedJavaExtensions qualifiedClassName="fr.unice.polytech.si5.smarthome.am.design.services.SmartDiagramDebugServices"/>
+    <ownedJavaExtensions qualifiedClassName="fr.unice.polytech.si5.smarthome.am.design.services.SmartDiagramAnimatorService"/>
   </ownedViewpoints>
   <userColorsPalettes name="smart_diagram Palette">
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="0" name="current instruction"/>
